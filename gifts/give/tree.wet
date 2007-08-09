@@ -1,0 +1,8 @@
+<tr bgcolor="#EEEEEE" id="<=ID>">
+<td><=ZONE></td>
+<td><=DATE></td>
+<td><=TEAM></td>
+<td><=PHONE></td>
+<td><=SERIAL></td>
+<td><=RESULT></td>
+</tr>

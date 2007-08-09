@@ -1,0 +1,9 @@
+<|SERIAL>
+<tr bgcolor="white">
+<td><=%></td>
+<td><=TEAM></td>
+<td><=TCODE></td>
+<td><=PHONE></td>
+<td><=SERIAL><br><img src="../barcode/images/<=SERIAL>.gif"></td>
+<td><=MEMO></td>
+</tr>

@@ -1,0 +1,6 @@
+<form name="meform" action="reporters/groups/edit.asp?K=<=ID>" method="post">
+<table border="0" cellspacing="0" cellpadding="0">
+<tr><td>Name: </td><td><input type="text" name="name" value="<=name>"><strong>*</strong></td></tr>
+<tr><td>&nbsp;</td><td><input class="but" onclick="verifymeform();" type="button" value="Change"></td></tr>
+</table>
+</form>

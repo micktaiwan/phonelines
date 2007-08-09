@@ -1,0 +1,8 @@
+<tr bgcolor="#FFDD00"  style="font-size:8pt;">
+<td><=N></td>
+<td><=NAME></td>
+<td><a href="mailto:<=email>"><=EMAIL></a></td>
+<td><=PHONE$></td>
+<td><a href="l.asp?P=messages&SP=send&K=<=MID>"><*Send> <img src="images/bul1.gif" border="0"></a></td>
+<td><=QUOTE></td>
+</tr>

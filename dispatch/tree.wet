@@ -1,0 +1,5 @@
+<tr bgcolor="#EEEEEE">
+<td><=CODE></td>
+<td><=NAME></td>
+<td align="center"><a onclick="if(!confirm('§R°£?')) return false;" href="dispatch/delete.asp?K=<=ID>"><img src="images/trashcan.gif" border="0"></a></td>
+</tr>

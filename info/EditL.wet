@@ -1,0 +1,7 @@
+<tr bgcolor="#EEEEE0">
+<td><a href="l.asp?P=information&SP=display&K=<=ID>"><=TITLE></a></td>
+<td width="50"><b><=NAME></b></td>
+<td width="150"><=DATE></td>
+<td><&MEMBERID=$PHONEID><a onclick="if(!confirm('Are you sure you want to delete this info ?')) return false;" href="info/delete.asp?K=<=ID>"><img src="images/trashcan.gif" border="0"></a><&></td>
+<td><&MEMBERID=$PHONEID><a href="l.asp?P=information&SP=edit&K=<=ID>"><img src="images/edit.gif" border="0"></a><&></td>
+</tr>

@@ -1,0 +1,12 @@
+<tr bgcolor="#EEEEE0">
+<td align="center">
+<a href="l.asp?bom=1&P=team&SP=edit&K=<=ID>"><img src="images/edit.gif" border="0"></a>
+</td>
+<td><=IDNUMBER><&IDNUMBER="><strong>¿ù»~</strong><&></td>
+<td><=JOBCODE><&JOBCODE="><strong>¿ù»~</strong><&></td>
+<td><=TEAM></td>
+<td><=DATEA@></td>
+<td><=DATEB@></td>
+<td><=CODEB></td>
+<td align="center"><a onclick="if(!confirm('§R°£?')) return false;" href="bom/job/team/delete.asp?K=<=ID>"><img src="images/trashcan.gif" border="0"></a></td>
+</tr>

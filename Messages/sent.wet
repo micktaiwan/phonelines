@@ -1,0 +1,8 @@
+<tr bgcolor="#<&NEW="1>FFFFD6<&/>D6D6D6<&>">
+<td>
+<&NEW="1><a href="messages/delete.asp?K=<=ID>" onclick="if(!confirm('Are you sure ?')) return false"><img src="images/trashcan.gif" border="0" align=TEXTTOP alt="刪除訊息"></a><&>
+<a href="l.asp?P=messages&SP=send&K=<=MEMBERID>"><=NAME></a><br><=DATE></td>
+<td><=MESSAGE~$></td>
+<td>已經送出<br>
+<&NEW!"1>讀取時間: <=READDATE><&></td>
+</tr>

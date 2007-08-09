@@ -1,0 +1,19 @@
+<form name="addform" action="personnel/holidays/edit.asp?K=<=ID>" method="post">
+<table border="0" cellspacing="0" cellpadding="0">
+<tr><td>班別: </td><td><select name="TEAMID"><~11TEAMID></select></td></tr>
+<td>類型</td><td><select name="type">
+<option value="0" <&TYPE="0>selected<&>>病假</option>
+<option value="1" <&TYPE="1>selected<&>>事假</option>
+<option value="2" <&TYPE="2>selected<&>>公假</option>
+<option value="3" <&TYPE="3>selected<&>>喪假</option>
+<option value="4" <&TYPE="4>selected<&>>婚假</option>
+<option value="5" <&TYPE="5>selected<&>>產假</option>
+</select></td></tr>
+<td>事由</td><td><textarea name="REASON" rows="2" cols="40"><=REASON></textarea></td></tr>
+<td>職務代理人</td><td><input type="text" name="REPLACANT" value="<=REPLACANT>"></td></tr>
+<td>離日期</td><td><input type="text" name="FROMDATE" value="<=FROMDATE>"></td></tr>
+<td>到日期</td><td><input type="text" name="TODATE" value="<=TODATE>"></td></tr>
+<td>備註</td><td><textarea name="MEMO"><=MEMO></textarea></td></tr>
+<tr><td>&nbsp;</td><td><input class="button" onclick="javascript:verify();" type="button" value="OK"></td></tr>
+</table>
+</form>

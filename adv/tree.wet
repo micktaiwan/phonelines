@@ -1,0 +1,16 @@
+<tr bgcolor="#<&DISABLED="1>AAAAAA<&/><&TODATEPASSED="1>AAAAAA<&/><&FROMDATEDIFF<"0>DDEEFF<&/>AAFFAA<&><&><&>">
+<td align="center"><a title="輸入日期: <=ENTERDATE>" href="l.asp?P=adv&SP=edit&K=<=ID>"><img src="images/edit.gif" border="0"></a>
+<a href="adv/delete.asp?K=<=ID>" onclick="if(!confirm('Delete?')) return false;"><img src='images/trashcan.gif' border='0'></a>
+</td>
+<td><=NAME></td>
+<td align="right"><=NBVIEW></td>
+<td align="right"><&TYPE="0><=NBCLICK><&></td>
+<td align="right"><&TYPE="0><=PERCENT><&></td>
+<td><=MAXVIEW></td>
+<td><&TYPE="0><a target="_blank" href="<=URL>">試驗</a><&></td>
+<td align="center" bgcolor="#<&TYPE="0><&PLACE="0>DDFFAA<&/>AAFFDD<&><&/>CCDDEE<&>"><&TYPE="0><&PLACE="0>上<&/>左<&><&/>SMS<&></td>
+<td><=FROMDATE></td>
+<td align="center"  <&FROMDATEDIFF<"0>bgcolor="#FFDDAA"<&>><=FROMDATEDIFF> 天</td>
+<td <&TIMELIMIT="1>bgcolor="#FFDDAA"<&>><&TIMELIMIT="0>永遠<&/><=TODATE> (<b><=TODATEDIFF></b> 天)<&></td>
+<td><a href="#" onclick="document.getElementById('banner').src='images/adv/<=FILEPATH>'"><=FILEPATH></a></td>
+</tr>

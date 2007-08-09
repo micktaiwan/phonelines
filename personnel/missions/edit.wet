@@ -1,0 +1,11 @@
+<form name="addform" action="personnel/missions/edit.asp?K=<=ID>" method="post">
+<table border="0" cellspacing="0" cellpadding="0">
+<tr><td>姓名: </td><td><select name="TEAMID"><~11TEAMID></select></td></tr>
+<td>事由</td><td><textarea name="REASON" rows="2" cols="40"><=REASON></textarea></td></tr>
+<td>起始地點</td><td><input type="text" name="PLACE" value="<=PLACE>"></td></tr>
+<td>外出日起</td><td><input type="text" name="FROMDATE" value="<=FROMDATE>"></td></tr>
+<td>外出日止</td><td><input type="text" name="TODATE" value="<=TODATE>"></td></tr>
+<td>備註</td><td><textarea name="MEMO"><=MEMO></textarea></td></tr>
+<tr><td>&nbsp;</td><td><input class="button" onclick="javascript:verify();" type="button" value="OK"></td></tr>
+</table>
+</form>

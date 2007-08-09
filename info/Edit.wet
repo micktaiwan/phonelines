@@ -1,0 +1,16 @@
+<form action="info/edit.asp?K=<=ID>" method="POST">
+<table border="0" cellpadding="3" cellspacing="1">
+<tr>
+<td valign='top'>Title¡G</td>
+<td><input type="text" size="40" name="title" value="<=TITLE>"></td>
+</tr>
+<tr>
+<td valign='top'>Description¡G</td>
+<td><textarea cols="60" rows=20 name="descr"><=DESCR></textarea></td>
+</tr>
+<tr>
+<td valign="top">&nbsp;</td>
+<td><input type="submit"></td>
+</tr>
+</table>
+</form>

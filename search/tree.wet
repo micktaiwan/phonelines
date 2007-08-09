@@ -1,0 +1,15 @@
+<tr bgcolor="#EEEEEE">
+<td align="center"><=%></td>
+<td align="center"><&0!"4><a href="l.asp?P=visits&SP=edit&K=<=ID>"><&/><a href="l.asp?P=visits&SP=editmemo&K=<=ID>"><&><img src="images/edit.gif" border="0"></a></td>
+<td><=ZONE></td>
+<td><=JOBTYPE></td>
+<td><=DATE></td>
+<td><=TEAM></td>
+<td<&PCHECK="1> bgcolor="#FF4444"<&>><=PHONE></td>
+<td><=SERIAL></td>
+<td align="center" <&ZAIPAIOK="1>bgcolor="#AAFFAA"<&>><=R><&R="¦A¬£/R="¹j¤é><&ZAIPAIOK="0> <input name="K" type="checkbox" value="<=ID>"><&><&></td>
+<td><=REASON></td>
+<td><=MEMO></td>
+<td><=CUSTNAME></td>
+<td align="center"><&0!"4><a onclick="if(!confirm('§R°£?')) return false;" href="visits/delete.asp?K=<=ID>"><img src="images/trashcan.gif" border="0"></a><&></td>
+</tr>

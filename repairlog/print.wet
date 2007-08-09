@@ -1,0 +1,9 @@
+<b><=%></b>
+<table>
+<tr><td>班　　別：</td><td><=TEAM></td><td>竣工日期：</td><td><=VISDATE></td><td>受理日期：</td><td><=REPAIRDATE></td><td>通報單位：</td><td><=REPORTER></td></tr>
+<tr><td>障礙電話：</td><td><=PHONE></td>    <td>芯線號碼：</td><td><=PHONEID></td>  <td>連絡電纜：</td><td><=BOXID></td><td>聯單號碼：</td><td><=VISITSERIAL></td></tr>
+<tr><td>障礙原因：</td><td><=REASON></td>   <td>備　　註：</td><td colspan="5"><=MEMO></td></tr>
+<tr><td>地　　址：</td><td colspan="7"><=ADDRESS></td></tr>
+<tr><td>申告　人：</td><td><=COMPLAINNAME> <=COMPLAINSEX></td><td>聯絡電話:</td><td colspan="5">(H): <=COMPLAINHPHONE> (O): <=COMPLAINOPHONE> (C): <=COMPLAINCPHONE></td></tr>
+</table>
+<br>

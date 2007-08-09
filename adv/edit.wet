@@ -1,0 +1,34 @@
+曝光數: <strong><=NBVIEW></strong>, 點數: <strong><=NBCLICK></strong><br>
+<a href="adv/resetcount.asp?K=<=ID>" onclick="if(!confirm('確定?')) return false;"><img src="images/trashcan.gif" border="0"> 清除總數</a> (最後: <=RESETDATE>)<br>
+<br>
+輸入日期: <=ENTERDATE><br>
+<form name="addform" action="adv/edit.asp?K=<=ID>" method="post">
+<table style="background-color:#AABBCC; border: 1px outset;" border="0" cellspacing="0" cellpadding="3">
+<tr><td>提示: </td><td><input type="text" name="NAME" value="<=NAME>"></td></tr>
+<tr><td>類型: </td><td><select name="TYPE">
+<option value="0" <&TYPE="0>selected<&>>圖橫幅</option>
+<option value="1" <&TYPE="1>selected<&>>簡訊文字</option>
+</select>
+</td></tr>
+<tr bgcolor="#CCBBDD"><td>圖片: </td><td><input type="text" name="FILEPATH" value="<=FILEPATH>"></td></tr>
+<tr bgcolor="#CCBBDD"><td>連接: </td><td><input type="text" name="URL" size="40" value="<=URL>"></td></tr>
+<tr bgcolor="#CCBBDD"><td>位置: </td><td><select name="PLACE">
+<option value="0" <&PLACE="0>selected<&>>上</option>
+<option value="1" <&PLACE="1>selected<&>>左</option>
+</select></td></tr>
+<tr bgcolor="#CCDDEE"><td>消息 (簡訊): </td><td><input type="text" name="TEXT" value="<=TEXT>" size="40"></td></tr>
+<tr><td>最大曝光數: </td><td><input type="text" name="MAXVIEW" value="<=MAXVIEW>"></td></tr>
+<tr><td>開始日期: </td><td><input type="text" name="FROMDATE" value="<=FROMDATE>"></td></tr>
+<tr><td>結束日期: </td><td><select name="TIMELIMIT" onchange="javascript:limitchange();">
+<option value="0" <&TIMELIMIT="0>selected<&>>永遠</option>
+<option value="1" <&TIMELIMIT="1>selected<&>>有限</option>
+</select>
+<input type="text" name="TODATE" value="<=TODATE>" size="10"></td></tr>
+<tr><td>登出: </td><td><select name="DISABLED">
+<option value="0" <&DISABLED="0>selected<&>>否</option>
+<option value="1" <&DISABLED="1>selected<&>>是</option>
+</select></td></tr>
+<tr><td>&nbsp;</td><td><input class="button" type="button" onclick="submitaddform()" value="更改"></td></tr>
+</table>
+</form>
+<&FILEPATH!"><img src="images/adv/<=FILEPATH>"><&>

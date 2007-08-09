@@ -1,0 +1,20 @@
+<form name="meform" action="contacts/edit.asp?K=<=ID>" method="post">
+<table border="0" cellspacing="0" cellpadding="0">
+<tr><td>名字: </td><td><input type="text" name="name" value="<=name>"><strong>*</strong></td></tr>
+<tr><td>公司: </td><td><input type="text" name="company" value="<=company>"></td></tr>
+<tr><td>Email: </td><td><input type="text" name="email" value="<=email>"></td></tr>
+<tr><td>Web: </td><td><input type="text" name="web" value="<=web>"></td></tr>
+<tr><td>住址: </td><td><textarea name="address" rows="3" cols="50"><=address></textarea></td></tr>
+<tr><td>電話: </td><td><textarea name="phone" rows="3" cols="50"><=phone></textarea></td></tr>
+<tr><td>SMS Phone: </td><td><input type="text" name="smsphone" value="<=smsphone>" size="50"></td></tr>
+<tr><td>Notes: </td><td><textarea name="notes" rows="10" cols="50"><=notes></textarea></td></tr>
+<tr><td>&nbsp;</td><td><input type="radio" name="pub" value="0" <&pub!"1>checked<&>> Private
+<input type="radio" name="pub" value="1" <&pub="1>checked<&>> Public</td></tr>
+<tr><td>團體: </td><td><select name="GROUPID">
+<option value="0">None</option>
+<~11GROUPID>
+</select> [<a href="l.asp?P=contacts&SP=groups&SP2=add">增加</a>]</td></tr>
+<tr><td>&nbsp;</td><td>
+<input class="but" onclick="verifymeform();" type="button" value="Change"></td></tr>
+</table>
+</form>

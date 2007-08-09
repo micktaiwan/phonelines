@@ -1,0 +1,13 @@
+<img src="images/bul2.gif">
+<&DDIFF<"5><span style="background-color:#FFFF00;font-weight:bold;"><&>
+<a href="l.asp?P=information&SP=display&K=<=ID>"><=TITLE></a>
+<&DDIFF<"5></span><&>
+<i><=NAME></i>
+<=DATE>
+<&PUB="1><img src="images/pub.gif"><&>
+<&MEMBERID=$ORGANID>
+<a onclick="if(!confirm('Are you sure you want to delete this info ?')) return false;" href="info/delete.asp?K=<=ID>">
+<img src="images/trashcan.gif" border="0"></a>
+<a href="l.asp?P=information&SP=edit&K=<=ID>"><img src="images/edit.gif" border="0"></a>
+<&>
+<br>

@@ -1,0 +1,6 @@
+<tr bgcolor="#CCDDEE">
+<td><=%></td>
+<td><=CODE></td>
+<td><=NAME></td>
+<td><a href="reporters/delzone.asp?K=<=ID>&REP=<*k>"><img src="images/trashcan.gif" border="0"></a></td>
+</tr>

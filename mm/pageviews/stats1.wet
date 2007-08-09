@@ -1,0 +1,5 @@
+<tr bgcolor="#DDEEFF">
+<td><a target="_blank" href="l.asp?<=PAGE>"><img src="../images/link.gif" border="0"></a>
+<a href="l.asp?P=pageviews&SP=page&Page=<=PAGE*>"><=PAGE></a></td>
+<td><=C></td>
+</tr>

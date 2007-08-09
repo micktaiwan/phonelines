@@ -1,0 +1,5 @@
+<tr bgcolor="#<&NEW="1>FAF6BC<&/>DEEBF7<&>">
+<td><a href="messages/delete.asp?K=<=ID>" onclick="if(!confirm('Are you sure ?')) return false"><img src="images/trashcan.gif" border="0" align=TEXTTOP alt="刪除訊息"></a> <a href="l.asp?P=messages&SP=send&K=<=SENDERID>"><=NAME></a><br><=DATE></td>
+<td><=MESSAGE~$></td>
+<td><&NEW="1>最新收到訊息<&></td>
+</tr>

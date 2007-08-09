@@ -1,0 +1,28 @@
+<table>
+<tr><td width="50%">
+<form action="personnel/edit.asp?K=<=ID>" method="post">
+<table border="0" cellspacing="0" cellpadding="0">
+<tr><td>班別: </td><td><input type="text" name="TEAM" value="<=TEAM>"></td></tr>
+<tr><td>附記: </td><td><input type="text" name="CODE" value="<=CODE>"></td></tr>
+<tr><td>姓名: </td><td><input type="text" name="NAME" value="<=NAME>"></td></tr>
+<tr><td>大哥大: </td><td><textarea name="PHONES"><=PHONES></textarea></td></tr>
+<td>家電話</td><td><input type="text" name="HPHONE" value="<=HPHONE>"></td></tr>
+<td>職業證號</td><td><input type="text" name="WORKID" value="<=WORKID>"></td></tr>
+<td>出生年月日</td><td><input type="text" name="BIRTHDAY" value="<=BIRTHDAY>"></td></tr>
+<td>身分證字號</td><td><input type="text" name="TAIWANID" value="<=TAIWANID>"></td></tr>
+<td>地址</td><td><input type="text" name="ADDRESS" value="<=ADDRESS>"></td></tr>
+<td>到職日期</td><td><input type="text" name="ARRIVAL" value="<=ARRIVAL>"></td></tr>
+<td>離職日期</td><td><input type="text" name="DEPARTURE" value="<=DEPARTURE>"></td></tr>
+<td>備註</td><td><textarea name="MEMO"><=MEMO></textarea></td></tr>
+<tr><td>&nbsp;</td><td><input class="button" type="submit" value="OK"></td></tr>
+</table>
+</form>
+</td>
+<td style="padding:10px;border:2px solid #EEEEEE;" width="50%">
+<center>
+<&PHOTO!"><img src="personnel/upload/<=PHOTO>"><br><br><&>
+<&IDPHOTO!"><img src="personnel/upload/<=IDPHOTO>"><br><&>
+</center>
+</td>
+</tr>
+</table>

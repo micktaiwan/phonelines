@@ -1,0 +1,25 @@
+<form action="visits/complain/add.asp" method="post">
+<table style="font-weight:bold;" border="0" cellspacing="4" cellpadding="0">
+<tr><td>電話號碼: </td><td><=phone></td></tr>
+<tr><td>聯單號碼: </td><td><=SERIAL></td></tr>
+<tr><td>派工日期: </td><td><=DATE></td></tr>
+<tr><td>客戶名稱: </td><td><=CUSTNAME></td></tr>
+<tr><td>通報單位: </td><td><*name></td></tr>
+<tr><td>申 告 人: </td><td><input type="text" name="COMPLAINNAME" value="" size="8" class="a90" style="height:14pt">
+<select name="COMPLAINSEX" class="a90" style="height:14pt"><option value="先生">先生</option><option value="小姐">小姐</option></select></td></tr>
+<tr><td>聯絡電話: </td><td>
+<table border="0" cellspacing="0" cellpadding="4">
+<tr><td>(H): </td><td><input type="text" name="COMPLAINHPHONE" value="" size="10" class="a90" style="height:14pt"></td></tr>
+<tr><td>(O): </td><td><input type="text" name="COMPLAINOPHONE" value="" size="10" class="a90" style="height:14pt"></td></tr>
+<tr><td>大哥大 :</td><td><input type="text" name="COMPLAINCPHONE" value="" size="10" class="a90" style="height:14pt"></td></tr>
+</table>
+</td></tr>
+<tr><td>申訴內容: </td><td><textarea name="COMPLAINMEMO" rows="4" cols="40"></textarea></td></tr>
+<tr><td>&nbsp;</td><td><input class="button" type="submit" value=" 申　告 " class="a90" style="height:14pt"></td></tr>
+</table>
+<input type="hidden" name="VISITID" value="<=ID>">
+<input type="hidden" name="REPORTER" value="<*code>">
+<input type="hidden" name="PHONE" value="<=phone>">
+<input type="hidden" name="VISITSERIAL" value="<=SERIAL>">
+<input type="hidden" name="REPORTDATE" value="<=$1>">
+</form>

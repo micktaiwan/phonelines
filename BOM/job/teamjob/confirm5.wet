@@ -1,0 +1,3 @@
+<tr><td>工作單號: </td><td><=JOBCODE></td></tr>
+<tr><td>流水編號: </td><td><=CODE></td></tr>
+<input type="hidden" name="JOBID" value="<=ID>">

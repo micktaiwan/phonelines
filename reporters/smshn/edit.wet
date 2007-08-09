@@ -1,0 +1,8 @@
+<form name="smsform" action="reporters/smshn/edit.asp?K=<=ID>" method="post">
+<table border="0" cellspacing="0" cellpadding="0">
+<tr><td>Name: </td><td><input type="text" name="Name" value="<=NAME>"></td></tr>
+<tr><td>HN: </td><td><input type="text" name="HN" value="<=HN>"></td></tr>
+<tr><td>Pass: </td><td><input type="text" name="PASS" value="<=PASS>"></td></tr>
+<tr><td>&nbsp;</td><td><input class="button" type="button" onclick="javascript:verifform();" value="Change"></td></tr>
+</table>
+</form>

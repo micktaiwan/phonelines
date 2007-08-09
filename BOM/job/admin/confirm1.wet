@@ -1,0 +1,2 @@
+<tr><td>工作單編號: </td><td><=JOBCODE></td></tr>
+<input type="hidden" name="JOBID" value="<=ID>">

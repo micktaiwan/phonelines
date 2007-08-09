@@ -1,0 +1,21 @@
+<tr bgcolor="#EEEEE0">
+<td align="center"><&JOBID!"><a href="l.asp?bom=1&P=jdata&SP=edit&K=<=JOBID>"><img src="images/edit.gif" border="0"></a><&/><strong>???</strong><&></td>
+<td><=IDNUMBER></td>
+<td><=JOBCODE></td>
+<td><=OURCODE></td>
+<td><=PLACE></td>
+<td><=GETDATE@></td>
+<td><=EXPECTEDDATE@></td>
+<td><=POINTS></td>
+<td><=URGENTDATE@></td>
+<td><=TEAM></td>
+<td><=TEAMGETDATE@></td>
+<td><=TEAMFINISHEDDATE@></td>
+<td><=TEAMPICDATE@></td>
+<td><=DATEA@></td>
+<td><=DATEB@></td>
+<td><=DATEC@></td>
+<td><=CANCELDATE@></td>
+<td><=CANCELREASON></td>
+<td><=MEMO></td>
+</tr>

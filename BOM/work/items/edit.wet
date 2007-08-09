@@ -1,0 +1,11 @@
+<form name="addform" action="bom/work/items/edit.asp?K=<=ID>" method="post">
+<table border="0" cellspacing="0" cellpadding="0">
+<tr><td>項次: </td><td><input type="text" name="ITEM" value="<=ITEM>"></td></tr>
+<tr><td>項次代號: </td><td><input type="text" name="CODE" value="<=CODE>"></td></tr>
+<tr><td>工作項目: </td><td><input type="text" name="SUBJECT" value="<=SUBJECT>"></td></tr>
+<tr><td>積點單價: </td><td><input type="text" name="PRICE" value="<=PRICE>"></td></tr>
+<tr><td>單位: </td><td><input type="text" name="UNIT" value="<=UNIT>"><br>
+<tr><td>單位積點: </td><td><input type="text" name="POINTS" value="<=POINTS>"><br>
+<tr><td>&nbsp;</td><td><input class="button" type="button" onclick="submitaddform();" value="編輯"></td></tr>
+</table>
+</form>

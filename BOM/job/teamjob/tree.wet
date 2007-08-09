@@ -1,0 +1,33 @@
+<tr bgcolor="#EEEEE0">
+<td align="center">
+<a href="l.asp?bom=1&P=teamjob&SP=edit&K=<=ID>"><img src="images/edit.gif" border="0"></a>
+</td>
+<td><=TEAM></td>
+<td><=DATE></td>
+<td><=WORKCODE><&WORKCODE="><strong>找不到</strong><&></td>
+<td><=JOBCODE><&JOBCODE="><strong>找不到</strong><&></td>
+<td><=PICTURECODE></td>
+<td>
+<&TYPE="1>裝機<&>
+<&TYPE="2>移機<&>
+<&TYPE="3>ADSL裝機<&>
+<&TYPE="7>ADSL移機<&>
+<&TYPE="4>土木<&>
+<&TYPE="5>線路<&>
+<&TYPE="6>架空<&>
+<&TYPE=">???<&>
+</td>
+<td><=MONEYTYPE></td>
+<td><=MATTYPE></td>
+<td><=SUBJECTITEM><&SUBJECTITEM="><strong>找不到</strong><&></td>
+<td><=SUBJECT></td>
+<td><=QTY></td>
+<td><=ASCODE><&ASCODE="><strong>找不到</strong><&></td>
+<td><=MATCODE><&MATCODE="><strong>找不到</strong><&></td>
+<td><=MATNAME></td>
+<td><=USEDQTY></td>
+<td><=SURPLUS></td>
+<td><=LOSS></td>
+<td align="center"><a onclick="if(!confirm('刪除?')) return false;" href="bom/job/teamjob/delete.asp?K=<=ID>"><img src="images/trashcan.gif" border="0"></a></td>
+</tr>
+

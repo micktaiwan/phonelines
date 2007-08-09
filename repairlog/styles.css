@@ -1,0 +1,17 @@
+BODY {font-family: Arial;font-size:12pt; color:#404040;}
+TABLE {font-family: Arial;font-size:12pt; color:#404040;}
+TD {vertical-align:top;}
+a:link {color:#0078FF; text-decoration: none; cursor: none;}
+a:visited {color:#005AA4;text-decoration: none; cursor: none;}
+A:active {color:#FF6600;}
+A:hover {text-decoration: none;background-color="#FFFF00";}
+
+STRONG  {COLOR: #990000;FONT-WEIGHT: bold}
+UL { margin:0px; margin-left: 20px; }  /* Any UL */
+OL { margin:0px; margin-left: 40px; }  /* Any UL */
+
+.button{background-color:#CCAA55;font-family:Arial; font-size:12pt; color:#AA0000; font-weight:bold;}
+
+.PageTitle{color:#4444FF; font-weight:bold; width:100%;}
+.Collapsed {visibility:hidden;display:none;}
+.Expanded {visibility:visible;display:block;}

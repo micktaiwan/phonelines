@@ -1,0 +1,295 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>test</title>
+<meta http-equiv="Content-Type" content="text/html;" />
+<link href="winstyle.css" rel="stylesheet" type="text/css" />
+<script src="jswin.js"></script>
+</head>
+<body>
+
+<!-- Normal page content. -->
+
+<div id="demoBox">
+
+<h3>Windows Demo</h3>
+
+<p>This page contains three sample windows which can be opened using the links
+below.</p>
+
+<p>
+<a href="" onclick="if (winList['sample1']) winList['sample1'].open(); return false;">Window 1</a>
+|
+<a href="" onclick="if (winList['sample2']) winList['sample2'].open(); return false;">Window 2</a>
+|
+<a href="" onclick="if (winList['sample3']) winList['sample3'].open(); return false;">Window 3</a>
+</p>
+
+<p>The first two use the default window style while the third demonstrates how
+an individual window can be customized. Use your browser's
+<code>View Source</code> option to see the full source code.</p>
+
+</div>
+
+<!-- Sample Window 1 -->
+
+<div id="sample1" class="window" style="left:50px;top:150px;width:480px;">
+  <div class="titleBar">
+    <span class="titleBarText">The Raven</span>
+    <img class="titleBarButtons" alt="" src="images/buttons.gif" usemap="#sampleMap1" />
+    <map id="sampleMap1" name="sampleMap1">
+      <area shape="rect" coords="0,0,15,13"  href="" alt="" title="Minimize" onclick="this.parentWindow.minimize();return false;" />
+      <area shape="rect" coords="16,0,31,13" href="" alt="" title="Restore"  onclick="this.parentWindow.restore();return false;" />
+      <area shape="rect" coords="34,0,49,13" href="" alt="" title="Close"    onclick="this.parentWindow.close();return false;" />
+    </map>
+  </div>
+  <div class="clientArea" style="height:200px;">
+
+  <h3>The Raven</h3>
+
+  <p>Once upon a midnight dreary, while I pondered, weak and weary<br />
+  Over many a quaint and curious volume of forgotten lore-<br />
+  While I nodded, nearly napping, suddenly there came a tapping<br />
+  As of some one gently rapping, rapping at my chamber door<br />
+  "'T is some visitor," I muttered, "tapping at my chamber door-<br />
+  <span class="lastLine">Only this and nothing more."</span></p>
+
+  <p>Ah, distinctly I remember it was in the bleak December;<br />
+  And each separate dying ember wrought its ghost upon the floor.<br />
+  Eagerly I wished the morrow;-vainly I had sought to borrow<br />
+  From my books surcease of sorrow-sorrow for the lost Lenore-<br />
+  For the rare and radiant maiden whom the angels name Lenore-<br />
+  <span class="lastLine">Nameless here for evermore.</span></p>
+
+  <p>Then the silken, sad, uncertain rustling of each purple curtain<br />
+  Thrilled me-filled me with fantastic terrors never felt before;<br />
+  So that now, to still the beating of my heart, I stood repeating,<br />
+  "'T is some visitor entreating entrance at my chamber door-<br />
+  Some late visitor entreating entrance at my chamber door;-<br />
+  <span class="lastLine">This it is and nothing more."</span></p>
+
+  <p>Presently my soul grew stronger; hesitating then no longer,<br />
+  "Sir," said I, "or Madam, truly your forgiveness I implore;<br />
+  But the fact is I was napping, and so gently you came rapping,<br />
+  And so faintly you came tapping, tapping at my chamber door,<br />
+  That I scarce was sure I heard you"-here I opened wide the door;-<br />
+  <span class="lastLine">Darkness there and nothing more."</span></p>
+
+  <p>Deep into that darkness peering, long I stood there wondering, fearing,<br />
+  Doubting, dreaming dreams no mortal ever dared to dream before;<br />
+  But the silence was unbroken, and the stillness gave no token,<br />
+  And the only word there spoken was the whispered word, "Lenore?"<br />
+  This I whispered, and an echo murmured back the word, "Lenore!"<br />
+  <span class="lastLine">Merely this and nothing more.</span></p>
+
+  <p>Back into the chamber turning, all my soul within me burning,<br />
+  Soon again I heard a tapping somewhat louder than before.<br />
+  "Surely," said I, "surely that is something at my window lattice;<br />
+  Let me see, then, what thereat is, and this mystery explore-<br />
+  Let my heart be still a moment and this mystery explore;-<br />
+  <span class="lastLine">'T is the wind and nothing more!"</span></p>
+
+  <p>Open here I flung the shutter, when, with many a flirt and flutter,<br />
+  In there stepped a stately Raven of the saintly days of yore;<br />
+  Not the least obeisance made he; not a minute stopped or stayed he;<br />
+  But, with mien of lord or lady, perched above my chamber door-<br />
+  Perched upon a bust of Pallas just above my chamber door-<br />
+  <span class="lastLine">Perched, and sat, and nothing more.</span></p>
+
+  <p>Then this ebony bird beguiling my sad fancy into smiling,<br />
+  By the grave and stern decorum of the countenance it wore,<br />
+  "Though thy crest be shorn and shaven, thou," I said,"art sure no craven,<br />
+  Ghastly grim and ancient Raven wandering from the Nightly shore-<br />
+  Tell me what they lordly name is on the Night's Plutonian shore!"<br />
+  <span class="lastLine">Quoth the Raven, "Nevermore."</span></p>
+
+  <p>Much I marvelled the ungainly fowl to hear discourse so plainly,<br />
+  Though its answer little meaning-little relevancy bore;<br />
+  For we cannot help agreeing that no living human being<br />
+  Ever yet was blessed with seeing bird above his chamber door-<br />
+  Bird or beast upon the culptured bust above his chamber door,<br />
+  <span class="lastLine">With such name as "Nevermore."</span></p>
+
+  <p>But the Raven, sitting lonely on the placid bust, spoke only<br />
+  That one word, as if his soul in that one word he did outpour.<br />
+  Nothing farther then he uttered-not a feather then he fluttered-<br />
+  Till I scarcely more than muttered, "Other friends have flown before-<br />
+  On the morrow he will leave me, as my Hopes have flown before."<br />
+  <span class="lastLine">Then the bird said, "Nevermore."</span></p>
+
+  <p>Startled at the stillness broken by reply so aptly spoken,<br />
+  "Doubtless," said I, "what it utters is its only stock and store<br />
+  Caught from some unhappy master whom unmerciful Disaster<br />
+  Followed fast and followed faster till his songs one burden bore-<br />
+  Till the dirges of his Hope that melancholy burden more<br />
+  <span class="lastLine">Of 'Never-nevermore.'"</span></p>
+
+  <p>But the Raven still beguiling my sad fancy into smiling,<br />
+  Straight I wheeled a cushioned seat in front of bird and bust and door;<br />
+  Then, upon the velvet sinking, I betook myself to linking<br />
+  Fancy unto fancy, thinking what this ominous bird of yore-<br />
+  What this grim, ungainly, ghastly, gaunt, and ominous bird of yore<br />
+  <span class="lastLine">Meant in croaking "Nevermore."</span></p>
+
+  <p>This I sat engaged in guessing, but no syllable expressing<br />
+  To the fowl whose fiery eyes now burned into my bosom's core;<br />
+  This and more I sat divining, with my head at ease reclining<br />
+  On the cushion's velvet lining that the lamp-light gloating o'er,<br />
+  But whose velvet-violet lining with the lamp-light gloating o'er,<br />
+  <span class="lastLine">She shall press, ah, nevermore!</span></p>
+
+  <p>Then, methought, the air grew denser, perfumed from an unseen censer<br />
+  Swung by seraphim whose foot-falls tinkled on the tufted floor.<br />
+  "Wretch," I cried, "thy God hath lent thee-by these angels he hath sent thee<br />
+  Respite-respite and nepenthe from thy memories of Lenore;<br />
+  Quaff, oh, quaff this kind nepenthe and forget this lost Lenore!"<br />
+  <span class="lastLine">Quoth the Raven, "Nevermore."</span></p>
+
+  <p>"Prophet!" said I, "thing of evil!-prophet still, if bird or devil!-<br />
+  By that Heaven that bends above us-by that God we both adore-<br />
+  Tell this soul with sorrow laden if, within the distant<br />
+  Aidenn, It shall clasp a sainted maiden whom the angels name Lenore-<br />
+  Clasp a rare and radiant maiden whom the angels name Lenore."<br />
+  <span class="lastLine">Quoth the Raven, "Nevermore."</span></p>
+
+  <p>"Be that word our sign of parting, bird or fiend!" I shrieked, upstarting-<br />
+  "Get thee back into the tempest and the Night's Plutonian shore!<br />
+  Leave no black plume as a token of that lie thy soul hath spoken!<br />
+  Leave my loneliness unbroken!-quit the bust above my door!<br />
+  Take thy beak from out my heart, and take thy form from off my door!"<br />
+  <span class="lastLine">Quoth the Raven, "Nevermore."</span></p>
+
+  <p>And the Raven, never flitting, still is sitting, still is sitting<br />
+  On the pallid bust of Pallas just above my chamber door;<br />
+  And his eyes have all the seeming of a demon's that is dreaming,<br />
+  And the lamp-light o'er him streaming throws his shadow on the floor;<br />
+  And my soul from out that shadow that lies floating on the floor<br />
+  <span class="lastLine">Shall be lifted-nevermore!</span></p>
+
+  <p><cite>Edgar Allan Poe</cite></p>
+
+  </div>
+</div>
+
+<!-- Sample Window 2 -->
+
+<div id="sample2" class="window" style="left:200px;top:100px;width:280px;">
+  <div class="titleBar">
+    <span class="titleBarText">The Conqueror Worm</span>
+    <img class="titleBarButtons" alt="" src="images/buttons.gif" usemap="#sampleMap2" />
+    <map id="sampleMap2" name="sampleMap2">
+      <area shape="rect" coords="0,0,15,13"  href="" alt="" title="Minimize" onclick="this.parentWindow.minimize();return false;" />
+      <area shape="rect" coords="16,0,31,13" href="" alt="" title="Restore"  onclick="this.parentWindow.restore();return false;" />
+      <area shape="rect" coords="34,0,49,13" href="" alt="" title="Close"    onclick="this.parentWindow.close();return false;" />
+    </map>
+  </div>
+  <div class="clientArea" style="height:175px;">
+
+  <h3>The Conqueror Worm</h3>
+
+  <p>Lo! 'tis a gala night<br />
+  Within the lonesome latter years!<br />
+  An angel throng, bewinged, bedight<br />
+  In veils, and drowned in tears,<br />
+  Sit in a theatre, to see<br />
+  A play of hopes and fears,<br />
+  While the orchestra breathes fitfully<br />
+  The music of the spheres.</p>
+
+  <p>Mimes, in the form of God on high,<br />
+  Mutter and mumble low,<br />
+  And hither and thither fly-<br />
+  Mere puppets they, who come and go<br />
+  At bidding of vast formless things<br />
+  That shift the scenery to and fro,<br />
+  Flapping from out their Condor wings<br />
+  Invisible Woe!</p>
+
+  <p>That motley drama- oh, be sure<br />
+  It shall not be forgot!<br />
+  With its Phantom chased for evermore,<br />
+  By a crowd that seize it not,<br />
+  Through a circle that ever returneth in<br />
+  To the self-same spot,<br />
+  And much of Madness, and more of Sin,<br />
+  And Horror the soul of the plot.</p>
+
+  <p>But see, amid the mimic rout<br />
+  A crawling shape intrude!<br />
+  A blood-red thing that writhes from out<br />
+  The scenic solitude!<br />
+  It writhes!- it writhes!- with mortal pangs<br />
+  The mimes become its food,<br />
+  And seraphs sob at vermin fangs<br />
+  In human gore imbued.</p>
+
+  <p>Out- out are the lights- out all!<br />
+  And, over each quivering form,<br />
+  The curtain, a funeral pall,<br />
+  Comes down with the rush of a storm,<br />
+  While the angels, all pallid and wan,<br />
+  Uprising, unveiling, affirm<br />
+  That the play is the tragedy, "Man,"<br />
+  And its hero the Conqueror Worm.</p>
+
+  <p><cite>Edgar Allan Poe</cite></p>
+
+  </div>
+</div>
+
+<!-- Sample Window 3 -->
+
+<div id="sample3" class="window" style="left:350px;top:50px;width:300px;background-color:#f0c090;border-color:#ffe0b0 #a07040 #805020 #e0b080;">
+  <div class="titleBar" style="background-color:#c08060;color:#ffffcc;">
+    <span class="titleBarText">Spirits of the Dead</span>
+    <img class="titleBarButtons" alt="" src="images/altbuttons.gif" longdesc="images/altbuttonslow.gif" usemap="#sampleMap3" />
+    <map id="sampleMap3" name="sampleMap3">
+      <area shape="rect" coords="0,0,15,13"  href="" alt="" title="Minimize" onclick="this.parentWindow.minimize();return false;" />
+      <area shape="rect" coords="16,0,31,13" href="" alt="" title="Restore"  onclick="this.parentWindow.restore();return false;" />
+      <area shape="rect" coords="34,0,49,13" href="" alt="" title="Close"    onclick="this.parentWindow.close();return false;" />
+    </map>
+  </div>
+  <div class="clientArea" style="height:150px;background-color:#ffffcc;color:#806040;border-color:#805020 #e0b080 #ffe0b0 #a07040;scrollbar-base-color:#f0c090;">
+
+  <h3>Spirits of the Dead</h3>
+
+  <p>Thy soul shall find itself alone<br />
+  'Mid dark thoughts of the grey tomb-stone;<br />
+  Not one, of all the crowd, to pry<br />
+  Into thine hour of secrecy.</p>
+
+  <p>Be silent in that solitude,<br />
+  Which is not loneliness- for then<br />
+  The spirits of the dead, who stood<br />
+  In life before thee, are again<br />
+  In death around thee, and their will<br />
+  Shall overshadow thee; be still.</p>
+
+  <p>The night, though clear, shall frown,<br />
+  And the stars shall not look down<br />
+  From their high thrones in the Heaven<br />
+  With light like hope to mortals given,<br />
+  But their red orbs, without beam,<br />
+  To thy weariness shall seem<br />
+  As a burning and a fever<br />
+  Which would cling to thee for ever.</p>
+
+  <p>Now are thoughts thou shalt not banish,<br />
+  Now are visions ne'er to vanish;<br />
+  From thy spirit shall they pass<br />
+  No more, like dew-drop from the grass.</p>
+
+  <p>The breeze, the breath of God, is still,<br />
+  And the mist upon the hill<br />
+  Shadowy, shadowy, yet unbroken,<br />
+  Is a symbol and a token.<br />
+  How it hangs upon the trees,<br />
+  A mystery of mysteries!</p>
+
+  <p><cite>Edgar Allan Poe</cite></p>
+
+  </div>
+</div>
+
+</body>
+</html>

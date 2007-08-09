@@ -1,0 +1,13 @@
+<tr bgcolor="#EEEEE0">
+<td align="center">
+<a href="l.asp?bom=1&P=request&SP=edit&K=<=ID>"><img src="images/edit.gif" border="0"></a>
+</td>
+<td><=DATE></td>
+<td><=CODE></td>
+<td><=MATCODE><&MATCODE="><strong>¿ù»~</strong><&></td>
+<td><=MATNAME></td>
+<td><=WORKCODE><&WORKCODE="><strong>¿ù»~</strong><&></td>
+<td><=REQUESTEDNB></td>
+<td><=GIVENNB></td>
+<td align="center"><a onclick="if(!confirm('§R°£?')) return false;" href="bom/material/request/delete.asp?K=<=ID>"><img src="images/trashcan.gif" border="0"></a></td>
+</tr>
