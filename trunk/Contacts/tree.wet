@@ -1,0 +1,10 @@
+<tr bgcolor="#EEEEEE"  style="font-size:8pt;">
+<td align="center"><=GROUPNAME></td>
+<td><&MEMBERID=$PHONEID><a href="l.asp?P=contacts&SP=edit&K=<=ID>">²Ó¸`</a><&></td>
+<td><=Company></td>
+<td><&web!"><a target="_blank" href="<=web>"><&><b><=NAME></b><&web!"></a><&> <&pub="1><img src="images/pub.gif"><&></td>
+<td><a href="mailto:<=email>"><=EMAIL></a></td>
+<td><=PHONE$></td>
+<td><=ADDRESS~$></td>
+<td align="center"><&MEMBERID=$PHONEID><a href="contacts/delete.asp?K=<=ID>" onclick="if(!confirm('Sure?'))return false;"><img src="images/trashcan.gif" border="0"></a><&></td>
+</tr>

@@ -1,0 +1,22 @@
+<tr bgcolor="#EEEEEE">
+<td align="center"><a href="l.asp?P=personnel&SP=holidays&SP2=edit&K=<=ID>"><img src="images/edit.gif" border="0"></a></td>
+<td><=TEAM></td>
+<td><=NAME></td>
+<td>
+<&TYPE="0>痜安<&>
+<&TYPE="1>ㄆ安<&>
+<&TYPE="2>そ安<&>
+<&TYPE="3>赤安<&>
+<&TYPE="4>盉安<&>
+<&TYPE="5>玻安<&>
+</td>
+<td><=REASON></td>
+<td><=REPLACANT></td>
+<td><=FROMDATE></td>
+<td><=TODATE></td>
+<td><=TIME></td>
+<td><=ENTERDATE></td>
+<td><=ENTERNAME></td>
+<td><=MEMO></td>
+<td align="center"><a onclick="if(!confirm('埃?')) return false;" href="personnel/holidays/delete.asp?K=<=ID>"><img src="images/trashcan.gif" border="0"></a></td>
+</tr>

@@ -1,0 +1,10 @@
+<tr bgcolor="#EEEEE0">
+<td align="center">
+<a href="l.asp?bom=1&P=ascode&SP=edit&K=<=ID>"><img src="images/edit.gif" border="0"></a>
+</td>
+<td><=CODE></td>
+<td><=DESCR$></td>
+<td align="right"><=PERC></td>
+<td align="right"><=NB></td>
+<td align="center"><a onclick="if(!confirm('§R°£?')) return false;" href="bom/work/ascode/delete.asp?K=<=ID>"><img src="images/trashcan.gif" border="0"></a></td>
+</tr>

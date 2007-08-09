@@ -1,0 +1,20 @@
+<tr bgcolor="#<&RESULT!"0>FFAAAA<&/><&TRACKING="10>99FF99<&/><&TRACKING="-1>FFC400<&/><&TRACKING="11>FFC400<&/>FFAAAA<&><&><&><&>"
+style="font-size:8pt;">
+<td>
+<a href="sms/delete.asp?K=<=#>" onclick="if(!confirm('Are you sure ?')) return false">
+<img src="images/trashcan.gif" border="0"></a>
+<=PHONE>
+</td>
+
+<td><=SENTDATE><&USINGTIMING="1><br><=SENDDATE><&></td>
+<td><a href="#" title="<=MESSAGE>">®ø®§</a></td>
+
+<td>
+<&RESULT="0>
+<&TRACKING="-1>Message sent<&/>
+<=LASTTRACKDATE>: <&><=TRACKMSG>
+<&TRACKING!"10><&RESULT="0><b>[<a href="repairlog/smslog/track.asp?K=<=ID>">§ó·sª¬ºA</a>]</b><&><&>
+<&/><=ERROR><&>
+</td>
+
+</tr>

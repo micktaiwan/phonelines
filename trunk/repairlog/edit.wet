@@ -1,0 +1,45 @@
+<a name="form"></a>
+<form name="editform" action="repairlog/edit.asp?K=<=ID>" method="post">
+
+<table bgcolor="black" border="0" cellspacing="0" cellpadding="1">
+<tr><td>
+<table bgcolor="#AABBCC" border="0" cellspacing="1" cellpadding="2">
+<tr><td><b>申 告 人:</b> </td><td><input type="text" name="COMPLAINNAME" value="<=COMPLAINNAME>" size="5">
+<select name="COMPLAINSEX"><option value="先生" <&COMPLAINSEX="先生>selected<&>>先生</option><option value="小姐" <&COMPLAINSEX="小姐>selected<&>>小姐</option></select>
+
+
+</td></tr>
+<tr><td><b>聯絡電話:</b> </td><td>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr><td>(H): </td><td><input type="text" name="COMPLAINHPHONE" value="<=COMPLAINHPHONE>" size="10"></td></tr>
+<tr><td>(O): </td><td><input type="text" name="COMPLAINoPHONE" value="<=COMPLAINOPHONE>" size="10"></td></tr>
+<tr><td>大哥大 :</td><td><input type="text" name="COMPLAINCPHONE" value="<=COMPLAINCPHONE>" size="10"></td></tr>
+</table>
+</td></tr>
+<tr><td><b>申訴內容:</b></td><td><=COMPLAINMEMO$></textarea></td></tr>
+</table>
+</td></tr>
+</table>
+<br>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr><td>通報單位: </td><td><input type="text" name="REPORTER" value="<=REPORTER>"></td></tr>
+<tr><td>障礙電話: </td><td><input type="text" name="PHONE" value="<=PHONE>"></td></tr>
+<tr><td>聯單號碼: </td><td><input type="text" name="VISITSERIAL" value="<=VISITSERIAL>"></td></tr>
+<tr><td>芯線號碼: </td><td><input type="text" name="PHONEID" value="<=PHONEID>"></td></tr>
+<tr><td>聯絡電纜: </td><td><input type="text" name="BOXID" value="<=BOXID>"></td></tr>
+<tr><td>障礙原因: </td><td><input type="text" name="REASON" value="<=REASON>">
+<select onchange="editform.REASON.value=this.value">
+<option value="<=REASON>">== 選擇 ===</option>
+<option value="<=REASON>"></option>
+<~11></select></td></tr>
+<tr><td>客戶住址: </td><td><input type="text" name="ADDRESS" value="<=ADDRESS>"></td></tr>
+<tr><td>備註: </td><td><textarea name="MEMO" cols="60" rows="5"><=MEMO></textarea></td></tr>
+<tr><td>受理日期: </td><td><input type="text" name="CONFIRMDATE" value="<=CONFIRMDATE@>"> [<a href="#form" onclick="javascript:document.editform.CONFIRMDATE.value = MyNow(1);">今天</a>]</td></tr>
+<!--
+<tr><td>修理時間: </td><td><input type="text" name="REPAIRDATE" value="<=REPAIRDATE@>"> [<a href="#form" onclick="javascript:document.editform.REPAIRDATE.value = MyNow(1);">今天</a>]</td></tr>
+<tr><td>修理好了</td><td><input type="radio" name="CORRECTED" value="1" <&CORRECTED="1>checked<&>> 是
+<input type="radio" name="CORRECTED" value="0" <&CORRECTED!"1>checked<&>> 否</td>
+-->
+<tr><td>&nbsp;</td><td><input class="button" type="submit" value="改變"></td></tr>
+</table>
+</form>

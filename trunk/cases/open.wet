@@ -1,0 +1,13 @@
+<tr bgcolor="#DEEBF7">
+<td align="center">
+<a href="l.asp?P=cases&SP=edit&K=<=ID>"><img src="images/edit.gif" border="0"></a>
+<a href="cases/delete.asp?K=<=ID>" onclick="if(!confirm('Sure?')) return false;"><img src="images/trashcan.gif" border="0"></a>
+</td>
+<td><=ORGAN></td>
+<td><=NUMBER></td>
+<td><=NAME></td>
+<td><=BIDLIMIT></td>
+<td><=DEPOSIT></td>
+<td><=OPENDATE></td>
+<td><=ANNOUNCEDATE></td>
+</tr>

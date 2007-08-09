@@ -1,0 +1,25 @@
+<form name="addform" action="visits/edit.asp?K=<=ID>" method="post">
+<table border="0" cellspacing="1" cellpadding="2">
+<tr><td bgcolor="#AABBCC">輸入員: </td><td><=RESPONSIBLE></td></tr>
+<tr><td bgcolor="#AABBCC">日期: </td><td><=DATE></td></tr>
+<tr><td bgcolor="#AABBCC">地區: </td><td><=ZONE></td></tr>
+<tr><td bgcolor="#AABBCC">班別: </td><td><=TEAM></td></tr>
+<tr><td bgcolor="#AABBCC">聯單: </td><td><=SERIAL></td></tr>
+<tr><td bgcolor="#AABBCC">電話: </td><td><=PHONE></td></tr>
+<tr><td bgcolor="#AABBCC">上下: </td><td><=ampm></td></tr>
+<tr><td bgcolor="#AABBCC">結果: </td><td><=RESULT></td></tr>
+<tr><td bgcolor="#AABBCC">原因: </td><td><=REASON></td></tr>
+<tr><td bgcolor="#AABBCC">客戶名稱: </td><td><=CUSTNAME></td></tr>
+<tr><td bgcolor="#AABBCC">地址: </td><td><=CUSTADDRESS></td></tr>
+<tr><td bgcolor="#AABBCC">聯絡電話: </td><td><=CONTACTPHONE></td></tr>
+<tr><td bgcolor="#AABBCC">問題案代碼: </td><td>
+<select name="KPROBLEMID">
+<option value="-1">沒問題</option>
+<~11KPROBLEMID>
+</select>
+
+</td></tr>
+<tr><td bgcolor="#AABBCC">備註: </td><td><textarea name="MEMO" cols="50" rows="5"><=MEMO></textarea></td></tr>
+<tr><td>&nbsp;</td><td><input class="button" type="button" value="OK" onclick="submitaddform();"></td></tr>
+</table>
+</form>

@@ -1,0 +1,33 @@
+<SCRIPT LANGUAGE="VBScript" RUNAT="Server">
+
+Sub Session_OnStart
+
+  On Error Resume Next
+
+   Application("NbCurrentVisitors") =   Application("NbCurrentVisitors") + 1
+
+End Sub
+
+Sub Session_OnEnd
+
+   On Error Resume Next
+	
+   Application("NbCurrentVisitors") =   Application("NbCurrentVisitors") - 1
+   if(Application("NbCurrentVisitors") < 0) then
+      Application("NbCurrentVisitors") = 0
+   End if
+
+End Sub
+
+Sub Application_OnStart
+
+   On Error Resume Next	
+
+   Application.Lock
+   Application("NbCurrentVisitors") = 0
+   Application("StartTime") = Now
+   Application.Unlock
+
+End Sub
+
+</SCRIPT>

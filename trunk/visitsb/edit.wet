@@ -1,0 +1,31 @@
+<form name="addform" action="visitsb/edit.asp?K=<=ID>" method="post">
+<table border="0" cellspacing="0" cellpadding="0">
+<&0!"4>
+<tr><td>輸入員: </td><td><input type="text" name="RESPONSIBLE" value="<=RESPONSIBLE>"></td></tr>
+<tr><td>日期: </td><td><input type="text" name="DATE" value="<=DATE>"><font color="#AAAAAA">如果沒有打好, 資料會失去</font></td></tr>
+<tr><td>班別: </td><td><input type="text" name="TEAM" value="<=TEAM>"></td></tr>
+<tr><td>電話: </td><td><input type="text" name="PHONE" value="<=PHONE>"></td></tr>
+<&>
+<tr><td>結果: </td><td>
+<select name="RESULT">
+<option value="0" <&RESULT="0>selected<&>>竣工</option>
+<option value="1" <&RESULT="1>selected<&>>再派</option>
+<option value="2" <&RESULT="2>selected<&>>註銷</option>
+</select></td></tr>
+<tr><td>原因: </td><td>
+<select name="REASON">
+<option value="0" <&REASON="0>selected<&>>ATUR因素-Microfilter不良</option>
+<option value="1" <&REASON="1>selected<&>>ATUR因素-Splitter不良</option>
+<option value="2" <&REASON="2>selected<&>>ATUC因素-卡片不良</option>
+<option value="3" <&REASON="3>selected<&>>LOOP線路-測量台線路不良</option>
+<option value="4" <&REASON="4>selected<&>>LOOP線路-纜線線路不良</option>
+<option value="5" <&REASON="5>selected<&>>客戶因素-屋內線</option>
+<option value="6" <&REASON="6>selected<&>>客戶因素-客戶設備</option>
+<option value="7" <&REASON="7>selected<&>>其他</option>
+</select></td></tr>
+<tr><td>上行: </td><td><input type="text" name="UP" value="<=UP>"></td></tr>
+<tr><td>下行: </td><td><input type="text" name="DOWN" value="<=DOWN>"></td></tr>
+<tr><td>備註: </td><td><input type="text" name="MEMO" value="<=MEMO>"></td></tr>
+<tr><td>&nbsp;</td><td><input class="button" type="button" value="OK" onclick="checkedit(document.addform);"></td></tr>
+</table>
+</form>

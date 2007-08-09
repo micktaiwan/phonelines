@@ -1,0 +1,18 @@
+<form name="addform" action="bom/job/data/edit.asp?K=<=ID>" method="post">
+<table border="0" cellspacing="0" cellpadding="0">
+<tr><td>收件日期: </td><td><input type="text" name="GETDATE" value="<=GETDATE>"></td></tr>
+<tr><td>預定完工日: </td><td><input type="text" name="EXPECTEDDATE" value="<=EXPECTEDDATE>"></td></tr>
+<tr><td>工程編號: </td><td>
+<select name="CODE">
+<~11>
+</select>
+</td></tr>
+<tr><td>自編流水</td><td><input type="text" name="OURCODE" value="<=OURCODE>"></td></tr>
+<tr><td>急件</td><td><input type="text" name="URGENTDATE" value="<=URGENTDATE>"></td></tr>
+<tr><td>工作單編號: </td><td><input type="text" name="JOBCODE" value="<=JOBCODE>"></td></tr>
+<tr><td>施工地點: </td><td><input type="text" name="PLACE" value="<=PLACE>"></td></tr>
+<tr><td>退件日期: </td><td><input type="text" name="CANCELDATE" value="<=CANCELDATE@>"></td><td><a onclick="document.addform.ABORTDATE.value='<=$>'" href="#">當天</a></td></tr>
+<tr><td>退件原因: </td><td><input type="text" name="CANCELREASON" value="<=CANCELREASON>"></td></tr>
+<tr><td>&nbsp;</td><td><input class="button" type="button" onclick="submitaddform();" value="編輯"></td></tr>
+</table>
+</form>

@@ -1,0 +1,6 @@
+<tr bgcolor="#EEEEEE">
+<td><=CODE></td>
+<td><=NAME></td>
+<td></td>
+<td align="center"><a onclick="if(!confirm('§R°£?')) return false; else deletecode(<=ID>);" href="#" ><img id="img<=ID>" src="images/trashcan.gif" border="0"></a></td>
+</tr>

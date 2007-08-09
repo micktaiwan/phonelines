@@ -1,0 +1,9 @@
+<form name="addform" action="bom/job/team/edit.asp?K=<=ID>" method="post">
+<table border="0" cellspacing="0" cellpadding="0">
+<tr><td>自編流水: </td><td><input type="text" name="JOBID" value="<=CODE>"></td></tr>
+<tr><td>負責班別: </td><td><input type="text" name="TEAM" value="<=TEAM>"></td></tr>
+<tr><td>班收件日期: </td><td><input type="text" name="DATEA" value="<=DATEA@>"></td></tr>
+<tr><td>班交圖日期: </td><td><input type="text" name="DATEB" value="<=DATEB@>"></td></tr>
+<tr><td>&nbsp;</td><td><input class="button" type="button" onclick="submiteditform();" value="編輯"></td></tr>
+</table>
+</form>

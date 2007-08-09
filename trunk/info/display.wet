@@ -1,0 +1,15 @@
+<table style="width:100%; margin: 0px;border: 1px solid #AAAAA0; background-color : #EEEEE0;padding:10px;font-family:²Ó©úÅé;">
+<tr>
+<td>
+<img src="images/information4.gif" style="vertical-align:middle;">
+</td>
+<td>
+<a href="l.asp?P=messages&SP=send&K=20"><b><=NAME></b></a>
+<=DATE><br>
+<br>
+<div style="font-weight:bold;font-size:12pt;"><=TITLE></div>
+<&DESCR!"><=DESCR~$><br><&>
+</td>
+</tr>
+</table>
+

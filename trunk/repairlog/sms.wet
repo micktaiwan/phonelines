@@ -1,0 +1,20 @@
+<tr bgcolor="#3366AA"  style="color:#FFFFFF">
+<td><=NAME><&NAME=">Error, no name<&>
+<input type="hidden" name="PHONE<=%>" value="<=PHONES>">
+<input type="hidden" name="NAME<=%>" value="<=NAME>">
+<input type="hidden" name="REPAIRID<=%>" value="<=ID>">
+<input type="hidden" name="VISITID<=%>" value="<=VISITID>">
+<input type="hidden" name="PERSONNELID<=%>" value="<=PID>">
+</td>
+<td>
+<textarea onkeyup="javascript:updatesmslen(<=%>);" name="MESS<=%>" rows="2" cols="50">»Ù<=PHONE> Áp<&COMPLAINHPHONE!"><=COMPLAINHPHONE><&/><&COMPLAINOPHONE!"><=COMPLAINOPHONE><&/><=COMPLAINCPHONE><&><&> <=REASON> <=ADDRESS> <=PHONEID> <=MEMO> <=BOXID></textarea>
+</td>
+<td>
+<input type="text" name="len<=%>" value="" size="3" disabled>
+<script language="javascript">
+javascript:updatesmslen(<=%>);
+</script>
+</td>
+<td align="center"><&SMS>"1><b><=SMS></b><&></td>
+<td align="center"><input type="checkbox" value="<=%>" name="check" <&NAME!"><&SMS<"1><&REPAIRDATE!"><&REPAIRDATE!"1900/1/1>checked<&><&><&><&><&NAME=">disabled<&>></td>
+</tr>

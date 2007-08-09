@@ -1,0 +1,3 @@
+<tr><td>工作項目: </td><td><=SUBJECT></td></tr>
+<tr><td>點數: </td><td><=POINTS></td></tr>
+<input type="hidden" name="SUBJECTID" value="<=ID>">

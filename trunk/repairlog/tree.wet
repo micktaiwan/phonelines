@@ -1,0 +1,19 @@
+<tr bgcolor="#<&NEW="1>FFFFAA<&/>EEEEEE<&>">
+<td align="center">
+<=%><&0!"0+0!"4><a href="l.asp?P=repairlog&SP=edit&K=<=ID>"><img src="images/edit.gif" border="0"></a><&>
+</td>
+<td><&VISITID="><strong>錯誤 請跟費頌明聯絡</strong><&> <=VISDATE></td>
+<td width="130"><=CONFIRMDATE@></td>
+<td width="130"><=REPORTDATE></td>
+<td><=ZONE></td>
+<td><=REPORTER></td>
+<td><=TEAM></td>
+<td><&0!"0+0!"4><a href="l.asp?P=visits&SP=search&PHONE=<=PHONE>"><&><=PHONE><&0!"0+0!"4></a><&></td>
+<td><=VISITSERIAL></td>
+<td><=PHONEID></td>
+<td><=BOXID></td>
+<td><=REASON></td>
+<td><=ADDRESS></td>
+<td><=MEMO></td>
+<td align="center"><&0!"0+0!"4><a onclick="if(!confirm('刪除?')) return false;" href="repairlog/delete.asp?K=<=ID>"><img src="images/trashcan.gif" border="0"></a><&></td>
+</tr>

@@ -1,0 +1,7 @@
+<tr bgcolor="#DDEEFF">
+<td><&D>"31><=M> months<&/><&H>"24><=D> days<&/><&MI>"60><=H> hours<&/><&S>"60><=MI> min<&/><=S> secs<&><&><&><&></td>
+<td><a href="l.asp?P=pageviews&SP=ip&IP=<=IP>"><=IP></a></td>
+<td><b><a href="l.asp?P=pageviews&SP=name&name=<=MEMBERID>"><=NAME></a></b></td>
+<td><a target="_blank" href="../l.asp?<=PAGE>"><img src="../images/link.gif" border="0"></a>
+<a href="l.asp?P=pageviews&SP=page&Page=<=PAGE*>"><=PAGE></a></td>
+</tr>

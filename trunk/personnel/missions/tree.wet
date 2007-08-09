@@ -1,0 +1,13 @@
+<tr bgcolor="#EEEEEE">
+<td align="center"><a href="l.asp?P=personnel&SP=missions&SP2=edit&K=<=ID>"><img src="images/edit.gif" border="0"></a></td>
+<td><=NAME></td>
+<td><=REASON></td>
+<td><=PLACE></td>
+<td><=FROMDATE></td>
+<td><=TODATE></td>
+<td><=DAYS></td>
+<td><=ENTERDATE></td>
+<td><=ENTERNAME></td>
+<td><=MEMO></td>
+<td align="center"><a onclick="if(!confirm('§R°£?')) return false;" href="personnel/missions/delete.asp?K=<=ID>"><img src="images/trashcan.gif" border="0"></a></td>
+</tr>

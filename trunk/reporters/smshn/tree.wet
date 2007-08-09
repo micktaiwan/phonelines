@@ -1,0 +1,7 @@
+<tr bgcolor="#BBCCDD"  style="font-size:8pt;">
+<td align="center"><a href="l.asp?P=reporters&SP=smshn&SP2=edit&K=<=ID>"><img src="images/edit.gif" border="0"></a></td>
+<td><=NAME></td>
+<td><=HN></td>
+<td><=PASS></td>
+<td align="center"><a onclick="if(!confirm('§R°£?')) return false;" href="reporters/smshn/delete.asp?K=<=ID>"><img src="images/trashcan.gif" border="0"></a></td>
+</tr>

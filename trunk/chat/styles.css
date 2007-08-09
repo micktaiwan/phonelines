@@ -1,0 +1,38 @@
+div { /* hasLayout IE bug fix */
+   display: inline-block;
+   }
+span { /* hasLayout IE bug fix */
+   display: inline-block;
+   }
+
+td {
+   vertical-align:top;
+   }
+body, input,table  {
+   font-family:Arial;
+   font-size:small;
+   }
+
+strong {
+   color:#990000;
+   font-weight:bold;
+   }
+
+#status {
+   width: 400px;
+   margin: 10px 0px 10px 0px;
+   background-color:#FFDDAA;
+   }
+
+#result {
+   width: 400px;
+   background-color:#DDEEFF;
+   }
+
+input {
+   border: 1px black solid;
+   background-color: white;
+   }
+
+.date {
+   }

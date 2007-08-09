@@ -1,0 +1,29 @@
+<form name="addform" action="visits/edit.asp?K=<=ID>" method="post">
+<table border="0" cellspacing="0" cellpadding="0">
+<tr><td>輸入員: </td><td><input type="text" name="RESPONSIBLE" value="<=RESPONSIBLE>"></td></tr>
+<tr><td>日期: </td><td><input type="text" name="DATE" value="<=DATE>"><font color="#AAAAAA">如果沒有打好, 資料會失去</font></td></tr>
+<tr><td>地區: </td><td><input type="text" name="ZONE" value="<=ZONE>"></td></tr>
+<tr><td>工作別: </td><td>
+<select name="JOBTYPE">
+<option value="0" <&JOBTYPE="0>selected<&>>0 裝移機</option>
+<option value="1" <&JOBTYPE="1>selected<&>>1 ADSL</option>
+<option value="2" <&JOBTYPE="2>selected<&>>2 拆線</option>
+<option value="3" <&JOBTYPE="3>selected<&>>3 更模</option>
+<option value="4" <&JOBTYPE="4>selected<&>>4 ADL拆</option>
+<option value="5" <&JOBTYPE="5>selected<&>>5 MOD</option>
+<option value="6" <&JOBTYPE="6>selected<&>>6 FTTB</option>
+</select>
+</td></tr>
+<tr><td>班別: </td><td><input type="text" name="TEAM" value="<=TEAM>"></td></tr>
+<tr><td>聯單: </td><td><input type="text" name="SERIAL" value="<=SERIAL>"></td></tr>
+<tr><td>電話: </td><td><input type="text" name="PHONE" value="<=PHONE>"></td></tr>
+<tr><td>上下: </td><td><input type="text" name="AMPM" value="<=ampm>"></td></tr>
+<tr><td>結果: </td><td><input type="text" name="RESULT" value="<=RESULT>"></td></tr>
+<tr><td>原因: </td><td><input type="text" name="REASON" value="<=REASON>"></td></tr>
+<tr><td>備註: </td><td><input type="text" name="MEMO" value="<=MEMO>"></td></tr>
+<tr><td>客戶名稱: </td><td><input type="text" name="CUSTNAME" value="<=CUSTNAME>"></td></tr>
+<tr><td>地址: </td><td><input type="text" name="CUSTADDRESS" value="<=CUSTADDRESS>"></td></tr>
+<tr><td>聯絡電話: </td><td><input type="text" name="CONTACTPHONE" value="<=CONTACTPHONE>"></td></tr>
+<tr><td>&nbsp;</td><td><input class="button" type="button" value="OK" onclick="checkedit(document.addform);"></td></tr>
+</table>
+</form>

@@ -1,0 +1,28 @@
+<tr bgcolor="#<&ISFINISHED="1>AAAAA0<&/><&ISCURRENT="1>FFFFF0<&/>DDDDD0<&><&>">
+<td align="center">
+<a href="l.asp?bom=1&P=wdata&SP=edit&K=<=ID>"><img src="images/edit.gif" border="0"></a>
+</td>
+<td><=IDNUMBER></td>
+<td><&INSTALL="1>Yes<&></td>
+<td width="400"><=NAME></td>
+<td><=RESPONSIBLE></td>
+<td><=MANAGERNAME><&MANAGERNAME="><strong>???</strong><&></td>
+<td align="right"><=YEAR></td>
+<td align="right"><=NBPERIOD></td>
+<td><=FINISHEDDATE@><&ISCURRENT="0+FINISHEDDATE@=">???<&></td>
+<td><=DATEFROM> ~ <=DATETO><&DAYS!"0><&DIF>"15> <font color="red">應該是<=SHOULDDATE></font><&><&></td>
+<td align="right" <&DAYS!"0><&DIF>"15>bgcolor="#FFB0B0"<&><&>><=DAYS> <font color="#555500"><=REALDAYS></font></td>
+<td><=SUPPLIER></td>
+<td align="right"><=NB></td>
+<td align="right"><=PRICE></td>
+<td align="right" bgcolor="#<&NBxPRICE="0>FFB0B0<&/>FFFFF0<&>"><=NBxPRICE></td>
+<td>
+<&CALCULTYPE="1>積點<&>
+<&CALCULTYPE="2>專案<&>
+</td>
+<td>
+<&TAXTYPE="1>含稅<&>
+<&TAXTYPE="2>不含稅<&>
+</td>
+<td align="center"><a onclick="if(!confirm('刪除?')) return false;" href="bom/work/data/delete.asp?K=<=ID>"><img src="images/trashcan.gif" border="0"></a></td>
+</tr>

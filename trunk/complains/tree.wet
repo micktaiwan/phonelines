@@ -1,0 +1,14 @@
+<tr bgcolor="#EEEEEE">
+<td align="center"><a href="l.asp?P=repairlog&SP=edit&K=<=ID>"><img src="images/edit.gif" border="0"></a></td>
+<td><=DATE></td>
+<td><=REPORTDATE></td>
+<td><=REPORTER></td>
+<td><a href="l.asp?P=repairlog&SP=search&PHONE=<=PHONE>"><=PHONE></a></td>
+<td><=VISITSERIAL></td>
+<td><=PHONEID></td>
+<td><=BOXID></td>
+<td><=REASON></td>
+<td><=ADDRESS></td>
+<td><=MEMO></td>
+<td align="center"><a onclick="if(!confirm('§R°£?')) return false;" href="complains/delete.asp?K=<=ID>"><img src="images/trashcan.gif" border="0"></a></td>
+</tr>

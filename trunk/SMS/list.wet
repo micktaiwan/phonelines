@@ -1,0 +1,2 @@
+<&SMSPHONE!"><input id="dest<=ID>-<=GROUPID>" type="checkbox" name="DEST" value="<=NAME>, <=SMSPHONE>">&nbsp;<=NAME>
+<&/><input type="checkbox" disabled>&nbsp;<=NAME><&> 

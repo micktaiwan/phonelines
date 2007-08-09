@@ -1,0 +1,29 @@
+<form name="addform" action="reporters/edit.asp?K=<=ID>" method="post">
+<table border="0" cellspacing="2" cellpadding="2">
+<tr><td>代碼: </td><td><input type="text" name="CODE" value="<=CODE>"></td></tr>
+<tr><td>名字: </td><td><input type="text" name="NAME" value="<=NAME>"></td></tr>
+<tr><td>密碼: </td><td><input type="text" name="PASS" value="<=PASS>"></td></tr>
+<tr><td>權利: </td><td style="background-color:#EEEEE0;border:solid 1px #AAAAA0;">
+<input type="radio" name="admin" value="4" <&ADMIN="4>checked<&>> 工班<br>
+<input type="radio" name="admin" value="0" <&ADMIN="0>checked<&>> 凡人<br>
+<input type="radio" name="admin" value="3" <&ADMIN="3>checked<&>> 超人<br>
+<input type="radio" name="admin" value="1" <&ADMIN="1>checked<&>> 管理人<br>
+<input type="radio" name="admin" value="2" <&ADMIN="2>checked<&>> 國王<br>
+<input type="radio" name="admin" value="5" <&ADMIN="5>checked<&>> 管理大師<br>
+</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td style="background-color:#EEEEE0;border:solid 1px #AAAAA0;">
+工程管理:<input type="radio" name="bom" value="0" <&BOM="0>checked<&>> No
+<input type="radio" name="bom" value="1" <&BOM="1>checked<&>> Yes<br>
+</td>
+</tr>
+<tr><td>SMS Phone: </td><td><input type="text" name="smsphone" value="<=SMSPHONE>"></td></tr>
+<tr><td>團體: </td><td><select name="GROUPID">
+<option value="0">None</option>
+<~11GROUPID>
+</select> [<a href="l.asp?P=reporters&SP=groups&SP2=add">增加</a>]</td></tr>
+<tr><td>&nbsp;</td><td><input class="button" onclick="javascript:verify();" type="button" value="改變"></td></tr>
+</table>
+</form>

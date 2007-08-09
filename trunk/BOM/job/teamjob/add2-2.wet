@@ -1,0 +1,4 @@
+<tr><td>項次代號:</td><td class="abc"><=CODE></td></tr>
+<tr><td>工作項目:</td><td class="abc"><=SUBJECT></td></tr>
+<tr><td>單位:</td><td class="abc"><=UNIT></td></tr>
+<tr><td>單位積點:</td><td class="abc"><=POINTS></td></tr>

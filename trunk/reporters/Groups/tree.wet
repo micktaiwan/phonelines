@@ -1,0 +1,4 @@
+<tr bgcolor="#EEEEEE"  style="font-size:8pt;">
+<td><a href="l.asp?P=reporters&SP=groups&SP2=edit&K=<=ID>"><=NAME></a></td>
+<td align="center"><a href="reporters/groups/delete.asp?K=<=ID>" onclick="if(!confirm('Sure?'))return false;"><img src="images/trashcan.gif" border="0"></a></td>
+</tr>

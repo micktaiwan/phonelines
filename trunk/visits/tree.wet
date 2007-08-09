@@ -1,0 +1,35 @@
+<tr bgcolor="#EEEEEE">
+<&0>"0>
+<td align="center"><&0!"4><a href="l.asp?P=repairlog&SP=afv&K=<=ID>"><&RESULT="竣工>障礙<&><&RESULT="修復>障礙<&></a><&></td>
+<td align="center"><&0!"4><a href="l.asp?P=visits&SP=edit&K=<=ID>"><img src="images/edit.gif" border="0"></a><&></td>
+<td align="center"><&0!"4><&RESULT="障礙><a href="l.asp?P=visits&SP=result&R=修復&PH=<=PHONE>">修復</a><&><&></td>
+<td><=RESPONSIBLE></td>
+<&>
+<td><=DATE></td>
+<td><a href="#" title="<=NAME>"><=TEAM></a></td>
+<td><=SERIAL></td>
+<td<&PCHECK="1> bgcolor="#FF4444"<&>><=PHONE></td>
+<td><=ZONE></td>
+<td><=JOBTYPE></td>
+<td><=AMPM></td>
+<td align="center"><&RESULT="障礙><a href="l.asp?P=repairlog&SP=byv&K=<=ID>">障礙</a><&/><=RESULT><&></td>
+<td><&RESULT="障礙>看障礙<&/><=REASON><&></td>
+<td><=MEMO></td>
+<td><=CUSTNAME></td>
+<td><=CUSTADDRESS></td>
+<td><=CONTACTPHONE></td>
+<td>
+<b><=COMPLAINNAME> <=COMPLAINSEX></b><br>
+<&COMPLAINHPHONE!"><b>(H)</b><=COMPLAINHPHONE><br><&>
+<&COMPLAINOPHONE!"><b>(O)</b><=COMPLAINOPHONE><br><&>
+<&COMPLAINCPHONE!"><b>(C)</b><=COMPLAINCPHONE><br><&>
+</td>
+<&0>"0>
+<td align="center"><&0!"4><a onclick="if(!confirm('刪除?')) return false;" href="visits/delete.asp?K=<=ID>"><img src="images/trashcan.gif" border="0"></a><&></td>
+<&/>
+<td align="center"><&0!"4>
+<&RESULT="障礙>已申告處理中<&>
+<&RESULT="竣工><a href="l.asp?P=visits&SP=complain&K=<=ID>">請按此申告障礙</a></td><&>
+<&RESULT="修復><a href="l.asp?P=visits&SP=complain&K=<=ID>">請按此申告障礙</a></td><&>
+<&>
+</tr>

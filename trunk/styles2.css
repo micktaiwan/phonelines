@@ -1,0 +1,188 @@
+BODY {font-family: Arial;font-size:9pt;}
+TABLE {font-family: Arial;font-size:9pt;}
+TD {vertical-align:top;}
+a:link {color:#0080C0; text-decoration: none; cursor: none;}
+a:visited {color:#0080C0;text-decoration: none; cursor: none;}
+A:active {color:#3333FF;}
+A:hover {color:#3333FF;}
+INPUT {font-family: Arial;font-size:9pt;}
+TEXTAREA {font-family: Arial;font-size:9pt;}
+STRONG {
+   color: #AA0000;
+   font-weight:bold;
+   }
+h1,h2 {
+   margin: 0px;
+   }
+input, button, textarea, select {
+   background-color:#EEEEEE;
+   }
+div { /* hasLayout IE bug fix */
+   display: inline-block;
+   }
+span { /* hasLayout IE bug fix */
+   display: inline-block;
+   }
+.a93 {font-size:9pt; font-family:Arial; line-height:13pt}
+.a92 {font-size:9pt; font-family:Arial; line-height:12pt}
+.a91 {font-size:9pt; font-family:Arial; line-height:11pt}
+.a90 {font-size:9pt; font-family:Arial;}
+.a80 {font-size:8pt; font-family:Arial;}
+
+.t93 {font-size:9pt; line-height:13pt;}
+.t92 {font-size:9pt; line-height:12pt;}
+.t91 {font-size:9pt; line-height:11pt;}
+.t90 {font-size:9pt; }
+
+.m93 {font-family:細明體; font-size:9pt; line-height:13pt}
+.m92 {font-family:細明體; font-size:9pt; line-height:12pt}
+.m91 {font-family:細明體; font-size:9pt; line-height:11pt}
+.m90 {font-family:細明體; font-size:9pt;}
+
+.A {font-size:9pt; color:#FFFFFF;}
+
+UL { margin:0px; margin-left: 20px; }
+OL { margin:0px; margin-left: 40px; }
+
+.button {
+   border:solid 1px black;
+   background-color:#3366AA;
+   font-size:10pt;
+   color:#FFFFFF;
+   font-weight:bold;
+   padding:0px;
+   }
+
+.linkbut {
+   padding: 0px 2px 0px 2px;
+   margin:0px 0px 20px 0px;
+	border: 1px solid #AAAAA0;
+	font-size: 9pt;
+	background:#eeeee0;
+   }
+
+.PageTitle{color:#4444FF; font-weight:bold; width:100%;}
+.Collapsed {visibility:hidden;display:none;}
+.Expanded {visibility:visible;display:block;}
+
+.alert {
+   margin: 10px 0px 10px 0px;
+   border: 2px dashed #DDDDDD;
+   padding: 5px;
+   background-color : #FFFFDD;
+   }
+
+.logbox {
+   margin: 0px 10px 10px 10px;
+   border: 1px dashed #888888;
+   padding: 5px;
+   background-color : #EEEEEE;
+   }
+
+.infobox {
+   margin: 10px;
+   border: 2px solid #888888;
+   padding: 10px;
+   background-color : #EEEEEE;
+   }
+
+#status {
+   width: 200px;
+   margin: 10px;
+   border: 1px solid #DDDDDD;
+   padding: 2px;
+   background-color : #EEEEE0;
+   }
+
+#header {
+  margin: 10px 10px 10px 0px;
+  float:left;
+  width:100%;
+  background:#DAE0D2 url("images/cssmenu/bg.gif") repeat-x bottom;
+  line-height:normal;
+  }
+#header ul {
+  margin:0;
+  padding:10px 10px 0;
+  list-style:none;
+  }
+#header li {
+  float:left;
+  background:url("images/cssmenu/left.gif") no-repeat left top;
+  margin:0;
+  padding:0 0 0 9px;
+  }
+#header a {
+  float:left;
+  display:block;
+  background:url("images/cssmenu/right.gif") no-repeat right top;
+  padding:5px 15px 4px 6px;
+  text-decoration:none;
+  font-weight:normal;
+  color:#765;
+  }
+/* Commented Backslash Hack
+   hides rule from IE5-Mac \*/
+#header a {float:none;}
+/* End IE5-Mac hack */
+#header a:hover {
+  color:#333;
+  }
+#header #current {
+  background-image:url("images/cssmenu/left_on.gif");
+  }
+#header #current a {
+  background-image:url("images/cssmenu/right_on.gif");
+  color:#333;
+  padding-bottom:5px;
+  }
+
+
+#header2 {
+  float:left;
+  width:100%;
+  /*background:#369 url("images/cssmenu/bg.gif") repeat-x bottom;*/
+  line-height:normal;
+  }
+#header2 ul {
+  margin:0;
+  padding:10px 10px 0;
+  list-style:none;
+  }
+#header2 li {
+  float:left;
+  background:url("images/cssmenu/right2.gif") no-repeat right top;
+  margin:0;
+  padding:0 5px 0 0;
+  }
+#header2 a {
+  float:left;
+  display:block;
+  background:url("images/cssmenu/left2.gif") no-repeat left top;
+  padding:5px 7px 4px 20px;
+  text-decoration:none;
+  font-weight:normal;
+  color:#9cf;
+  }
+/* Commented Backslash Hack
+   hides rule from IE5-Mac \*/
+#header2 a {float:none;}
+/* End IE5-Mac hack */
+#header2 a:hover {
+  color:#fff;
+  }
+#header2 #current {
+  background-image:url("images/cssmenu/right_on2.gif");
+  }
+#header2 #current a {
+  background-image:url("images/cssmenu/left_on2.gif");
+  color:#333;
+  padding-bottom:5px;
+  }
+
+
+@media print {
+.noprint {
+   display:none;
+   }
+}

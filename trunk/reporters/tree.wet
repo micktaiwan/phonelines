@@ -1,0 +1,11 @@
+<tr bgcolor="#EEEEEE">
+<td align="center"><&0="5><a href="l.asp?P=reporters&SP=edit&K=<=ID>"><img src="images/edit.gif" border="0"></a><&></td>
+<td><&ADMIN="1/ADMIN="2><strong><&><&ADMIN="2/ADMIN="3/ADMIN="4><font color="<&ADMIN="2>red<&><&ADMIN="3>blue<&><&ADMIN="4>#777700<&>"><&><&ADMIN="5><b><&><=NAME><&ADMIN="5></b><&><&ADMIN="1/ADMIN="2></strong><&><&ADMIN="2></font><&></td>
+<td><&SMSPHONE="><strong>No SMS</strong> <&><=GROUPNAME></td>
+<td><=CODE><&></td>
+<td><&0="2><=PASS><&/>****<&></td>
+<td align="center" <&ADMIN="3>bgcolor="#FFFFFF"<&/>bgcolor="#DDDDDD"<&>><&ADMIN="3><~11><&/>©Ò¦³<&></td>
+<td align="center"><=SMSHNNAME><&SMSHNNAME="><strong>Not defined</strong><&></td>
+<td align="center" <&BOM="1>bgcolor="#AAFFAA"<&>><&BOM="1>Yes<&></td>
+<td align="center"><&0="5><a onclick="if(!confirm('§R°£?')) return false;" href="reporters/delete.asp?K=<=ID>"><img src="images/trashcan.gif" border="0"></a><&></td>
+</tr>

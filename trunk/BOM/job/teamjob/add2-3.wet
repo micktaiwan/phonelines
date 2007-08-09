@@ -1,0 +1,3 @@
+<tr><td>局料代碼:</td><td class="abc"><=SUPPLIER></td></tr>
+<tr><td>材料名稱:</td><td class="abc"><=NAME></td></tr>
+<tr><td>單位:</td><td class="abc"><=UNIT></td></tr>

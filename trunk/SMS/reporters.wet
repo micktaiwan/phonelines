@@ -1,0 +1,1 @@
+<input id="reporters<=ID>-<=GROUPID>" type="checkbox" name="DEST" value="<=NAME>, <=SMSPHONE>">&nbsp;<=NAME>

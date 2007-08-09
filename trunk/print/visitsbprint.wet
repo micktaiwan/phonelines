@@ -1,0 +1,23 @@
+<tr bgcolor="white">
+<td align="right"><=%></td>
+<&0>"0>
+<td><=RESPONSIBLE></td>
+<&>
+<td><=DATE></td>
+<td><=TEAM></td>
+<td><=PHONE></td>
+<td><&RESULT="0>竣工<&><&RESULT="1>再派<&><&RESULT="2>註銷<&></td>
+<td>
+<&REASON="0>ATUR因素-Microfilter不良<&>
+<&REASON="1>ATUR因素-Splitter不良<&>
+<&REASON="2>ATUC因素-卡片不良<&>
+<&REASON="3>LOOP線路-測量台線路不良<&>
+<&REASON="4>LOOP線路-纜線線路不良<&>
+<&REASON="5>客戶因素-屋內線<&>
+<&REASON="6>客戶因素-客戶設備<&>
+<&REASON="7>其他<&>
+</td>
+<td><=UP></td>
+<td><=DOWN></td>
+<td><=MEMO></td>
+</tr>

@@ -1,0 +1,22 @@
+<form name="casesform" action="cases/edit.asp?K=<=ID>" method="post">
+<table border="0" cellspacing="0" cellpadding="0">
+<tr><td>招標機關: </td><td><input type="text" name="ORGAN" value="<=ORGAN>"> 文字</td></tr>
+<tr><td>工程名稱: </td><td><input type="text" name="NAME" value="<=NAME>"> 文字</td></tr>
+<tr><td>工程編號: </td><td><input type="text" name="NUMBER" value="<=NUMBER>"> 文字</td></tr>
+<tr><td>開標日期: </td><td><input type="text" name="OPENDATE" value="<=OPENDATE>"> 日期</td></tr>
+<tr><td>投標期限: </td><td><input type="text" name="BIDLIMIT" value="<=BIDLIMIT>"> 日期</td></tr>
+<tr><td>履約期限: </td><td><input type="text" name="APPOINTLIMIT" value="<=APPOINTLIMIT>"> 文字</td></tr>
+<tr><td>押金額度: </td><td><input type="text" name="DEPOSIT" value="<=DEPOSIT>"> 整數</td></tr>
+<tr><td>標單費用: </td><td><input type="text" name="CHARGES" value="<=CHARGES>"> 整數</td></tr>
+<tr><td>預算金額: </td><td><input type="text" name="BUDGET" value="<=BUDGET>"> 整數</td></tr>
+<tr><td>底價金額: </td><td><input type="text" name="BASEPRICE" value="<=BASEPRICE>"> 整數</td></tr>
+<tr><td>標價金額: </td><td><input type="text" name="PRICE" value="<=PRICE>"> 整數</td></tr>
+<tr><td>核定點數: </td><td><input type="text" name="UNITCOUNT" value="<=UNITCOUNT>"> 整數</td></tr>
+<tr><td>得標單價: </td><td><input type="text" name="UNIT" value="<=UNIT>"> 實數</td></tr>
+<tr><td>底價單價: </td><td><input type="text" name="UNITBASE" value="<=UNITBASE>"> 實數</td></tr>
+<tr><td>得標廠商: </td><td><input type="text" name="FACTORY" value="<=FACTORY>"> 文字</td></tr>
+<tr><td>公告日期: </td><td><input type="text" name="ANNOUNCEDATE" value="<=ANNOUNCEDATE>"> 日期</td></tr>
+<tr><td>下載: </td><td><input type="radio" name="DL" value="0" <&DL!"1>checked<&>> 否 <input type="radio" name="DL" value="1" <&DL="1>checked<&>> 是</td></tr>
+<tr><td>&nbsp;</td><td><input class="button" type="submit" value="編輯"></td></tr>
+</table>
+</form>

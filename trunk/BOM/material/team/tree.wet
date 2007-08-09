@@ -1,0 +1,12 @@
+<tr bgcolor="#EEEEE0">
+<td align="center">
+<a href="l.asp?bom=1&P=teammat&SP=edit&K=<=ID>"><img src="images/edit.gif" border="0"></a>
+</td>
+<td><=TEAM></td>
+<td><=DATE></td>
+<td><=MATCODE></td>
+<td><=MATNAME><&MATNAME="><strong>¿ù»~</strong><&></td>
+<td><=REALNB></td>
+<td><=PAYNB></td>
+<td align="center"><a onclick="if(!confirm('§R°£?')) return false;" href="bom/material/team/delete.asp?K=<=ID>"><img src="images/trashcan.gif" border="0"></a></td>
+</tr>

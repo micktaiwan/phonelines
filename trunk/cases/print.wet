@@ -1,0 +1,13 @@
+<tr bgcolor="white">
+<td align="center"><&DL="1><img src="../images/bul2.gif"><&></td>
+<td><=ORGAN></td>
+<td><=NUMBER></td>
+<td><=NAME></td>
+<td><=BIDLIMIT></td>
+<td><=DEPOSIT></td>
+<td><=CHARGES></td>
+<td><=OPENDATE></td>
+<td><=APPOINTLIMIT></td>
+<td><=UNITCOUNT><!--BUDGET--></td>
+<td><=ANNOUNCEDATE></td>
+</tr>

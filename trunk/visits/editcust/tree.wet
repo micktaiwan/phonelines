@@ -1,0 +1,26 @@
+<tr bgcolor="#EEEEEE">
+<&0="1>
+<td align="center"><a href="l.asp?P=visits&SP=edit&K=<=ID>"><img src="images/edit.gif" border="0"></a></td>
+<td><=RESPONSIBLE></td>
+<&>
+<td><=DATE></td>
+<td><=TEAM> <=NAME> (<=PHONES>)</td>
+<td><=SERIAL></td>
+<td<&PCHECK="1> bgcolor="#FF4444"<&>><=PHONE></td>
+<td><=ZONE></td>
+<td><=AMPM></td>
+<td align="center"><&0="1><&RESULT="><a href="l.asp?P=visits&SP=editr&K=<=ID>"><img src="images/edit.gif" border="0"></a><&/><=RESULT><&><&></td>
+<td><=REASON></td>
+<td><=MEMO></td>
+<td><=CUSTNAME></td>
+<td><=CUSTADDRESS></td>
+<td><=CONTACTNAME></td>
+<td><=CONTACTPHONE></td>
+<&0="1>
+<td align="center"><a onclick="if(!confirm('刪除?')) return false;" href="visits/delete.asp?K=<=ID>"><img src="images/trashcan.gif" border="0"></a></td>
+<&/>
+<td align="center">
+<&RESULT="障礙>已申告處理中<&>
+<&RESULT!"障礙><a href="l.asp?P=visits&SP=complain&K=<=ID>">請按此申告障礙</a></td><&>
+<&>
+</tr>
