@@ -29,7 +29,7 @@
       obj.NewQuery("SELECT TOP 1 ID FROM VISITS WHERE phone='"+phone+"' AND ISNULL(RESULT,'')!='"+result+"'"+cond1+" AND COMPANYID='"+company_id+"'");
    else {
      if(date=="undefined") {
-         Response.Write("未下定義的日期");
+         Response.Write(escape("未下定義的日期"));
          obj = "";
          Response.End();
          }
@@ -39,25 +39,20 @@
    obj.NewTemplate(SitePath+"id.wet");
 
    var id =  obj.GenerateString(0,0);
-   //obj.Generate(0,0);
-   //obj = "";
-   //Response.End();
    var nb = 0;
    if(id=="") {
-      Response.Write("<strong>錯誤</strong>: 找不到記錄 (電話:"+phone+")");
+      Response.Write(escape("<strong>錯誤</strong>: 找不到記錄 (電話:"+phone+")"));
       obj = "";
       Response.End();
       }
    while(id!="") {
-      //Response.Write(id+"<br>");
-      //obj.ClearAll();
       if(result=="竣工") {
          // Verify if the result was not already 拆線 (a 拆線 can not be transformed in 竣工)
          obj.Open("SELECT RESULT FROM VISITS WHERE ID="+id);
          var r = obj.Field("RESULT");
          if(r=="拆線") {
             obj = "";
-            Response.Write("已拆線不可在竣工鍵檔輸入");
+            Response.Write(escape("已拆線不可在竣工鍵檔輸入"));
             Response.End();
             }
          }
@@ -72,5 +67,6 @@
       id = obj.GenerateString(0,0);
       }
    obj = "";
-   Response.Redirect("../../l.asp?P=visits&SP=result&R="+result+"&E=1&NB="+nb);
+   //Response.Redirect("../../l.asp?P=visits&SP=result&R="+result+"&E=1&NB="+nb);
+	Response.Write(escape(nb));
 %>

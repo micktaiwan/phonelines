@@ -49,9 +49,8 @@ function lastdata_result(s) {
 	}
    
 function submit_result(s) {
-	
 	if(s=="1") {
-		setstatus("<font color=red><b>OK</b></font><br>");
+		setstatus("<font color=red><b>OK</b></font>");
 		//majax.get("visits/cgetlastdata.asp",lastdata_result);
 		document.addform.SERIAL.value = "";
 		document.addform.PHONE.value = "";

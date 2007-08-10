@@ -8,14 +8,45 @@
 %>
 
 <script language="javascript">
+	
+	
+	function submit_result(s) {
+		s = unescape(s);
+		if(String(parseInt(s))==s) {
+			setstatus("更改了"+s+"個記錄");
+			document.addform.PHONE.value = "";
+			}
+		else setstatus("<strong>"+s+"</strong>")
 
+		}
+	
+	function getformdata(f) {
+		var s = "";
+		var n;
+		for(i=0;i<f.elements.length;i++) {
+			n = f.elements[i].name;
+			if(n!="")
+	         s += n+"="+f.elements[i].value+"&";
+			}
+		return s;
+		}
+	function setstatus(s) {
+	   var st = document.getElementById("status");
+	   if(!st) alert("no status id found on this page\nMsg was: "+s);
+	   else st.innerHTML = s;
+	   }
+
+	function submit() {
+		setstatus("請稍候...");
+		majax.get("visits/editr/edit.asp?"+getformdata(document.addform),submit_result);
+		}
    function vereditr () {
 
       f = document.addform;
       if(f.team && !checkNull(f.team,'班別')) return;
       if(f.date && !checkNull(f.date,'日期')) return;
       if(f.phone && !checkNull(f.phone,'電話')) return;
-      f.submit();
+      submit();
 
       }
 
@@ -44,7 +75,7 @@
 
 
 <tr>
-<td class="a90">電話號碼：</td><td class="a90"><input type="text" name="phone"
+<td class="a90">電話號碼：</td><td class="a90"><input type="text" id="phone" name="phone"
 <%
    if(result=="竣工" || result=="拆線" || result=="隔日") {
 %>
@@ -111,6 +142,9 @@ value="<%=phone%>"  class="a90" style="height:14pt"></td>
 </table>
 <input type="hidden" name="result" value="<%=result%>">
 </form>
+
+<div id="status"></div>
+
 <%
    var e = String(Request("E"));
    if(e=="1") {
