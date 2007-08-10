@@ -119,6 +119,6 @@ function getgifts(mode,opt) {
       s += table.rows[i].id;
       }
    //alert(s+", opt="+opt);
-   if(opt==null) majax.get("gifts/js/getgifts_"+mode+".asp?IDS="+s,getgifts_result);
-   else majax.get("gifts/js/getgifts_"+mode+".asp?IDS="+s+opt,getgifts_result);
+   if(opt==null) majax.get("gifts/js/getgifts_"+mode+".asp?IDS="+s+"&XX="+new Date().getTime(),getgifts_result);
+   else majax.get("gifts/js/getgifts_"+mode+".asp?IDS="+s+opt+"&XX="+new Date().getTime(),getgifts_result);
    }
