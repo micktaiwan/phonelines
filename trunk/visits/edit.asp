@@ -11,5 +11,9 @@
    obj.Modify("visits",k)
 
    obj = "";
-   Response.Redirect("../l.asp?P=visits");   
+	var r = unescape(String(Request("R")))
+	if(r!= "undefined")
+		Response.Redirect(r);   
+	else	
+		Response.Redirect("../l.asp?P=visits");   
 %>
