@@ -29,6 +29,9 @@ Mickael.<br>
       case "name" :
        	 %><!-- include file="cname.asp" --><%
          break;
+      case "most" :
+       	 %><!--#include file="cmost_visited.asp" --><%
+         break;
       default:
 %>
 This page can not be found ( <B><%=sp%></B>)<br>
