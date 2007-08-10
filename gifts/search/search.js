@@ -4,7 +4,7 @@
    //============================
    function sendform_normal(date,team) {
       setstatus(txt);
-      majax.get("gifts/search/fetchnormal.asp?D="+date+"&T="+team,display_normal);
+      majax.get("gifts/search/fetchnormal.asp?D="+date+"&T="+team+"&XX="+ new Date().getTime(),display_normal);
       }
    function display_normal(s) {
       document.getElementById("sendform_result").innerHTML = unescape(unescape(s));
