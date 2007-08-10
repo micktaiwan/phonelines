@@ -8,18 +8,14 @@
 %>
 
 <script language="javascript">
-	
-	
 	function submit_result(s) {
 		s = unescape(s);
 		if(String(parseInt(s))==s) {
 			setstatus("更改了"+s+"個記錄");
-			document.addform.PHONE.value = "";
+			document.addform.phone.value = "";
 			}
 		else setstatus("<strong>"+s+"</strong>")
-
 		}
-	
 	function getformdata(f) {
 		var s = "";
 		var n;
@@ -35,29 +31,22 @@
 	   if(!st) alert("no status id found on this page\nMsg was: "+s);
 	   else st.innerHTML = s;
 	   }
-
 	function submit() {
 		setstatus("請稍候...");
 		majax.get("visits/editr/edit.asp?"+getformdata(document.addform),submit_result);
 		}
    function vereditr () {
-
-      f = document.addform;
+      var f = document.addform;
       if(f.team && !checkNull(f.team,'班別')) return;
       if(f.date && !checkNull(f.date,'日期')) return;
       if(f.phone && !checkNull(f.phone,'電話')) return;
       submit();
-
       }
 
    function catchKey(event,object) {
-
       if(event.keyCode==13) vereditr();
       return false;
-
       }
-
-
 </script>
 
 <b><%=result%>鍵檔</b><br>
