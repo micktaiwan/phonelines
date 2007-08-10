@@ -11,11 +11,16 @@ function checkedit(form) {
 </script>
 
 <%
+	var k = String(Request("K"));
+	r = escape(String(Request.servervariables("http_referer")));
+%>
+<form name="addform" action="visits/edit.asp?K=<%=k%>&R=<%=r%>" method="post">
+<%
    if(admin!="4") {
       obj.ClearAll();
-      var k = String(Request("K"));
       obj.NewQuery("SELECT * FROM visits where id="+k);
       obj.NewTemplate(SitePath+"visits\\edit.wet");
       obj.Generate(0,0);
       }
 %>
+</form>

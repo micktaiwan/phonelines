@@ -1,4 +1,4 @@
-<form name="addform" action="visits/edit.asp?K=<=ID>" method="post">
+
 <table border="0" cellspacing="0" cellpadding="0">
 <tr><td>輸入員: </td><td><input type="text" name="RESPONSIBLE" value="<=RESPONSIBLE>"></td></tr>
 <tr><td>日期: </td><td><input type="text" name="DATE" value="<=DATE>"><font color="#AAAAAA">如果沒有打好, 資料會失去</font></td></tr>
@@ -26,4 +26,3 @@
 <tr><td>聯絡電話: </td><td><input type="text" name="CONTACTPHONE" value="<=CONTACTPHONE>"></td></tr>
 <tr><td>&nbsp;</td><td><input class="button" type="button" value="OK" onclick="checkedit(document.addform);"></td></tr>
 </table>
-</form>
