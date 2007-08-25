@@ -24,10 +24,10 @@
    obj.NewQuery("SELECT ID, ZONE, DATE, TEAM, PHONE, SERIAL, RESULT FROM VISITS WHERE team='"+team+"' AND DATE='"+date+"' AND phone='"+phone+"'");
    obj.NewTemplate(SitePath+"gifts\\give\\tree.wet");
    rv += obj.GenerateString(0,0);
-   rv += "</table>";
+	rv += "</table>";
    rv += "請確定是否要刪除，如按『ok』一經確認則資料需重新輸入<br>";
-   rv += "<input class=\"button\" type=\"button\" onclick=\"delconfirmed('"+list+"')\" value=\"       OK       \">";
-
+	rv += "<input class=\"button\" type=\"button\" onclick=\"delconfirmed('"+list+"')\" value=\"       OK       \">";
+		
    Response.Write(escape(rv));
 
    obj = "";
