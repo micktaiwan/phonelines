@@ -7,8 +7,8 @@
    var obj = Server.CreateObject("MATech.Engine");
    obj.SetDB(DB,"sa","engine");
    var k = String(Request("K"));
-   
-   obj.Modify("visits",k)
+	if(k!="undefined")	
+		obj.Modify("visits",k)
 
    obj = "";
 	var r = unescape(String(Request("R")))
