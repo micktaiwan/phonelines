@@ -114,7 +114,7 @@
 
       sms.Phone = phone;
       error = "";
-      result = 0;//sms.Send();
+      result = sms.Send();
       if(result==0) { //SUCCESS
          Response.Write("OK<br>");
          obj.Execute("UPDATE BANNERS SET NBVIEW=NBVIEW+1 WHERE ID='"+advid+"'");
