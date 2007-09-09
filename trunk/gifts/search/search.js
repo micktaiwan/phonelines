@@ -9,8 +9,6 @@
    function display_normal(s) {
       document.getElementById("sendform_result").innerHTML = unescape(unescape(s));
       getgifts("normal");
-      //sortables_init();
-
       }
    //============================
    function sendform_daily(date,zone) {
