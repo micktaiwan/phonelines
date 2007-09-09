@@ -90,6 +90,7 @@ function getgifts_result(s) {
    var len = rows.length;
    var col;
    var opt;
+	try {
    for(i=0;i<len;++i) {
       pairs = rows[i].split(":");
       if(!pairs[0]) continue;
@@ -103,6 +104,9 @@ function getgifts_result(s) {
       }
    addSum();
    setstatus("&nbsp;");
+	} catch(e) {
+	alert(e+"\n"+s);
+	}
    }
 
 function getgifts(mode,opt) {
