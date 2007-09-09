@@ -3,7 +3,7 @@
 <!--#include file="../../func.asp" -->
 <!--#include file="../get_vars.asp"-->
 <%
-   try {
+try {
    var ids = String(Request("IDS"));
    var obj = Server.CreateObject("MATech.Engine");
    obj.SetDB(DB,"sa","engine");
@@ -13,7 +13,7 @@
    for(i=0; i<ids.length;++i) {
       if(ids[i]=="") continue;
       obj.ClearAll();
-      obj.NewQuery("SELECT "+maintable+".NAME, "+sectable+".NB FROM "+sectable+" LEFT OUTER JOIN "+maintable+" ON "+maintable+".ID="+sectable+".MAINID WHERE "+sectable+".VISITID='"+ids[i]+"'");
+      obj.NewQuery("SELECT "+maintable+".CODE,"+maintable+".NAME, "+sectable+".NB FROM "+sectable+" LEFT OUTER JOIN "+maintable+" ON "+maintable+".ID="+sectable+".MAINID WHERE "+sectable+".VISITID='"+ids[i]+"' ORDER BY CODE");
       obj.NewTemplate(SitePath+"gifts\\js\\nb.wet");
       gifts = obj.GenerateString(0,0);
       if(gifts!="") rv += ids[i]+":"+ gifts + ";";
@@ -21,9 +21,9 @@
    Response.Write(escape(rv));
    obj = "";
    }
-   catch(e) {
-      Response.Write("getgifts.asp error: "+escape(String(e)));
-      }
+catch(e) {
+   Response.Write("getgifts.asp error: "+escape(String(e)));
+   }
 %>
 
 
