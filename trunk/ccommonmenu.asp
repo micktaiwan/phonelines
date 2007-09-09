@@ -1,3 +1,15 @@
+<script>
+function update_online_list() {
+majax.get("fetch_online_list.asp",update_online_list_display);
+return false;
+}
+function update_online_list_display(s) {
+s = unescape(s);
+var l = document.getElementById("onlinelistc");
+if(!l) alert("no list id found on this page\nMsg was: "+s);
+else l.innerHTML = s;
+}
+</script>
 <%
    if(IsLogged("PHONE")) {
 
@@ -26,12 +38,11 @@
          // Visitors Display%>
          <a href="javascript:ShowHide('onlinelist')"><img src="images/arrow01.gif" border="0"><font color="#FFCC00">線上使用者</font></a>(30m)<br>
          <div id="onlinelist" style="DISPLAY: none; Z-INDEX: 2">
-         　<font size=1 color=#406893>以網頁參觀時間排列</font><br><%
-         obj.ClearAll();
-         obj.NewQuery("SELECT VISID, NAME, DATEDIFF(minute,DATE,getdate()) AS M, DATEDIFF(second,DATE,getdate()) AS S FROM VISITORS WHERE COMPANYID='"+company_id+"' ORDER BY DATE DESC");
-         obj.NewTemplate(SitePath+"visitors.wet");
-         obj.Generate(0,0);%>
-         </div><%
+         　<font size=1 color=#406893>以網頁參觀時間排列</font> <a href="#" onclick="update_online_list();">X</a><br>
+         <div id="onlinelistc"></div>
+			</div>
+			<script>update_online_list()</script>
+<%
          }
       }
       else {
