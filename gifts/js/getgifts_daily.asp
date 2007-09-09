@@ -17,7 +17,7 @@
       obj.ClearAll();
       var sql = "SELECT "+maintable+".CODE, "+maintable+".NAME, SUM("+sectable+".NB) AS NB FROM "+sectable+" LEFT OUTER JOIN "+maintable+" ON "+maintable+".ID="+sectable+".MAINID LEFT OUTER JOIN VISITS ON visits.ID="+sectable+".VISITID WHERE visits.TEAM='"+ids[i]+"' AND visits.DATE='"+date+"'";
       if(zone != '') sql += " AND visits.ZONE='"+zone+"'";
-      sql += " GROUP BY "+maintable+".NAME, "+maintable+".CODE ORDER BY CODE";
+      sql += " GROUP BY "+maintable+".NAME, "+maintable+".CODE";
       obj.NewQuery(sql);
       obj.NewTemplate(SitePath+"gifts\\js\\nb.wet");
       gifts = obj.GenerateString(0,0);
