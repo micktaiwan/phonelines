@@ -27,13 +27,12 @@ function addGiftTitle(name) {
    return index;
    }
 
-function addNb(id,y,nb,opt) {
+function addNb(id,y,nb) {
    var r = document.getElementById(id);
    if(!r) setstatus("addNb: can not find r. ");
    else {
       if(r.cells[y].innerHTML=="") r.cells[y].innerHTML = "0";
       r.cells[y].innerHTML = parseInt(r.cells[y].innerHTML)+parseInt(nb);
-      //r.cells[y].innerHTML = r.cells[y].innerHTML+" <a href='#' onclick=\"alert('"+opt+"');\">Edit</a>";
       }
    }
 
@@ -69,7 +68,18 @@ function addSum() {
       }
 
    }
-
+	
+function sort_gifts(a,b){
+	i = 0;
+	a = a[0]
+	b = b[0]
+	for(z=0;z<a.length-1;++z) if(a[z]==" ") a[z] = 'z';
+	for(z=0;z<b.length-1;++z) if(b[z]==" ") b[z] = 'z';
+	while(a[i] == b[i]) ++i;
+	//alert(a+" "+b+" "+i+" "+(a[i] < b[i]))
+	return (a[i] < b[i])? -1:1
+	}
+//alert(sort_gifts("2         ","1020      "));
 function getgifts_result(s) {
    if(s=="") {
       setstatus("<strong>無贈品資料</strong>");
@@ -85,28 +95,31 @@ function getgifts_result(s) {
    s = unescape(unescape(s));
    //alert(s);
    var rows = s.split(";");
-   var pairs;
-   var gifts;
-   var len = rows.length;
+   var pairs, g, gifts = new Array, len = rows.length;
    var col;
-   var opt;
 	try {
-   for(i=0;i<len;++i) {
-      pairs = rows[i].split(":");
-      if(!pairs[0]) continue;
-      gifts = pairs[1].split(",");
-      for(j=0;j<gifts.length;j+=2) {
-         if(gifts[j]=="") continue;
-         col = addGiftTitle(gifts[j]);
-         //alert(col+" "+pairs[0]+": "+gifts[j]+" "+gifts[j+1]);
-         addNb(pairs[0],col,gifts[j+1], opt);
-         }
-      }
-   addSum();
-   setstatus("&nbsp;");
-	} catch(e) {
-	alert(e+"\n"+s);
-	}
+	   for(i=0;i<len;++i) {
+	      pairs = rows[i].split(":");
+	      if(!pairs[0]) continue;
+	      g = pairs[1].split(","); //  gifts = [code,name,nb]
+	      for(j=0;j<g.length;j+=3) {
+	         if(g[j]=="") continue;
+				gifts.push(new Array(g[j], g[j+1], g[j+2], pairs[0])); // build a object that we can sort [code,name,nb,visitid]
+	         }
+	      }
+		// sort by code as wanted by chu	
+		gifts = gifts.sort(sort_gifts)
+		// display titles and numbers
+	   for(i=0;i<gifts.length;++i) {
+			col = addGiftTitle(gifts[i][1]);
+			addNb(gifts[i][3],col,gifts[i][2]);
+			}
+	   addSum();
+	   setstatus("&nbsp;");
+		}
+	catch(e) {
+		alert(e+"\n"+s);
+		}
    }
 
 function getgifts(mode,opt) {
