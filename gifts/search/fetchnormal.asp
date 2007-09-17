@@ -4,7 +4,7 @@
 <!--#include file="../get_vars.asp" -->
 <%
    var date = String(Request("D"));
-   var team = String(Request("T"));
+   var team = und(String(Request("T")));
    var obj = Server.CreateObject("MATech.Engine");
    obj.SetDB(DB,"sa","engine");
 
@@ -18,12 +18,13 @@
    rv += "<td>µ²ªG</td>";
    rv += "</tr>";
    obj.ClearAll();
-   obj.NewQuery("SELECT DISTINCT visits.ID, visits.zone, visits.date, visits.team, visits.phone, visits.serial, visits.result FROM "+sectable+" LEFT JOIN visits ON visits.id="+sectable+".visitid WHERE visits.team='"+team+"' AND visits.date='"+date+"' ORDER BY VISITS.TEAM");
+	var sql = "SELECT DISTINCT visits.ID, visits.zone, visits.date, visits.team, visits.phone, visits.serial, visits.result FROM "+sectable+" LEFT JOIN visits ON visits.id="+sectable+".visitid WHERE visits.date='"+date+"'";
+	if(team != "") sql += " AND visits.team='"+team+"'"
+   sql += " ORDER BY VISITS.TEAM";
+   obj.NewQuery(sql);
    obj.NewTemplate(SitePath+"gifts\\search\\tree.wet");
    rv += obj.GenerateString(0,0);
    rv += "</table>"
    Response.Write(escape(rv));
    obj = "";
 %>
-
-

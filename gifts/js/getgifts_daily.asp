@@ -3,10 +3,11 @@
 <!--#include file="../../func.asp" -->
 <!--#include file="../get_vars.asp"-->
 <%
-   try {
+try {
    var ids = String(Request("IDS"));
    var date = String(Request("D"));
    var zone = und(String(Request("Z")));
+   var type = und(String(Request("Y")));
    var obj = Server.CreateObject("MATech.Engine");
    obj.SetDB(DB,"sa","engine");
    ids = ids.split(",");
@@ -17,6 +18,14 @@
       obj.ClearAll();
       var sql = "SELECT "+maintable+".CODE, "+maintable+".NAME, SUM("+sectable+".NB) AS NB FROM "+sectable+" LEFT OUTER JOIN "+maintable+" ON "+maintable+".ID="+sectable+".MAINID LEFT OUTER JOIN VISITS ON visits.ID="+sectable+".VISITID WHERE visits.TEAM='"+ids[i]+"' AND visits.DATE='"+date+"'";
       if(zone != '') sql += " AND visits.ZONE='"+zone+"'";
+		if(type != "") {
+			switch(type) {
+				case "0" : type_str="0,10"; break;
+				case "1" : type_str="1,11"; break;
+				case "2" : type_str="2,12"; break;
+				}
+			sql += " AND "+maintable+".type IN ("+type_str+")"
+			}		
       sql += " GROUP BY "+maintable+".NAME, "+maintable+".CODE";
       obj.NewQuery(sql);
       obj.NewTemplate(SitePath+"gifts\\js\\nb.wet");
@@ -26,9 +35,9 @@
    Response.Write(escape(rv));
    obj = "";
    }
-   catch(e) {
-      Response.Write("getgifts.asp error: "+escape(String(e)));
-      }
+catch(e) {
+	Response.Write("getgifts.asp error: "+escape(String(e)));
+	}
 %>
 
 

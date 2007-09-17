@@ -76,10 +76,9 @@ function sort_gifts(a,b){
 	for(z=0;z<a.length-1;++z) if(a[z]==" ") a[z] = 'z';
 	for(z=0;z<b.length-1;++z) if(b[z]==" ") b[z] = 'z';
 	while(a[i] == b[i] && i < a.length-1 && i < b.length-1) ++i;
-	//alert(a+" "+b+" "+i+" "+(a[i] < b[i]))
 	return (a[i] < b[i])? -1:1
 	}
-//alert(sort_gifts("2         ","1020      "));
+
 function getgifts_result(s) {
    if(s=="") {
       setstatus("<strong>無贈品資料</strong>");
