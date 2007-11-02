@@ -1,0 +1,10 @@
+<tr BGCOLOR="#<&OLD>"1>CCCCC0<&/><&OLD="0>FFEFEF<&/><&OLD>"-1>FFFEEE <&/>EEEEE0<&><&><&>">
+		<td class="a90">&nbsp;<&PUB="1><img src="images/arrow04.gif"><&/><img src="images/arrow03.gif"><&>
+		<a href='l.asp?P=cal&SP=edit&K=<=ID>'><=TITLE></a></td>
+		<td class="a90">&nbsp;<=NAME></td>
+		<td class="a80">&nbsp;<=YEAR>/<=MONTH>/<=DAY>
+<&MEMBERID=$PHONEID>
+<a href="calendar/delete.asp?K=<=ID>" onclick="if(!confirm('Delete?')) return false;">
+<img src='images/trashcan.gif' border='0'></a>
+<&>
+</td>
