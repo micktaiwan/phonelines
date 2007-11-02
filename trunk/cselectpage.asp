@@ -89,6 +89,9 @@
       case "gifts" :
        	 %><!--#include file="gifts/l.asp" --><%
          break;
+      case "cal" :
+       	 %><!--#include file="Calendar/l.asp" --><%
+         break;			
       default:
 %>
 This page can not be found ( <B><%=p%></B>)<br>

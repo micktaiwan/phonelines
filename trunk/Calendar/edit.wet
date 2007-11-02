@@ -1,0 +1,21 @@
+<&MEMBERID=$PHONEID>
+<form name="addform" action="calendar/edit.asp?K=<=ID>" method="post">
+<table border="0" cellspacing="0" cellpadding="0">
+<tr><td><*Title>: </td><td><input type="text" name="TITLE" value="<=TITLE>" size="50"></td></tr>
+<tr><td>&nbsp;</td><td><input type="radio" size="40" name="pub" value="0" <&PUB!"1>checked<&>> <*Private> <input type="radio" size="40" name="pub" value="1" <&PUB="1>checked<&>> <*Public></td></tr>
+<tr><td><*Details>: </td><td><textarea name="DESCR" cols="50" rows="7"><=DESCR></textarea></td></tr>
+<tr><td><*Date>: </td><td><input type="text" name="YEAR" value="<=YEAR>" size="4">/<input type="text" name="MONTH" value="<=MONTH>" size="4">/ <input type="text" name="DAY" value="<=DAY>" size="4"></td></tr>
+<tr><td>&nbsp;</td><td><input class="but" type="button" onclick="submitaddform();" value="<*Change>"></td></tr>
+
+</table>
+</form>
+<&/>
+<&PUB="1>
+<img src='images/bul4.gif' border='0'>
+<b><=TITLE></b>
+<i><=NAME></i>
+<=YEAR>/<=MONTH>/<=DAY><br>
+<br>
+<=DESCR$>
+<&>
+<&>

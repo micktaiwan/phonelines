@@ -1,0 +1,1 @@
+DHTMLCal_SetEvent(<=MONTH>,<=DAY>,<=YEAR>, "<&MEMBERID=$ORGANID><a href='calendar/delete.asp?K=<=ID>' onclick='if(!confirm(\"Delete?\")) return false;'><img src='images/trashcan.gif' border='0'></a><&/><img src='images/bul4.gif'><&> <a href='l.asp?P=cal&SP=edit&K=<=ID>' title='<=TITLE>'><=RES></a>","#000000","#<&OLD="0>FFFFAA<&/>FFAAAA<&>");
