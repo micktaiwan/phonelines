@@ -16,6 +16,11 @@ var dateto   = und(GetSession("sdateto"));
 var datefrom = und(GetSession("sdatefrom"));
 var zone = und(GetSession("szone"));
 var team = und(GetSession("steam"));
+if(admin=="4") {
+team = GetSession("PHONECODE")
+}
+
+
 %>
 
 <script language="javascript">
@@ -46,7 +51,7 @@ var team = und(GetSession("steam"));
 <input type="text" name="ZONE" value="<%=zone%>" onkeyup="zonechange(this.value)">
 </td></tr>
 <tr><td>¯Z§O: </td><td>
-<input type="text" name="TEAM" value="<%=team%>">
+<input type="text" name="TEAM" value="<%=team%>" <%if(admin=="4"){%>readonly<%}%>>
 </td></tr>
 <tr><td>&nbsp;</td><td><input class="button" type="button" onclick="searchsub()" value=" ·j¡@´M " class="a90" style="height:14pt"></td></tr>
 </table>

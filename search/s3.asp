@@ -11,6 +11,9 @@ var dateto   = und(GetSession("sdateto"));
 var datefrom = und(GetSession("sdatefrom"));
 var result = "障礙";
 var team = und(GetSession("steam"));
+if(admin=="4") {
+team = GetSession("PHONECODE")
+}
 %>
 
 <script language="javascript">
@@ -28,7 +31,7 @@ var team = und(GetSession("steam"));
 
 <form name="addform" action="l.asp?P=search&SP=<%=sp%>" method="post">
 <table border="0" cellspacing="0" cellpadding="4">
-<tr><td>班別: </td><td><input type="text" name="TEAM" value="<%=team%>" class="a90" style="height:14pt"></td></tr>
+<tr><td>班別: </td><td><input type="text" name="TEAM" value="<%=team%>" class="a90" style="height:14pt" <%if(admin=="4"){%>readonly<%}%>></td></tr>
 <tr><td>從日期: </td><td><input type="text" name="DATEFROM" value="<%=datefrom%>" class="a90" style="height:14pt"> [ <a href="#" onclick="addform.DATEFROM.value = MyNow(0);">今天</a> ]</td></tr>
 <tr><td>到日期: </td><td><input type="text" name="DATETO" value="<%=dateto%>" class="a90" style="height:14pt"> [ <a href="#" onclick="addform.DATETO.value = MyNow(0);">今天</a> ]</td></tr>
 <tr><td>&nbsp;</td><td><input class="button" type="button" onclick="searchsub()" value=" 搜　尋 " class="a90" style="height:14pt"></td></tr>
