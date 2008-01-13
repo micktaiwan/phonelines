@@ -172,6 +172,7 @@ function catchKey(event,object) {
 <option value="4">4 ADL©î</option>
 <option value="5">5 MOD</option>
 <option value="6">6 FTTB</option>
+<option value="7">7 FTTB+MOD</option>
 </select>
 </td></tr>
 <tr><td>¯Z§O: </td><td><input type="text" name="TEAM" value="<%=team%>">

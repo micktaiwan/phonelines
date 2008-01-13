@@ -3,7 +3,7 @@
 <td><&ADMIN="1/ADMIN="2><strong><&><&ADMIN="2/ADMIN="3/ADMIN="4><font color="<&ADMIN="2>red<&><&ADMIN="3>blue<&><&ADMIN="4>#777700<&>"><&><&ADMIN="5><b><&><=NAME><&ADMIN="5></b><&><&ADMIN="1/ADMIN="2></strong><&><&ADMIN="2></font><&></td>
 <td><&SMSPHONE="><strong>No SMS</strong> <&><=GROUPNAME></td>
 <td><=CODE><&></td>
-<td><&0="2><=PASS><&/>****<&></td>
+<td><&0="2/0="5><=PASS><&/>****<&></td>
 <td align="center" <&ADMIN="3>bgcolor="#FFFFFF"<&/>bgcolor="#DDDDDD"<&>><&ADMIN="3><~11><&/>©Ò¦³<&></td>
 <td align="center"><=SMSHNNAME><&SMSHNNAME="><strong>Not defined</strong><&></td>
 <td align="center" <&BOM="1>bgcolor="#AAFFAA"<&>><&BOM="1>Yes<&></td>

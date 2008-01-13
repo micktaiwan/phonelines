@@ -24,7 +24,7 @@
       obj.NewQuery("SELECT zones.NAME FROM repzones LEFT OUTER JOIN zones ON zones.ID=repzones.ZONE WHERE REP=# ORDER BY zones.CODE");
       obj.NewTemplate(SitePath+"reporters\\tree.wet");
       obj.NewTemplate(SitePath+"reporters\\zonelist.wet");
-      obj.DirectResponse = 0;
+      obj.DirectResponse = 1; // should be 0
       obj.Generate(0,0);
 %>
 
