@@ -153,11 +153,11 @@ team = GetSession("PHONECODE")
 <tr bgcolor="#BBCCDD" style="text-align:center;">
 <td>¦X­p</td>
 <td></td>
-<td><%=t1%></td><td><%=t2%></td><td><%=t3%></td><td><%=t19%></td><td><%=t4%></td><td><%=t5%></td><td><%=t6%></td><td><%=t7%></td>
+<td><%=t1%></td><td><%=t2%></td><td><%=t3%></td><td><%=t4%></td><td><%=t19%></td><td><%=t5%></td><td><%=t6%></td><td><%=t7%></td>
 <td><%=t8%></td>
 <td><%=t9%></td>
 <td><%=t10%></td>
-<td><%=t11%></td><td><%=t12%></td><td><%=t13%></td><td><%=t18%></td><td><%=t14%></td><td><%=t15%></td><td><%=t16%></td><td><%=t17%></td>
+<td><%=t11%></td><td><%=t12%></td><td><%=t13%></td><td><%=t14%></td><td><%=t18%></td><td><%=t15%></td><td><%=t16%></td><td><%=t17%></td>
 </tr>
 </tr>
 <%   
