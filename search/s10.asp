@@ -69,15 +69,15 @@ team = GetSession("PHONECODE")
 <tr bgcolor="#AABBCC" style="text-align:center;">
 <td rowspan="2"><%if(team==''){%>班別<%}else{%>日期<%}%></td>
 <td rowspan="2">合計</td>
-<td colspan="7">竣工+障礙+修復</td>
+<td colspan="8">竣工+障礙+修復</td>
 <td rowspan="2">再派</td>
 <td rowspan="2">退件</td>
 <td rowspan="2">拆線</td>
-<td colspan="7">結果不明</td>
+<td colspan="8">結果不明</td>
 </tr>
 <tr bgcolor="#AABBCC" style="text-align:center;">
-<td>裝移機</td><td>ADSL</td><td>FTTB</td><td>MOD</td><td>拆線</td><td>拆ADSL</td><td>更模</td>
-<td>裝移機</td><td>ADSL</td><td>FTTB</td><td>MOD</td><td>拆線</td><td>拆ADSL</td><td>更模</td>
+<td>裝移機</td><td>ADSL</td><td>FTTB</td><td>MOD</td><td>FTTB+MOD</td><td>拆線</td><td>拆ADSL</td><td>更模</td>
+<td>裝移機</td><td>ADSL</td><td>FTTB</td><td>MOD</td><td>FTTB+MOD</td><td>拆線</td><td>拆ADSL</td><td>更模</td>
 </tr>
 </tr>
 
@@ -143,16 +143,21 @@ team = GetSession("PHONECODE")
    var t16 = obj.Field("T");
    obj.Open("SELECT COUNT(*) AS T FROM VISITS AS V WHERE ISNULL(V.RESULT,'')='' AND JOBTYPE=3 AND "+cond3+" AND ZONE IN ("+zone_list+"'')");
    var t17 = obj.Field("T");
+   obj.Open("SELECT COUNT(*) AS T FROM VISITS AS V WHERE ISNULL(V.RESULT,'')='' AND JOBTYPE=7 AND "+cond3+" AND ZONE IN ("+zone_list+"'')");
+   var t18 = obj.Field("T");
+   obj.Open("SELECT COUNT(*) AS T FROM VISITS AS V WHERE "+cond2+" AND JOBTYPE=7 AND "+cond3+" AND ZONE IN ("+zone_list+"'')");
+   var t19 = obj.Field("T");
+
 
 %>   
 <tr bgcolor="#BBCCDD" style="text-align:center;">
 <td>合計</td>
 <td></td>
-<td><%=t1%></td><td><%=t2%></td><td><%=t3%></td><td><%=t4%></td><td><%=t5%></td><td><%=t6%></td><td><%=t7%></td>
+<td><%=t1%></td><td><%=t2%></td><td><%=t3%></td><td><%=t19%></td><td><%=t4%></td><td><%=t5%></td><td><%=t6%></td><td><%=t7%></td>
 <td><%=t8%></td>
 <td><%=t9%></td>
 <td><%=t10%></td>
-<td><%=t11%></td><td><%=t12%></td><td><%=t13%></td><td><%=t14%></td><td><%=t15%></td><td><%=t16%></td><td><%=t17%></td>
+<td><%=t11%></td><td><%=t12%></td><td><%=t13%></td><td><%=t18%></td><td><%=t14%></td><td><%=t15%></td><td><%=t16%></td><td><%=t17%></td>
 </tr>
 </tr>
 <%   
@@ -168,6 +173,7 @@ team = GetSession("PHONECODE")
 	+ prefix + cond2 + "AND "+cond+" AND JOBTYPE=2) AS TGD,"
 	+ prefix + cond2 + "AND "+cond+" AND JOBTYPE=4) AS TGE,"
 	+ prefix + cond2 + "AND "+cond+" AND JOBTYPE=6) AS TGF,"
+	+ prefix + cond2 + "AND "+cond+" AND JOBTYPE=7) AS TGH,"
 	+ prefix + cond2 + "AND "+cond+" AND JOBTYPE=3) AS TGG,"
 	+ prefix + "ISNULL(V.RESULT,'')='' AND "+cond+" AND JOBTYPE=0) AS TFA,"
 	+ prefix + "ISNULL(V.RESULT,'')='' AND "+cond+" AND JOBTYPE=1) AS TFB,"
@@ -175,6 +181,7 @@ team = GetSession("PHONECODE")
 	+ prefix + "ISNULL(V.RESULT,'')='' AND "+cond+" AND JOBTYPE=2) AS TFD,"
 	+ prefix + "ISNULL(V.RESULT,'')='' AND "+cond+" AND JOBTYPE=4) AS TFE,"
 	+ prefix + "ISNULL(V.RESULT,'')='' AND "+cond+" AND JOBTYPE=6) AS TFF,"
+	+ prefix + "ISNULL(V.RESULT,'')='' AND "+cond+" AND JOBTYPE=7) AS TFH,"
 	+ prefix + "ISNULL(V.RESULT,'')='' AND "+cond+" AND JOBTYPE=3) AS TFG";
 
 	if(team=='')
