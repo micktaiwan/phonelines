@@ -31,5 +31,3 @@
    Response.Write(escape(rv));
    obj = "";
 %>
-
-

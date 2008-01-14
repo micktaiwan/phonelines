@@ -16,6 +16,7 @@ pas utilise
 
    var phone   = String(Request("PHONE"));
    var nb      = String(Request("NB"));
+   //var mac      = String(Request("MAC"));
    var mainid  = String(Request("MAINID"));
 
    var obj = Server.CreateObject("MATech.Engine");
