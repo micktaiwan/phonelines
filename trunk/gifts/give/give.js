@@ -132,14 +132,15 @@
 		var r  = document.getElementById("checkrecord_result");
 		if(!checkrecord_setresult(b)) return;
 		// create giftid and nb strings
-		var g = new Array, n = new Array;
+		var g = new Array, n = new Array, m = new Array;
 		for(i=1; i <= 10; ++i) {
 			g[i-1] = document.getElementById("g"+i).value;
 			n[i-1] = document.getElementById("nb"+i).value;
+			e = document.getElementById("mac"+i)
+			if(e) m[i-1] = e.value;
+			else  m[i-1] = "none";
 			}
-		//alert(String(g));
-		//alert(String(n));
-		majax.get("gifts/js/insert.asp?V="+b+"&G="+String(g)+"&N="+String(n),sendform_setresult);
+		majax.get("gifts/js/insert.asp?V="+b+"&G="+String(g)+"&N="+String(n)+"&M="+String(m),sendform_setresult);
 		}
 
    //============================

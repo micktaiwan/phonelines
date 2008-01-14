@@ -61,7 +61,27 @@
 <tr><td><%=name%>: </td><td><select id="g10" name="mainid"><%=options%></select></td>
 <td>數量: </td><td><input  id="nb10" onkeyup="checknb(this);" size="3" type="text" name="nb" value="0"></td></tr>
 </table><br/>
-</td></tr>
+</td>
+
+<td>
+<table>
+<%
+	maintable = "mat";
+	name = "設備";
+   // Prepare the select's options string
+   obj.ClearAll();
+   obj.NewQuery("SELECT * FROM "+maintable+" ORDER BY TYPE, CODE");
+   obj.NewTemplate(SitePath+"gifts\\give\\options2.wet");
+   options = obj.GenerateString(0,0);
+%>
+<tr><td>MAC: <input type="text" id="mac6" name="mac"></td></tr>
+<tr><td>MAC: <input type="text" id="mac7" name="mac"></td></tr>
+<tr><td>MAC: <input type="text" id="mac8" name="mac"></td></tr>
+<tr><td>MAC: <input type="text" id="mac9" name="mac"></td></tr>
+<tr><td>MAC: <input type="text" id="mac10" name="mac"></td></tr>
+</table><br/>
+</td>
+</tr>
 </table>
 </form>
 請檢查是否正確無誤，如正確請按『ok』一經確認則無法更改<br/>
