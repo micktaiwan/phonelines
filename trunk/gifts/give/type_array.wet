@@ -1,0 +1,2 @@
+options[opt_i++] = new Array(<=ID>,<=TYPE>,"<=CODE>","<=NAME>");
+
