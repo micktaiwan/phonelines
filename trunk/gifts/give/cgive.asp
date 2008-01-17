@@ -41,44 +41,44 @@
 
 <td>
 <table>
+<script>options = new Array(); opt_i = 0;</script>
 <%
 	maintable = "mat";
 	name = "砞称";
+   // Prepare the js array for scripting mac field
+   obj.ClearAll();
+   obj.NewQuery("SELECT * FROM "+maintable+" ORDER BY TYPE, CODE");
+   obj.NewTemplate(SitePath+"gifts\\give\\type_array.wet");
+   script = obj.GenerateString(0,0);
+%>
+<script><%=script%></script>
+<%	
    // Prepare the select's options string
    obj.ClearAll();
    obj.NewQuery("SELECT * FROM "+maintable+" ORDER BY TYPE, CODE");
    obj.NewTemplate(SitePath+"gifts\\give\\options2.wet");
    options = obj.GenerateString(0,0);
 %>
-<tr><td><%=name%>: </td><td><select id="g6"  name="mainid"><%=options%></select></td>
-<td>计秖: </td><td><input  id="nb6" onkeyup="checknb(this);" size="3" type="text" name="nb" value="0"></td></tr>
-<tr><td><%=name%>: </td><td><select id="g7" name="mainid"><%=options%></select></td>
-<td>计秖: </td><td><input  id="nb7" onkeyup="checknb(this);" size="3" type="text" name="nb" value="0"></td></tr>
-<tr><td><%=name%>: </td><td><select id="g8" name="mainid"><%=options%></select></td>
-<td>计秖: </td><td><input  id="nb8" onkeyup="checknb(this);" size="3" type="text" name="nb" value="0"></td></tr>
-<tr><td><%=name%>: </td><td><select id="g9" name="mainid"><%=options%></select></td>
-<td>计秖: </td><td><input  id="nb9" onkeyup="checknb(this);" size="3" type="text" name="nb" value="0"></td></tr>
-<tr><td><%=name%>: </td><td><select id="g10" name="mainid"><%=options%></select></td>
-<td>计秖: </td><td><input  id="nb10" onkeyup="checknb(this);" size="3" type="text" name="nb" value="0"></td></tr>
-</table><br/>
-</td>
+<tr><td><%=name%>: </td><td><select id="g6"  name="mainid" onchange="display_mac(6);"><%=options%></select></td>
+<td>计秖: </td><td><input  id="nb6" onkeyup="checknb(this);" size="3" type="text" name="nb" value="0">
+<div id="tdmac6" style="display:none">MAC: <input type="text" id="mac6" name="mac"></div></td></tr>
 
-<td>
-<table>
-<%
-	maintable = "mat";
-	name = "砞称";
-   // Prepare the select's options string
-   obj.ClearAll();
-   obj.NewQuery("SELECT * FROM "+maintable+" ORDER BY TYPE, CODE");
-   obj.NewTemplate(SitePath+"gifts\\give\\options2.wet");
-   options = obj.GenerateString(0,0);
-%>
-<tr><td>MAC: <input type="text" id="mac6" name="mac"></td></tr>
-<tr><td>MAC: <input type="text" id="mac7" name="mac"></td></tr>
-<tr><td>MAC: <input type="text" id="mac8" name="mac"></td></tr>
-<tr><td>MAC: <input type="text" id="mac9" name="mac"></td></tr>
-<tr><td>MAC: <input type="text" id="mac10" name="mac"></td></tr>
+<tr><td><%=name%>: </td><td><select id="g7" name="mainid" onchange="display_mac(7);"><%=options%></select></td>
+<td>计秖: </td><td><input  id="nb7" onkeyup="checknb(this);" size="3" type="text" name="nb" value="0">
+<div id="tdmac7" style="display:none">MAC: <input type="text" id="mac7" name="mac"></div></td></tr>
+
+<tr><td><%=name%>: </td><td><select id="g8" name="mainid" onchange="display_mac(8);"><%=options%></select></td>
+<td>计秖: </td><td><input  id="nb8" onkeyup="checknb(this);" size="3" type="text" name="nb" value="0">
+<div id="tdmac8" style="display:none">MAC: <input type="text" id="mac8" name="mac"></div></td></tr>
+
+<tr><td><%=name%>: </td><td><select id="g9" name="mainid" onchange="display_mac(9);"><%=options%></select></td>
+<td>计秖: </td><td><input  id="nb9" onkeyup="checknb(this);" size="3" type="text" name="nb" value="0">
+<div id="tdmac9" style="display:none">MAC: <input type="text" id="mac9" name="mac"></div></td></tr>
+
+<tr><td><%=name%>: </td><td><select id="g10" name="mainid" onchange="display_mac(10);"><%=options%></select></td>
+<td>计秖: </td><td><input  id="nb10" onkeyup="checknb(this);" size="3" type="text" name="nb" value="0">
+<div id="tdmac10" style="display:none">MAC: <input type="text" id="mac10" name="mac"></div></td></tr>
+
 </table><br/>
 </td>
 </tr>
@@ -108,4 +108,5 @@ for(i=0;i<5;++i) {
    if(s.length < (i+1)) s.length  = 0;
    else s.options[i].selected = true;
    }
+display_mac();	
 </script>
