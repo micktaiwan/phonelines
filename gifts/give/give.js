@@ -1,4 +1,29 @@
    //============================
+	function get_mac_opt(id) {
+		//alert("id="+id);
+		for(i=0;i<options.length;i++)
+			 if (options[i][0]==id) return options[i][1]
+		return -1	 
+		}
+	
+	
+   function display_mac(id) {
+		//alert(id)
+		if(String(id)!="undefined") {
+			show_hide_mac(id)
+		   return
+			}
+		// else all field
+		for(i=0;i<=4;i++) if(options[i]) show_hide_mac((i+6))
+		}
+
+	function show_hide_mac(id) {
+		sel = g("g"+id);
+		if(get_mac_opt(sel.options[sel.selectedIndex].value)==2) g("tdmac"+id).style.display = 'inline';
+		else g("tdmac"+id).style.display = 'none';
+		}	
+		
+   //============================
    function ontextkup(e) {
       if(e.keyCode=="13") {
          checkrecord();
