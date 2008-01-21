@@ -2,7 +2,10 @@
 function verify() {
    var f = document.fsform;
    var p = f.bulk.value;
-   var m = "中華電信將於"+String(f.Month.value)+"月"+String(f.Day.value)+"日"+String(f.DayPart.value)+"到府裝ADSL請洽"+f.Phone.value;
+	var tmp = f.Phone.value.split('/');
+	var phone = tmp[0];
+	var name = tmp[1];
+   var m = "中華電信將於"+String(f.Month.value)+"月"+String(f.Day.value)+"日到府施工，施工時間為上午九點至下午五點，若需約時，請電洽"+phone+"工程師"+name+"先生。謝謝！";
    if(p=="") {
       alert("沒有電話號碼, 不能送出");
       return false;
@@ -18,20 +21,13 @@ function verify() {
    var now = new Date();
    var m = now.getMonth()+1;
    var d = now.getDate();
-   Response.Write("Today: "+m + "/" +d);
-
-
-
    var team  = GetSession("PHONECODE");
-
    obj.ClearAll();
-   obj.Open("SELECT PHONES FROM personnel WHERE TEAM='"+team+"'");
-   var phone = obj.Field("Phones");
+   obj.Open("SELECT PHONES, NAME FROM personnel WHERE TEAM='"+team+"'");
+   var phone = obj.Field("PHONES");
+   var name = obj.Field("NAME");
    var display = GetSession("PHONENAME")+ " (" + team +") " + phone;
 %>
-<br>
-<br>
-中華電信將於00/00日到府裝ADSL請洽00000000<br>
 <br>
 <form name="fsform" action="sms/formatsmssend.asp" method="post">
 <table border="0" cellspacing="0" cellpadding="0">
@@ -45,7 +41,7 @@ function verify() {
    }
 %>
 
-</select> / <select name="Day">
+</select>月 / <select name="Day">
 <%
    for (i=1; i<=31; ++i) {
 %>
@@ -54,12 +50,14 @@ function verify() {
    }
 %>
 </select> 
-
+日
+<!--
 <select name="DayPart">
 <option value="整天">整天</option>
 <option value="上午">上午</option>
 <option value="下午">下午</option>
 </select> 
+-->
 
 ※請輸入預施工日期</td></tr>
 <tr><td>Phone: </td><td>
@@ -67,7 +65,7 @@ function verify() {
 <%
 if(phone != "") {
    Response.Write(display);%>
-   <input type="hidden" name="Phone" value="<%=phone%>"><%
+   <input type="hidden" name="Phone" value="<%=phone%>/<%=name%>"><%
    }
 else {%>
 <select name="Phone"><%

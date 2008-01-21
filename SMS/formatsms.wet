@@ -1,1 +1,1 @@
-<option value="<=PHONES>" <&TEAM=&C>selected<&>><=TEAM> <=NAME> <=PHONES></option>
+<option value="<=PHONES>/<=NAME>" <&TEAM=&C>selected<&>><=TEAM> <=NAME> <=PHONES></option>
