@@ -9,19 +9,22 @@
    var obj = Server.CreateObject("MATech.Engine");
    obj.SetDB(DB,"sa","engine");
 
+	
    rv =  "<table id=\"gifttable\" cellspacing=\"1\" cellpadding=\"2\" bgcolor=\"black\">";
    rv += "<tr bgcolor=\"#AABBCC\" style=\"text-align:center;\">";
    rv += "<td>班別</td>";
    rv += "<td>電話號碼</td>";
    rv += "<td>聯單號碼</td>";
    rv += "<td>結果</td>";
+   rv += "<td>MAC</td>";
    rv += "</tr>";
 
-   
+	
+   // display the values for team, phones, etc...
    var sql_zone = ''
    if(zone!='') sql_zone = " visits.zone='"+zone+"' AND ";
    obj.ClearAll();
-   var sql = "SELECT DISTINCT visits.ID, visits.team, visits.phone, visits.serial, visits.result FROM "+sectable+" LEFT JOIN visits ON visits.id="+sectable+".visitid WHERE "+sql_zone+" visits.date='"+date+"' ORDER BY ";
+   var sql = "SELECT DISTINCT visits.ID, visits.team, visits.phone, visits.serial, visits.result, "+sectable+".MAC FROM "+sectable+" LEFT JOIN visits ON visits.id="+sectable+".visitid WHERE "+sql_zone+" visits.date='"+date+"' ORDER BY ";
    if(sort=="1") sql += "TEAM";
    else sql += "PHONE";
    obj.NewQuery(sql);
