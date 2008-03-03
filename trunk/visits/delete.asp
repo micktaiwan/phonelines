@@ -10,6 +10,6 @@
    obj.Execute("DELETE FROM visits WHERE ID=" + k);
 
    obj = "";
-   Response.Redirect("../l.asp?P=visits");   
+   Response.Redirect("../l.asp?P=visits&SP=add2");   
 %>
 
