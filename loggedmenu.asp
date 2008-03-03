@@ -125,7 +125,7 @@ if(admin=="1" || admin =="2" || admin=="3" || admin=="5") {
 %>
 <table BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH="100%" >
 <tr>
-<td HEIGHT="21" BGCOLOR="#103863" class="A"><img SRC="images/arrow01.gif" ><a href="l.asp?P=visits"><font color="#FFFFFF">聯單鍵檔</font></a></td>
+<td HEIGHT="21" BGCOLOR="#103863" class="A"><img SRC="images/arrow01.gif" ><a href="l.asp?P=visits&SP=add2"><font color="#FFFFFF">聯單鍵檔</font></a></td>
 </tr>
 
 <tr>
