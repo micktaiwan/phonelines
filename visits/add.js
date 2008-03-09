@@ -73,37 +73,43 @@ function verify () {
 function catchKey(event,object) {
    var form = document.addform;
    //alert(object.name);
+	var phone_len = 8;
+	if(form.JOBTYPE.value == 6 || form.JOBTYPE.value == 7)
+		phone_len = 12;
+	var k = event.keyCode;
+	if(k == 9 || k == 8 || k == 46 || k==37 || k==39 || k==18 || k==116) return; // Tab, backspace, del, <, >, Alt, F5
+	//alert(k);
    switch(object.name) {
       case "SERIAL" :
-         if(String(object.value).length == 11) {
-            if(event.keyCode >= 96) event.keyCode = event.keyCode - 48;
-            object.value += String.fromCharCode(event.keyCode);
+         if(String(object.value).length == 12) {
+            if(k >= 96) k -= 48;
+            //object.value += String.fromCharCode(k);
             event.returnValue = false;
             form.PHONE.focus();
             return false;
             }
          break;
       case "PHONE" :
-         if(String(object.value).length == 7) {
-            if(event.keyCode >= 96) event.keyCode = event.keyCode - 48;
-            object.value = String(object.value) + String.fromCharCode(event.keyCode);
-            //alert("³¯:"+event.keyCode);
+         if(String(object.value).length == phone_len) {
+            if(k >= 96) k -= 48;
+            //object.value += String.fromCharCode(k);
             form.AMPM.focus();
             event.returnValue = false;
             return false;
-            }
+				}
          break;
       case "AMPM" : 
-         /*
 			if(String(object.value).length == 1) {
-            if(event.keyCode >= 96) event.keyCode = event.keyCode - 48;
-            object.value += String.fromCharCode(event.keyCode);
+            if(k >= 96) k -= 48;
+            //object.value += String.fromCharCode(k);
             verify();
             event.returnValue = false;
             return false;
             }
-			*/
-			if(event.keyCode==13) verify(); return false;
+			if(event.keyCode==13) {
+				verify();
+				return false;
+				}
 			break;
       }
       
