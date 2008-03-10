@@ -24,7 +24,7 @@
    var sql_zone = ''
    if(zone!='') sql_zone = " visits.zone='"+zone+"' AND ";
    obj.ClearAll();
-   var sql = "SELECT DISTINCT visits.ID, visits.team, visits.phone, visits.serial, visits.result, "+sectable+".MAC FROM "+sectable+" LEFT JOIN visits ON visits.id="+sectable+".visitid WHERE "+sql_zone+" visits.date='"+date+"' ORDER BY ";
+   var sql = "SELECT DISTINCT visits.ID, visits.team, visits.phone, visits.serial, visits.result, (SELECT TOP 1 MAC FROM "+sectable+" WHERE visitid=visits.ID AND MAC!='') as MAC FROM "+sectable+" LEFT JOIN visits ON visits.id="+sectable+".visitid WHERE "+sql_zone+" visits.date='"+date+"' ORDER BY ";
    if(sort=="1") sql += "TEAM";
    else sql += "PHONE";
    obj.NewQuery(sql);
