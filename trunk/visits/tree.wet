@@ -6,7 +6,7 @@
 <td><=RESPONSIBLE></td>
 <&>
 <td><=DATE></td>
-<td><a href="#" title="<=NAME>"><=TEAM></a></td>
+<td><=TEAM></td>
 <td><=SERIAL></td>
 <td<&PCHECK="1> bgcolor="#FF4444"<&>><=PHONE></td>
 <td><=ZONE></td>
