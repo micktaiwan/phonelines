@@ -32,7 +32,7 @@ else l.innerHTML = s;
          if(k2=="") {
             sql = "INSERT INTO VISITORS (VISID, NAME, DATE, COMPANYID) VALUES ('";
             sql += id+"','"+GetSession("PHONENAME")+"','"+MyNow(1)+"', '"+company_id+"')";
-            obj.EXECUTE(sql);
+            obj.Execute(sql);
             }
 
          // Visitors Display%>

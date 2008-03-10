@@ -5,21 +5,20 @@ function setstatus(s) {
    }
 
 function lastdata_result(s) {
-	document.getElementById("lastdata").innerHTML = unescape(unescape(s));
+	$("lastdata").innerHTML = unescape(unescape(s));
 	}
    
 function submit_result(s) {
 	if(s=="1") {
 		setstatus("<font color=red><b>OK</b></font>");
-		//majax.get("visits/cgetlastdata.asp",lastdata_result);
 		document.addform.SERIAL.value = "";
 		document.addform.PHONE.value = "";
 		document.addform.AMPM.value = "";
 		document.addform.SERIAL.focus();
+		//majax.get("visits/cgetlastdata.asp",lastdata_result);
 		}
 	else if(s=="2") setstatus("<font size=4 color=red><strong>錯誤: 日期和電話重複</strong></font><br>");
 	else setstatus("<strong>"+s+"</strong>")
-
 	}
 
 function getformdata(f) {
@@ -69,7 +68,7 @@ function verify () {
 	return true;
    
    }
-
+	
 function catchKey(event,object) {
    var form = document.addform;
    //alert(object.name);
@@ -77,42 +76,28 @@ function catchKey(event,object) {
 	if(form.JOBTYPE.value == 6 || form.JOBTYPE.value == 7)
 		phone_len = 12;
 	var k = event.keyCode;
-	if(k == 9 || k == 8 || k == 46 || k==37 || k==39 || k==18 || k==116) return; // Tab, backspace, del, <, >, Alt, F5
-	//alert(k);
+	if(k==16 || k==9 || k==8 || k==46 || k==37 || k==39 || k==18 || k==116 || k==35 ||  k==36) return; // Shift, Tab, backspace, del, <, >, Alt, F5, end, home
+	//setstatus(k);
    switch(object.name) {
       case "SERIAL" :
          if(String(object.value).length == 12) {
-            if(k >= 96) k -= 48;
-            //object.value += String.fromCharCode(k);
-            event.returnValue = false;
             form.PHONE.focus();
             return false;
             }
          break;
       case "PHONE" :
          if(String(object.value).length == phone_len) {
-            if(k >= 96) k -= 48;
-            //object.value += String.fromCharCode(k);
             form.AMPM.focus();
-            event.returnValue = false;
             return false;
 				}
          break;
       case "AMPM" : 
-			if(String(object.value).length == 1) {
-            if(k >= 96) k -= 48;
-            //object.value += String.fromCharCode(k);
+			if(String(object.value).length == 2 || event.keyCode==13) {
             verify();
-            event.returnValue = false;
             return false;
             }
-			if(event.keyCode==13) {
-				verify();
-				return false;
-				}
 			break;
       }
-      
     return true;
-    
     }
+	 

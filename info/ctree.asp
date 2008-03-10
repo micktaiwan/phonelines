@@ -4,7 +4,7 @@
 </tr>
 <%
    obj.ClearAll();
-   obj.NewQuery("SELECT * FROM info LEFT OUTER JOIN REPORTERS ON REPORTERS.ID=INFO.MEMBERID where datediff(day,date,getdate()) < 100 AND info.COMPANYID='"+company_id+"' ORDER BY info.DATE DESC");
+   obj.NewQuery("SELECT TOP 20 * FROM info LEFT OUTER JOIN REPORTERS ON REPORTERS.ID=INFO.MEMBERID where datediff(day,date,getdate()) < 100 AND info.COMPANYID='"+company_id+"' ORDER BY info.DATE DESC");
    obj.NewTemplate(SitePath+"info\\editl.wet");
    obj.Generate(0,0);
 %>

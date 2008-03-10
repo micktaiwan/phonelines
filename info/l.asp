@@ -1,5 +1,5 @@
 <%
-if(admin=="2") {%>
+if(admin=="2" || admin=="5") {%>
    <a class="linkbut" href="<%=QS%>information&SP=add"><img src="images/point_06.gif" border="0"> ¼W¥[·s»D</a><br>
    <br><%
    }%>
