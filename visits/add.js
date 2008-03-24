@@ -72,15 +72,18 @@ function verify () {
 function catchKey(event,object) {
    var form = document.addform;
    //alert(object.name);
-	var phone_len = 8;
-	if(form.JOBTYPE.value == 6 || form.JOBTYPE.value == 7)
-		phone_len = 12;
+	var phone_len  = 8;
+	var serial_len = 12;
+	if(form.JOBTYPE.value == 6 || form.JOBTYPE.value == 7) {
+		phone_len  = 10;
+		serial_len = 11;
+		}
 	var k = event.keyCode;
 	if(k==16 || k==9 || k==8 || k==46 || k==37 || k==39 || k==18 || k==116 || k==35 ||  k==36) return; // Shift, Tab, backspace, del, <, >, Alt, F5, end, home
 	//setstatus(k);
    switch(object.name) {
       case "SERIAL" :
-         if(String(object.value).length == 12) {
+         if(String(object.value).length == serial_len) {
             form.PHONE.focus();
             return false;
             }
