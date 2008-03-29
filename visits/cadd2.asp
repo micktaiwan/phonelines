@@ -40,10 +40,13 @@
 <input type="hidden" name="COMPANYID" value="<%=company_id%>">
 </form>
 
+<!--
 <br>
 <img src="images/lastchanges.gif"><br>
 <b>請確認你剛輸入的資料出現了</b><br>
 <br>
 <div id="lastdata">
-<!--#include file="getlastdata.asp" -->
+<!-- include file="getlastdata.asp" 
 </div>
+
+-->
