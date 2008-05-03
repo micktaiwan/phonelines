@@ -17,8 +17,8 @@ function create_pagination_index(cur, tot, limit) {
 	str = "";
 	prev = previous_text;
 	nxt  = next_text;
-	if(cur >= 1)   prev 	= "<a href='#' onclick='get_page("+(cur-1)+");'>"+previous_text+"</a>"
-	if(cur < tot/limit-1) nxt 	= "<a href='#' onclick='get_page("+(cur+1)+");'>"+next_text+"</a>"
+	if(cur >= 1)   prev 	= "<a href='#' onclick='get_page("+(cur-1)+");return false;'>"+previous_text+"</a>"
+	if(cur < tot/limit-1) nxt 	= "<a href='#' onclick='get_page("+(cur+1)+");return false;'>"+next_text+"</a>"
 	str += prev;
 	str += "  "
 	str += nxt;
