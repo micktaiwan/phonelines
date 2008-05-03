@@ -38,5 +38,5 @@ if(admin!="4") {
 <%}%>
 <img src="info/lastnews.gif"><br>
 <br>
-<!--#include file="info/clast.asp"-->
+<!-- include file="info/clast.asp"-->
 <!--#include file="info/l.asp"-->
