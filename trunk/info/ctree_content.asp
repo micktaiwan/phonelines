@@ -3,8 +3,8 @@
 <!--#include file="../func.asp"-->
 <!--#include file="../virtual.asp"-->
 <%
-var previous_text = "Prev";
-var next_text 		= "Next";
+var previous_text = "<img src='images/prev.gif' border=0> Prev";
+var next_text 		= "Next <img src='images/next.gif' border=0>";
 
 function create_pagination_sql(table,fields,where,order,page,limit) {
 	return "select * from (select top "+limit+" * from (select top "+(page*limit+limit)+" "+fields+" from "+table+" "+where+" order by "+table+"."+order+" desc) T1 order by "+order+" asc) T2 order by "+order+" desc";
