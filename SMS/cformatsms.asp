@@ -3,14 +3,20 @@ function verify() {
    var f = document.fsform;
    var p = f.bulk.value;
 	var tmp = f.Phone.value.split('/');
+	var ampm = f.daypart.value;
 	var phone = tmp[0];
 	var name = tmp[1];
-   var m = "中華電信將於"+String(f.Month.value)+"月"+String(f.Day.value)+"日到府施工，施工時間為上午九點至下午五點，若需約時，請電洽"+phone+"工程師"+name+"先生。謝謝！";
+	allday = "";
+	if(ampm == "整天") {
+		ampm = "";
+		allday = "，施工時間為上午九點至下午五點"
+		}
+   var m = "中華電信將於"+String(f.Month.value)+"月"+String(f.Day.value)+"日"+ampm+"到府施工"+allday+"，若需約時，請電洽"+phone+"工程師"+name+"先生。謝謝！";
    if(p=="") {
       alert("沒有電話號碼, 不能送出");
       return false;
       }
-	   if(!confirm("=========\n消息:\n"+m+"\n\n=========\n電話號碼:\n"+p)) return false;
+	if(!confirm("=========\n消息:\n"+m+"\n\n=========\n電話號碼:\n"+p)) return false;
    f.MESS.value = m;
    f.submit();
    return true;
@@ -51,13 +57,11 @@ function verify() {
 %>
 </select> 
 日
-<!--
-<select name="DayPart">
+<select name="daypart">
 <option value="整天">整天</option>
 <option value="上午">上午</option>
 <option value="下午">下午</option>
 </select> 
--->
 
 ※請輸入預施工日期</td></tr>
 <tr><td>Phone: </td><td>
