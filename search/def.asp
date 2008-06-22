@@ -62,7 +62,15 @@ else team = GetSession("PHONECODE");
 <tr><td>從日期: </td><td><input type="text" name="DATEFROM" value="<%=datefrom%>" class="a90" style="height:14pt"> [ <a href="#" onclick="addform.DATEFROM.value = MyNow(0);">今天</a> ]</td></tr>
 <tr><td>到日期: </td><td><input type="text" name="DATETO" value="<%=dateto%>" class="a90" style="height:14pt"> [ <a href="#" onclick="addform.DATETO.value = MyNow(0);">今天</a> ]</td></tr>
 <% if(sp=="1"  || sp=="2") {%>
-<tr><td>排序: </td><td><select name="rsort"><option value="2">結果,地區</option><option value="1">電話</option></select></td></tr>
+<!--<tr><td>排序: </td><td><select name="rsort"><option value="2">結果,地區</option><option value="1">電話</option></select></td></tr>-->
+<tr><td>排序: </td><td>
+<select name="filter">
+<option value="0">無結果</option>
+<option value="1">有結果</option>
+<option value="2">全部</option>
+</select>均依班別排育序
+</td></tr>
+
 <% } %>
 
 <% if(sp=="2") {%>
@@ -97,8 +105,13 @@ else team = GetSession("PHONECODE");
    //if(result!="" && sp!="1" && sp!="2") str += " AND r!=''";
    if(str!="" && Request.Form.Count > 0) {
    var sort = "PHONE";
-   var rsort = String(Request("RSORT"));
-   if(rsort=="2") sort = "R, ZONE";
+   //var rsort = String(Request("RSORT"));
+   //if(rsort=="2") sort = "R, ZONE";
+	sort = "TEAM,R,ZONE"
+   var rfilter = String(Request("FILTER"));
+   if(rfilter=="0") filter = "and R=''";
+   else if(rfilter=="1") filter = "and R!=''";
+	else filter = "";
    Response.Write(str+"<br>");
 %>
 
@@ -144,12 +157,12 @@ Response.Write(obj.Field("S"));
 
       var cond1 = "";
       if(admin=="3") cond1 = "AND visits.ZONE IN (SELECT CODE FROM zones JOIN repzones ON zones.ID=repzones.ZONE WHERE repzones.REP="+id+")";
-      var sql = "SELECT * FROM (SELECT visits.companyid, visits.ID, visits.ZONE, visits.JOBTYPE,visits.DATE, visits.TEAM, visits.PHONE, visits.SERIAL, visits.REASON, visits.MEMO, visits.CUSTNAME, \
+      var sql = "SELECT * FROM (SELECT visits.companyid, visits.ID, visits.ZONE, visits.JOBTYPE,visits.DATE, visits.TEAM, visits.PHONE, visits.SERIAL, visits.REASON, visits.MEMO, visits.CUSTNAME, visits.AMPM, \
          ISNULL(visits.RESULT,'') AS R, \
          '0' AS PCHECK, \
          (CASE WHEN EXISTS (SELECT TOP 1 ID FROM ZAIPAI WHERE ZAIPAIID=VISITS.ID) THEN '1' ELSE '0' END) AS ZAIPAIOK \
          FROM visits) X \
-         WHERE "+str+" "+cond1+" AND COMPANYID='"+company_id+"' ORDER BY "+sort
+         WHERE "+str+" "+cond1+filter+" AND COMPANYID='"+company_id+"' ORDER BY "+sort
          
       obj.NewQuery(sql);
 		 obj.NewTemplate(SitePath+"search\\tree.wet");
