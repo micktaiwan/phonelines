@@ -7,6 +7,7 @@
 <td><=TEAM></td>
 <td<&PCHECK="1> bgcolor="#FF4444"<&>><=PHONE></td>
 <td><=SERIAL></td>
+<td><=AMPM></td>
 <td align="center" <&ZAIPAIOK="1>bgcolor="#AAFFAA"<&>><=R><&R="¦A¬£/R="¹j¤é><&ZAIPAIOK="0> <input name="K" type="checkbox" value="<=ID>"><&><&></td>
 <td><=REASON></td>
 <td><=MEMO></td>
