@@ -13,15 +13,6 @@ if(Request.Form.Count > 0) {
 var dateto   = und(GetSession("sdateto"));
 var datefrom = und(GetSession("sdatefrom"));
 var result = "undefined";
-
-switch(sp) {
-   case "4" : result = "退件"; break;
-   case "5" : result = "再派"; break;
-   case "6" : result = "竣工"; break;
-   case "7" : result = ""; break;
-   case "9" : result = "隔日"; break;
-   }
-
 %>
 
 <script language="javascript">
@@ -42,35 +33,19 @@ switch(sp) {
 <table border="0" cellspacing="0" cellpadding="4">
 <%
    if(admin!="4") {
-      if(sp=="1") {
-         var team = und(GetSession("steam"));
-         var zone = "";
-%>
-<tr><td>班別: </td><td><input type="text" name="TEAM" value="<%=team%>" class="a90" style="height:14pt"></td></tr>
-<% } else {
       var team = "";
       var zone = und(GetSession("szone"));
 	  var jobtype = und(GetSession("sjobtype"));
 %>
 <tr><td>地區: </td><td><input type="text" name="ZONE" value="<%=zone%>" class="a90" style="height:14pt"></td></tr>
 <tr><td>工作別: </td><td><input type="text" name="JOBTYPE" value="<%=jobtype%>" class="a90" style="height:14pt"></td></tr>
-
-<% } // else
+<%
 }// admin
 else team = GetSession("PHONECODE");
  %>
 <tr><td>從日期: </td><td><input type="text" name="DATEFROM" value="<%=datefrom%>" class="a90" style="height:14pt"> [ <a href="#" onclick="addform.DATEFROM.value = MyNow(0);">今天</a> ]</td></tr>
 <tr><td>到日期: </td><td><input type="text" name="DATETO" value="<%=dateto%>" class="a90" style="height:14pt"> [ <a href="#" onclick="addform.DATETO.value = MyNow(0);">今天</a> ]</td></tr>
-<% if(sp=="1"  || sp=="2") {%>
-<tr><td>排序: </td>
-<td>
-<select name="rsort">
-<option value="2">結果,地區</option>
-<option value="1">電話</option>
-</select>
-</td>
-</tr>
-<!--
+<!--<tr><td>排序: </td><td><select name="rsort"><option value="2">結果,地區</option><option value="1">電話</option></select></td></tr>-->
 <tr><td>排序: </td><td>
 <select name="filter">
 <option value="0">無結果</option>
@@ -78,13 +53,7 @@ else team = GetSession("PHONECODE");
 <option value="2">全部</option>
 </select>均依班別排育序
 </td></tr>
--->
-
-<% } %>
-
-<% if(sp=="2") {%>
 <tr><td>&nbsp;</td><td><input type="checkbox" name="count" value="1"> Count</td></tr>
-<% } %>
 <tr><td>&nbsp;</td><td><input class="button" type="button" onclick="searchsub()" value=" 搜　尋 " class="a90" style="height:14pt"></td></tr>
 </table>
 </form>
@@ -114,17 +83,14 @@ else team = GetSession("PHONECODE");
    //if(result!="" && sp!="1" && sp!="2") str += " AND r!=''";
    if(str!="" && Request.Form.Count > 0) {
    var sort = "PHONE";
-   
-	var rsort = String(Request("RSORT"));
-   if(rsort=="2") sort = "R, ZONE";
-	
-	//sort = "TEAM,R,ZONE"
-   //var rfilter = String(Request("FILTER"));
-   //if(rfilter=="0") filter = "and R=''";
-   //else if(rfilter=="1") filter = "and R!=''";
-	//else filter = "";
-   
-	Response.Write(str+"<br>");
+   //var rsort = String(Request("RSORT"));
+   //if(rsort=="2") sort = "R, ZONE";
+	sort = "TEAM,R,ZONE"
+   var rfilter = String(Request("FILTER"));
+   if(rfilter=="0") filter = "and R=''";
+   else if(rfilter=="1") filter = "and R!=''";
+	else filter = "";
+   Response.Write(str+"<br>");
 %>
 
 <%
@@ -174,10 +140,10 @@ Response.Write(obj.Field("S"));
          '0' AS PCHECK, \
          (CASE WHEN EXISTS (SELECT TOP 1 ID FROM ZAIPAI WHERE ZAIPAIID=VISITS.ID) THEN '1' ELSE '0' END) AS ZAIPAIOK \
          FROM visits) X \
-         WHERE "+str+" "+cond1+" AND COMPANYID='"+company_id+"' ORDER BY "+sort
+         WHERE "+str+" "+cond1+filter+" AND AMPM!='' AND COMPANYID='"+company_id+"' ORDER BY "+sort
          
       obj.NewQuery(sql);
-		obj.NewTemplate(SitePath+"search\\tree.wet");
+		 obj.NewTemplate(SitePath+"search\\tree.wet");
 
       obj.DirectResponse = 1;
       obj.Generate(0,0);
