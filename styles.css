@@ -1,8 +1,8 @@
 BODY {font-family: Arial;font-size:9pt;}
 TABLE {font-family: Arial;font-size:9pt;}
 TD {vertical-align:top;}
-a:link {color:#0080C0; text-decoration: none; cursor: none;}
-a:visited {color:#0080C0;text-decoration: none; cursor: none;}
+a:link {color:#0080C0; text-decoration: none;}
+a:visited {color:#0080C0;text-decoration: none;}
 A:active {color:#3333FF;}
 A:hover {color:#3333FF;}
 INPUT {font-family: Arial;font-size:9pt;}

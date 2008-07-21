@@ -18,7 +18,7 @@
    Session("DATE") = date;
    Session("ZONE") = String(Request("ZONE"));
    Session("TEAM") = String(Request("TEAM"));
-   Session("AMPM") = String(Request("AMPM"));
+   //Session("AMPM") = String(Request("AMPM"));
    var phone = String(Request("PHONE"));
 
    var obj = Server.CreateObject("MATech.Engine");
