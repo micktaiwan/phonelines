@@ -34,6 +34,8 @@
 </td></tr>
 <tr><td>聯單: </td><td><input onkeyup="catchKey(event,this)" type="text" name="SERIAL" value="" focused></td></tr>
 <tr><td>電話: </td><td><input onkeyup="catchKey(event,this);" type="text" name="PHONE" value=""></td></tr>
+<input type="hidden" name="AMPM" value="">
+<!--
 <tr><td>上下: </td><td>
 <select name="AMPM">
 <option value='上午'>上午</option>
@@ -44,6 +46,7 @@
 <option value='11:00'>11:00</option>
 </select>
 </td></tr>
+-->
 <tr><td>&nbsp;</td><td><input class="button" onclick="javascript:verify();" type="button" value="OK"></td></tr>
 </table>
 <input type="hidden" name="COMPANYID" value="<%=company_id%>">
