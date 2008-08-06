@@ -9,7 +9,7 @@ var date = GetSession("date");
 if(date == "undefined") date = MyNow(0);
 var zone = und(GetSession("zone"));
 var team = und(GetSession("team"));
-//var ampm = und(GetSession("ampm"));
+var ampm = und(GetSession("ampm"));
 
 /*
       obj.ClearAll();

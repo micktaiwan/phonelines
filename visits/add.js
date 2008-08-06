@@ -96,9 +96,9 @@ function catchKey(event,object) {
          break;
       case "AMPM" : 
 			if(String(object.value).length == 2 || event.keyCode==13) {
-            verify();
-            return false;
-            }
+			  if(String(object.value)=='00') object.value = '';
+           return verify();
+           }
 			break;
       }
     return true;
