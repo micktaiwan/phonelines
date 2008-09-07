@@ -33,7 +33,7 @@
 
    for(i=0;i<5;++i)
       if(n[i]!="0") obj.Execute("INSERT INTO giftgiven (VISITID, MAINID, NB, MAC) VALUES ('"+visitid+"','"+g[i]+"','"+n[i]+"','"+m[i]+"')");
-   for(i=5;i<9;++i)
+   for(i=5;i<10;++i)
       if(n[i]!="0") obj.Execute("INSERT INTO matused (VISITID, MAINID, NB, MAC) VALUES ('"+visitid+"','"+g[i]+"','"+n[i]+"','"+m[i]+"')");
 
    Response.Write("0");
