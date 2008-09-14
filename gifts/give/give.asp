@@ -1,6 +1,8 @@
 
 
 pas utilise
+majax.get("gifts/js/insert.asp") dans le give.js
+
 
 
 <%@ language="javascript"%>
