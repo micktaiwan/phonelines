@@ -70,37 +70,54 @@ function verify () {
    }
 	
 function catchKey(event,object) {
-   var form = document.addform;
-   //alert(object.name);
-	var phone_len  = 8;
-	var serial_len = 12;
-	if(form.JOBTYPE.value == 6 || form.JOBTYPE.value == 7) {
-		phone_len  = 10;
-		serial_len = 11;
-		}
-	var k = event.keyCode;
-	if(k==16 || k==9 || k==8 || k==46 || k==37 || k==39 || k==18 || k==116 || k==35 ||  k==36) return; // Shift, Tab, backspace, del, <, >, Alt, F5, end, home
-	//setstatus(k);
-   switch(object.name) {
-      case "SERIAL" :
-         if(String(object.value).length == serial_len) {
-            form.PHONE.focus();
-            return false;
-            }
-         break;
-      case "PHONE" :
-         if(String(object.value).length == phone_len) {
-            form.AMPM.focus();
-            return false;
-				}
-         break;
-      case "AMPM" : 
-			if(String(object.value).length == 2 || event.keyCode==13) {
-			  if(String(object.value)=='00') object.value = '';
-           return verify();
-           }
-			break;
+  var form = document.addform;
+  // alert(object.name);
+
+  // default length
+  var phone_len  = 8;
+  var serial_len = 12;
+
+  // special cases
+  var job = form.JOBTYPE.value;
+  //alert(form.ZONE.value.substr(0,2));
+  var zone = form.ZONE.value.substr(0,2);
+  if(zone == "M1" || zone == "M2") {
+    if(job >= 0 && job <= 4) {
+      phone_len = 6;
       }
-    return true;
+    else if(job == 6 || job == 7) {
+      phone_len = 9;
+      }
     }
-	 
+  else if(job == 6 || job == 7) {
+    phone_len  = 10;
+    serial_len = 11;
+    }
+  
+  var k = event.keyCode;
+  // Shift, Tab, backspace, del, <, >, Alt, F5, end, home
+  if(k==16 || k==9 || k==8 || k==46 || k==37 || k==39 || k==18 || k==116 || k==35 ||  k==36) return;
+  //setstatus(k);
+  switch(object.name) {
+    case "SERIAL" :
+     if(String(object.value).length == serial_len) {
+      form.PHONE.focus();
+      return false;
+      }
+     break;
+    case "PHONE" :
+     if(String(object.value).length == phone_len) {
+      form.AMPM.focus();
+      return false;
+        }
+     break;
+    case "AMPM" : 
+      if(String(object.value).length == 2 || event.keyCode==13) {
+        if(String(object.value)=='00') object.value = '';
+       return verify();
+       }
+      break;
+    }
+  return true;
+  }
+   
