@@ -81,19 +81,22 @@ function catchKey(event,object) {
   var job = form.JOBTYPE.value;
   //alert(form.ZONE.value.substr(0,2));
   var zone = form.ZONE.value.substr(0,2);
+
+
   if(zone == "M1" || zone == "M2") {
-    if(job >= 0 && job <= 4) {
-      phone_len = 6;
-      }
-    else if(job == 6 || job == 7) {
-      phone_len = 9;
-      }
+    if(job >= 0 && job <= 5)
+      phone_len = 6;  
+    else if(job == 6 || job == 7)
+      if(zone=="M1") {
+        serial_len = 10;
+        phone_len = 9;
+        }
+      if(zone=="M2") {
+        serial_len = 10;
+        phone_len = 11;
+        }
     }
-  else if(job == 6 || job == 7) {
-    phone_len  = 10;
-    serial_len = 11;
-    }
-  
+
   var k = event.keyCode;
   // Shift, Tab, backspace, del, <, >, Alt, F5, end, home
   if(k==16 || k==9 || k==8 || k==46 || k==37 || k==39 || k==18 || k==116 || k==35 ||  k==36) return;
