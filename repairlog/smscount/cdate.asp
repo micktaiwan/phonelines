@@ -12,6 +12,9 @@
 <table border="0" cellspacing="0" cellpadding="4">
 <tr><td>¦~: </td><td>
 <select name="y">
+<option value="2011" <%if(y=="2011") Response.Write("selected")%>>2011</option>
+<option value="2010" <%if(y=="2010") Response.Write("selected")%>>2010</option>
+<option value="2009" <%if(y=="2009") Response.Write("selected")%>>2009</option>
 <option value="2008" <%if(y=="2008") Response.Write("selected")%>>2008</option>
 <option value="2007" <%if(y=="2007") Response.Write("selected")%>>2007</option>
 <option value="2006" <%if(y=="2006") Response.Write("selected")%>>2006</option>
