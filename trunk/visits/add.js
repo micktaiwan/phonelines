@@ -85,7 +85,7 @@ function catchKey(event,object) {
   if(zone == "M1" || zone == "M2") {
     if(job >= 0 && job <= 5)
       phone_len = 6;  
-    else if(job == 6 || job == 7)
+    else if(job == 6 || job == 7) {
       phone_len = 9;
       if(zone=="M1") {
         serial_len = 10;
@@ -94,6 +94,7 @@ function catchKey(event,object) {
         serial_len = 10;
         phone_len = 11;
         }
+	  }	
     }
   else if(job == 6 || job == 7) {
     phone_len  = 10;
