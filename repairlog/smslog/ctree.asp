@@ -54,7 +54,7 @@ if(count>0) {
 <table BGCOLOR="#000000" cellpadding="3" cellspacing="1">
 <tr style="font-weight:bold;" bgcolor="#DDAA00">
 <td></td>
-<% if (admin=="2") { %>
+<% if (admin=="5") { %>
 <td>寄件人</td>
 <% } %>
 <td>收件人</td>
