@@ -103,7 +103,7 @@ function selectgroup(name, selectname) {
 -->
 類型: <select name="TYPE" onchange="CheckLength(this.value)">
 <option value="0">自費的 (沒有廣告)</option>
-<option value="1" <%if(smsleft==0) Response.Write("selected")%>>免費的</option>
+<option value="1" <%if(smsleft==0) Response.Write("selected")%> disabled>免費的</option>
 </select><br>
 <strong>
 『自費簡訊』最多只能輸入【中英文70個字或英文160個字】<br>
