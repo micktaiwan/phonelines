@@ -34,7 +34,7 @@ getgifts("total",opt);
 function sendform_list(date,zone,sort,type) {
 setstatus(txt);
 opt = "&Y="+type;
-majax.get("gifts/search/fetchlist.asp?D="+date+"&Z="+zone+"&S="+sort,display_list);
+majax.get("gifts/search/fetchlist.asp?D="+date+"&Z="+zone+"&S="+sort+"&Y="+type,display_list);
 }
 function display_list(s) {
 document.getElementById("sendform_result").innerHTML = unescape(unescape(s));
