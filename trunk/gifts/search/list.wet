@@ -3,5 +3,5 @@
 <td><=PHONE></td>
 <td><=SERIAL></td>
 <td><=RESULT></td>
-<td><=MAC></td>
+<td><a href="l.asp?P=gifts&SP=search&SP2=list&SP3=search_mac&MAC=<=MAC>"><=MAC></a></td>
 </tr>

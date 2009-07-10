@@ -16,7 +16,21 @@
 <tr><td>&nbsp;</td><td><input class="button" type="button" value="查詢" onclick="sendform_list(document.getElementById('date').value,document.getElementById('zone').value,document.getElementById('sort').value,document.getElementById('type').value);"></td></tr>
 </table>
 </form>
+
+<%if(Request("sp3")=="search_mac") {
+mac = Request("mac");
+%>
+<table border="1" cellspacing="0" cellpadding="0">
+<tr><td>日期</td><td>班別</td><td>Phone</td><td>Serial</td><td>Result</td></tr>
+<%
+	obj.ClearAll();
+	obj.NewQuery("SELECT v.DATE, v.TEAM, v.PHONE, v.SERIAL, v.RESULT from MATUSED m left outer join visits v on v.id=m.visitid where m.MAC='"+mac+"'");
+    obj.NewTemplate(SitePath+"gifts\\search\\search_by_mac.wet");
+    obj.Generate(0,0);
+%>
+</table>
+<%}%>
+
 <div id="status">&nbsp;</div>
-
+<br/>
 <div id="sendform_result"></div>
-
