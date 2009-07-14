@@ -6,7 +6,7 @@
 
    var obj = Server.CreateObject("MATech.Engine");
    obj.SetDB(DB,"sa","engine");
-   obj.Execute("UPDATE sms SET DELETED=1 WHERE TRACKING=10 AND MEMBERID='"+GetSession("PHONEID")+"'");
+   obj.Execute("UPDATE sms SET DELETED=1 WHERE TRACKING=0 AND MEMBERID='"+GetSession("PHONEID")+"'");
    obj = "";
    Response.Redirect("../l.asp?P=sms&D#msg");   
 %>

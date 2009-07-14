@@ -1,5 +1,5 @@
 <!-- <img src="images/bul1.gif"> <a href="repairlog/smslog/trackall.asp">更新所有的狀態</a> -->
-<img src="images/bul1.gif"> <a onclick="if(!confirm('Are you sure ?')) return false" href="repairlog/smslog/deletebad.asp">刪除所有有錯誤的消息</a>
+<!--<img src="images/bul1.gif"> <a onclick="if(!confirm('Are you sure ?')) return false" href="repairlog/smslog/deletebad.asp">刪除所有有錯誤的消息</a>-->
 <img src="images/bul1.gif"> <a onclick="if(!confirm('Are you sure ?')) return false" href="repairlog/smslog/deletesucc.asp">刪除所有收到的消息</a>
 <br>
 <br>
