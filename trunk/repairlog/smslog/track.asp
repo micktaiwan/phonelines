@@ -47,6 +47,7 @@
    msg = sms.QueryMsg(msgid);
    obj.Execute("UPDATE SMS SET LASTTRACKDATE=getdate(), tracking="+msg+",TRACKMSG='"+TrackMessage(msg)+"' WHERE ID="+k);
 
+   sms.EndCon();
    sms = "";
    obj = "";
    Response.Redirect("../../l.asp?P=repairlog&SP=smslog&D#msg");
