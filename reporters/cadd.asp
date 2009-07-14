@@ -48,4 +48,9 @@ function verify () {
 <tr><td>SMS Phone: </td><td><input type="text" name="smsphone" value=""></td></tr>
 <tr><td>&nbsp;</td><td><input class="button" onclick="javascript:verify();" type="button" value="OK"></td></tr>
 </table>
+<input type="hidden" name="companyid" value="<%=company_id%>">
+<input type="hidden" name="groupid" value="0">
+<input type="hidden" name="totalsms" value="0">
+<input type="hidden" name="smshnid" value="0">
+<input type="hidden" name="smsleft" value="0">
 </form>
