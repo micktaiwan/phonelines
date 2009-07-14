@@ -29,8 +29,13 @@
    function verlengthsmsform() {
 
       var f = document.smsform.check;
+      if(f==null) {
+         alert('no sms');
+         return;
+         }
       var c = "document.smsform.MESS";
       var i;
+      
       for(i=0; i < f.length;i++)
          if(f[i].checked) {
             if(eval(c+f[i].value).value.length > 69) {
@@ -87,7 +92,9 @@
 %>
 </table><br>
 <!--<input type="checkbox" value="asd" name="checks">-->
+<!--
 <input type="radio" value="0" name="UsingTiming" checked> 立即傳送<br>
 <input type="radio" value="1" name="UsingTiming"> 預約傳送 <input type="text" name="SendDate" value="<%=MyNow(1)%>"><br>
+-->
 <input type="button" class="button" onclick="versmsform();" value="送簡訊">
 </form>

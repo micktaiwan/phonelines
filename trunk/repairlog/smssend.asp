@@ -2,6 +2,7 @@
 <% Response.Buffer = true; %>
 <!--#include file="../virtual.asp" -->
 <!--#include file="../func.asp" -->
+<!--#include file="smslog/functions.asp" -->
 <html>
 <head>
    <meta http-equiv="Content-Type" content="text/html; charset=big5">
@@ -19,13 +20,14 @@
 請少等...<br>
 <br>
 <%
+      
    if(!IsLogged("PHONE") || GetSession("PHONEADMIN") == "0") {
       Response.Write("No permission");
       Response.End();
       }
    var smshnid = GetSession("PHONESMSHNID");
    if(smshnid == "0" || smshnid == "undefined") {
-      Response.Write("No SMS account defined");
+      Response.Write("沒有設定短信帳戶");
       Response.End();
       }
 
@@ -46,15 +48,21 @@
       }
 
 
-   var sms = Server.CreateObject("MATechSMS.SMS");
-   sms.Login      = login;
-   sms.Password   = pass;
+   var sms = Server.CreateObject("HiAir.HinetSMS");
+   var result = sms.StartCon("api.hiair.hinet.net",8000,login,pass)
+   
+   if(result != 0) {
+      Response.Write("<strong>Error</strong>: "+ConnectErrorToText(result));
+      Stop();
+      }
 
    var check = String(Request("CHECK"));
    var senddate = String(Request("SendDate"));
+   if(senddate=="undefined") senddate = MyNow(1);
    var usingtiming = String(Request("UsingTiming"));
    if(usingtiming=="undefined") usingtiming = "0";
-   if(usingtiming=="1") sms.SendDate = senddate; // also set UsingTiming = true
+   // TODO if(usingtiming=="1") sms.SendDate = senddate; // also set UsingTiming = true
+
    var k = check.split(", ");
    if(k=="undefined") k = "";
    var id = GetSession("PHONEID");
@@ -64,34 +72,32 @@
    var phone;
    var error;
    var i;
-   var result = 1;
+   result = 1;
    var repairid;
    var visitid;
    var oldi = -1;
    var personnelid;
    var newnb;
-
-   admin = GetSession("PHONEADMIN");
+   var companyid = GetSession("PHONECOMPANYID")
+   var admin = GetSession("PHONEADMIN");
 
    for(i = 0; i < k.length; i++) {
+
       if(admin == "3" && GetSession("PHONESMSLEFT") == "0") {
          Response.Write("<strong>No SMS credit left</strong>");
-         obj = "";
-         sms = "";
-         Response.End();
+         Stop();
          }
+
       if(oldi==i) {
          Response.Write("<br><strong>Problem with DB</strong><br>");
-         Response.Flush();
-         obj = "";
-         sms = "";
-         Response.End();
+         Stop();
          }
-      oldi = i;
-      name  = String(Request("NAME"+k[i])).replace(/^\s+|\s+$/g,'');
-      phone  = String(Request("PHONE"+k[i])).replace(/^\s+|\s+$/g,'');
-      mess  = String(Request("MESS"+k[i])).replace(/^\s+|\s+$/g,'');
-      len = mess.length;
+         
+      oldi     = i;
+      name     = String(Request("NAME"+k[i])).replace(/^\s+|\s+$/g,'');
+      phone    = String(Request("PHONE"+k[i])).replace(/^\s+|\s+$/g,'');
+      mess     = String(Request("MESS"+k[i])).replace(/^\s+|\s+$/g,'');
+      len      = mess.length;
       repairid = String(Request("REPAIRID"+k[i]));
       visitid  = String(Request("VISITID"+k[i]));
       personnelid  = String(Request("PERSONNELID"+k[i]));
@@ -100,11 +106,11 @@
       else {
          Response.Write(i+": "+name+" "+phone+" \"<u>" +mess+"</u>\"... ");
          Response.Flush();
-         sms.Mess = mess;
-         sms.Phone = phone;
          error = "";
-         result = sms.Send();
+         result = sms.SendMsg(phone,mess);
          if(result==0) { //SUCCESS
+            msg_id = sms.Get_Message();
+            //Response.Write("id="+msg_id+"<br/>");
             obj.Execute("UPDATE REPAIRLOG SET SMS=ISNULL(SMS,'0')+1 WHERE ID="+repairid);
             Response.Write("<strong>OK</strong><br>");
             if(admin=="3") {
@@ -115,17 +121,19 @@
                }
             }
          else {
-            error = ToSQL(sms.Error);
-            Response.Write("<strong>Problem:</strong>"+ error + "<br>");
+            Response.Write("<strong>Send error to "+phone+":</strong> ("+ result + ") "+SendErrorToText(result) + "<br>");
+            msg_id = 0;
             }
    
-         obj.Execute("INSERT INTO SMS (SMSHNID, SENTDATE, MESSAGE, PHONE, NAME, MEMBERID, DELETED, ERROR, TRACKING, MSGID, RESULT, LEN, USINGTIMING, SENDDATE, REPAIRID, VISITID, PERSONNELID) VALUES ("+smshnid+",'"+MyNow(1)+"','"+ToSQL(mess)+"','"+phone+"','"+name+"',"+GetSession("PHONEID")+",0,'"+error+"',-1,'"+sms.MsgID+"',"+result+","+len+","+usingtiming+",'"+senddate+"',"+repairid+","+visitid+","+personnelid+")");
+         //Response.Write("INSERT INTO SMS (SMSHNID, SENTDATE, MESSAGE, PHONE, NAME, MEMBERID, DELETED, ERROR, TRACKING, MSGID, RESULT, LEN, USINGTIMING, SENDDATE, REPAIRID, VISITID, PERSONNELID, COMPANYID) VALUES ("+smshnid+",'"+MyNow(1)+"','"+ToSQL(mess)+"','"+phone+"','"+name+"',"+GetSession("PHONEID")+",0,'"+error+"',-1,'"+msg_id+"',"+result+","+len+","+usingtiming+",'"+senddate+"',"+repairid+","+visitid+","+personnelid+","+companyid+")");
+         obj.Execute("INSERT INTO SMS (SMSHNID, SENTDATE, MESSAGE, PHONE, NAME, MEMBERID, DELETED, ERROR, TRACKING, MSGID, RESULT, LEN, USINGTIMING, SENDDATE, REPAIRID, VISITID, PERSONNELID, COMPANYID) VALUES ("+smshnid+",'"+MyNow(1)+"','"+ToSQL(mess)+"','"+phone+"','"+name+"',"+GetSession("PHONEID")+",0,'"+error+"',-1,'"+msg_id+"',"+result+","+len+","+usingtiming+",'"+senddate+"',"+repairid+","+visitid+","+personnelid+","+companyid+")");
          }
       Response.Flush();
       }
 
-   sms = "";
    obj = "";
+   sms.EndCon();
+   sms = "";
    //Response.Redirect("../l.asp?P=sms&S=1&D#msg");
 %>
 <br>

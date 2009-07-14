@@ -1,4 +1,4 @@
-<tr bgcolor="#<&RESULT!"0>FFAAAA<&/><&TRACKING="10>99FF99<&/><&TRACKING="-1>FFC400<&/><&TRACKING="11>FFC400<&/>FFAAAA<&><&><&><&>" style="font-size:8pt;">
+<tr bgcolor="#<&RESULT!"0>FFAAAA<&/><&TRACKING="0>99FF99<&/><&TRACKING="-1>FFC400<&/><&TRACKING="11>FFC400<&/>FFAAAA<&><&><&><&>" style="font-size:8pt;">
 <td>
 <a href="sms/delete.asp?K=<=#>" onclick="if(!confirm('Are you sure ?')) return false">
 <img src="images/trashcan.gif" border="0"></a>
@@ -19,7 +19,7 @@
 <&RESULT="0>
 <&TRACKING="-1>Message sent<&/>
 <=LASTTRACKDATE>: <&><=TRACKMSG>
-<&TRACKING!"10><&RESULT="0><b>[<a href="repairlog/smslog/track.asp?K=<=ID>">更新狀態</a>]</b><&><&>
+<&TRACKING!"0><&RESULT="0><b>[<a href="repairlog/smslog/track.asp?K=<=ID>">更新狀態</a>]</b><&><&>
 <&/><=ERROR><&>
 </td>
 
