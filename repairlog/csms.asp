@@ -11,6 +11,7 @@
       var lfield = eval("document.smsform.len"+i);
       var cfield = eval("document.smsform.MESS"+i);
       cfield.value = cfield.value.replace(/^\s+|\s+$/g,'');
+      cfield.value = cfield.value.replace(/(\d\d)(\d{7,8})/g,'$1 $2');
       lfield.value = cfield.value.length;
 
       }
