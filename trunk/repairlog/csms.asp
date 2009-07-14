@@ -75,18 +75,11 @@
 <%
       obj.ClearAll();
       obj.AddVar(GetSession("PHONEADMIN"));
-
       var cond1 = "";
       if(admin=="3") cond1 = " AND visits.ZONE IN (SELECT CODE FROM zones JOIN repzones ON zones.ID=repzones.ZONE WHERE repzones.REP="+GetSession("PHONEID")+")";
-      //Response.Write("cond1=="+cond1+"<br>");
       cond1 += " AND visits.companyid='"+company_id+"'"
-
-
       obj.NewQuery("SELECT repairlog.*, ISNULL(repairlog.SMS,0) AS SMS, personnel.ID as PID, personnel.NAME, personnel.PHONES FROM repairlog LEFT OUTER JOIN visits ON repairlog.VISITID=visits.ID LEFT OUTER JOIN personnel on visits.TEAM=personnel.TEAM WHERE CORRECTED=0 "+cond1+" ORDER BY SMS");
-      //obj.NewQuery("SELECT top 20 * from visits");
       obj.NewTemplate(SitePath+"repairlog\\sms.wet");
-      //obj.NewTemplate(SitePath+"repairlog\\sms_test.wet");
-
       obj.DirectResponse = 1;
       obj.Generate(0,0);
 %>
