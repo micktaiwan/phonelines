@@ -3,6 +3,7 @@
 <!--#include file="../virtual.asp" -->
 <!--#include file="../func.asp" -->
 <!--#include file="../trim.asp" -->
+<!--#include file="../repairlog/smslog/functions.asp" -->
 <%
    String.prototype.Trim  = new Function("return this.replace(/^\\s+|\\s+$/g,'')")
    var smshnid = GetSession("PHONESMSHNID");
@@ -27,11 +28,9 @@
    var advtext = "";
    if(type=="0" || smshnid=="10") {
       obj.ClearAll();
-      obj.NewQuery("SELECT HN AS ID FROM SMSHN WHERE ID="+smshnid);
-      obj.NewQuery("SELECT PASS AS ID FROM SMSHN WHERE ID="+smshnid);
-      obj.NewTemplate(SitePath + "id.wet");
-      var login = obj.GenerateString(0,0);
-      var pass = obj.GenerateString(1,0);
+      obj.Open("SELECT HN, PASS FROM SMSHN WHERE ID="+smshnid);
+      var login = obj.Field("HN");
+      var pass = obj.Field("PASS");
 
       if(login == "" || pass == "") {
          obj = "";
@@ -40,8 +39,8 @@
          }
       }
    else {
-      login = "83100702";
-      pass  = "29772044";
+      login = "73305139";
+      pass  = "92f0d6ba";
       }
 
    if(type=="1") {
@@ -60,18 +59,22 @@
       }
 
 
-   var sms = Server.CreateObject("MATechSMS.SMS");
-   sms.Login = login;
-   sms.Password = pass;
+   var sms = Server.CreateObject("HiAir.HinetSMS");
+   var result = sms.StartCon("api.hiair.hinet.net",8000,login,pass)
+   if(result != 0) {
+      Response.Write("<strong>Error</strong>: "+ConnectErrorToText(result));
+      Stop();
+      }
 
    var dest = String(Request("DEST"));
    var senddate = String(Request("SendDate"));
+   if(senddate=="undefined") senddate = MyNow(1);
    var usingtiming = String(Request("UsingTiming"));
    if(usingtiming=="undefined") usingtiming = "0";
-   if(usingtiming=="1") sms.SendDate = senddate; // also set UsingTiming = true
+   //if(usingtiming=="1") sms.SendDate = senddate; // also set UsingTiming = true
    var mess = String(Request("MESS")).Trim();
    var len = mess.length;
-   sms.Mess = mess + " " + advtext;
+   mess = mess + " " + advtext;
    //Response.Write(DEST+"<br>");
    var k = dest.split(", ");
    if(k=="undefined") k = "";
@@ -113,10 +116,12 @@
 //    sms = "";
 //    Response.End();
 
-      sms.Phone = phone;
+      //sms.Phone = phone;
       error = "";
-      result = sms.Send();
+      //result = sms.Send();
+      result = sms.SendMsg(phone,mess);
       if(result==0) { //SUCCESS
+         msg_id = sms.Get_Message();
          if(type=="0") {
             obj.Execute("UPDATE REPORTERS SET smsleft=smsleft-1, totalsms=totalsms+1 WHERE ID="+id);
             Session("PHONESMSLEFT") = parseInt(GetSession("PHONESMSLEFT"))-1;
@@ -127,10 +132,11 @@
             }
          }
       else {
-         error = ToSQL(sms.Error);
+         error = ToSQL(SendErrorToText(result));
+         msg_id = 0
          }
       //Response.Write("INSERT INTO SMS (SMSHNID,SENTDATE, MESSAGE, PHONE, NAME, MEMBERID, DELETED, ERROR, TRACKING, MSGID, RESULT, LEN, USINGTIMING, SENDDATE) VALUES ("+smshnid+",'"+MyNow(1)+"','"+mess+"','"+phone+"','"+name+"',"+GetSession("PHONEID")+",0,'"+error+"',-1,'"+sms.MsgID+"',"+result+","+len+","+usingtiming+",'"+senddate+"')");
-      obj.Execute("INSERT INTO SMS (SMSHNID,SENTDATE, MESSAGE, PHONE, NAME, MEMBERID, DELETED, ERROR, TRACKING, MSGID, RESULT, LEN, USINGTIMING, SENDDATE, TYPE, ADID, ADTEXT,COMPANYID) VALUES ("+smshnid+",'"+MyNow(1)+"','"+ToSQL(mess)+"','"+phone+"','"+name+"',"+GetSession("PHONEID")+",0,'"+error+"',-1,'"+sms.MsgID+"',"+result+","+len+","+usingtiming+",'"+senddate+"','"+type+"','"+advid+"','"+advtext+"','"+company_id+"')");
+      obj.Execute("INSERT INTO SMS (SMSHNID,SENTDATE, MESSAGE, PHONE, NAME, MEMBERID, DELETED, ERROR, TRACKING, MSGID, RESULT, LEN, USINGTIMING, SENDDATE, TYPE, ADID, ADTEXT,COMPANYID) VALUES ("+smshnid+",'"+MyNow(1)+"','"+ToSQL(mess)+"','"+phone+"','"+name+"',"+GetSession("PHONEID")+",0,'"+error+"',-1,'"+msg_id+"',"+result+","+len+","+usingtiming+",'"+senddate+"','"+type+"','"+advid+"','"+advtext+"','"+company_id+"')");
       }
 
    //-----------------------
@@ -168,10 +174,12 @@
 //    sms = "";
 //    Response.End();
 
-      sms.Phone = phone;
+      //sms.Phone = phone;
       error = "";
-      result = sms.Send();
+      // result = sms.Send();
+      result = sms.SendMsg(phone,mess);
       if(result==0) { //SUCCESS
+         msg_id = sms.Get_Message();
          if(type=="0") {
             obj.Execute("UPDATE REPORTERS SET smsleft=smsleft-1, totalsms=totalsms+1 WHERE ID="+id);
             Session("PHONESMSLEFT") = parseInt(GetSession("PHONESMSLEFT"))-1;
@@ -182,13 +190,15 @@
             }
          }
       else {
-         error = ToSQL(sms.Error);
+         error = ToSQL(SendErrorToText(result));
+         msg_id = 0
          }
       //Response.Write("INSERT INTO SMS (SMSHNID,SENTDATE, MESSAGE, PHONE, NAME, MEMBERID, DELETED, ERROR, TRACKING, MSGID, RESULT, LEN, USINGTIMING, SENDDATE) VALUES ("+smshnid+",'"+MyNow(1)+"','"+mess+"','"+phone+"','"+name+"',"+GetSession("PHONEID")+",0,'"+error+"',-1,'"+sms.MsgID+"',"+result+","+len+","+usingtiming+",'"+senddate+"')");
-      obj.Execute("INSERT INTO SMS (SMSHNID,SENTDATE, MESSAGE, PHONE, NAME, MEMBERID, DELETED, ERROR, TRACKING, MSGID, RESULT, LEN, USINGTIMING, SENDDATE, TYPE, ADID, ADTEXT, COMPANYID) VALUES ("+smshnid+",'"+MyNow(1)+"','"+ToSQL(mess)+"','"+phone+"','"+name+"',"+GetSession("PHONEID")+",0,'"+error+"',-1,'"+sms.MsgID+"',"+result+","+len+","+usingtiming+",'"+senddate+"','"+type+"','"+advid+"','"+advtext+"','"+company_id+"')");
+      obj.Execute("INSERT INTO SMS (SMSHNID,SENTDATE, MESSAGE, PHONE, NAME, MEMBERID, DELETED, ERROR, TRACKING, MSGID, RESULT, LEN, USINGTIMING, SENDDATE, TYPE, ADID, ADTEXT, COMPANYID) VALUES ("+smshnid+",'"+MyNow(1)+"','"+ToSQL(mess)+"','"+phone+"','"+name+"',"+GetSession("PHONEID")+",0,'"+error+"',-1,'"+msg_id+"',"+result+","+len+","+usingtiming+",'"+senddate+"','"+type+"','"+advid+"','"+advtext+"','"+company_id+"')");
       }
 
 
+   sms.EndCon();
    sms = "";
    obj = "";
    Response.Redirect("../l.asp?P=sms&S=1&D#msg");

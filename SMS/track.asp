@@ -1,6 +1,7 @@
 <%@ language="javascript"%>
 <!--#include file="../virtual.asp" -->
 <!--#include file="../func.asp" -->
+<!--#include file="../repairlog/smslog/functions.asp" -->
 <%
    if(!IsLogged("PHONE") || GetSession("PHONEADMIN") == "0") Response.End();
 
@@ -9,21 +10,17 @@
 
    var k = String(Request("K"));
    obj.ClearAll();
-   obj.NewQuery("SELECT smshnid AS ID FROM SMS WHERE ID="+k);
-   obj.NewQuery("SELECT PHONE AS ID FROM SMS WHERE ID="+k);
-   obj.NewQuery("SELECT msgid AS ID FROM SMS WHERE ID="+k);
-   obj.NewQuery("SELECT TYPE AS ID FROM SMS WHERE ID="+k);
-   obj.NewTemplate(SitePath+"id.wet");
-   var type = obj.GenerateString(3,0);
+   obj.Open("SELECT smshnid, phone, msgid, type FROM SMS WHERE ID="+k);
+   var type = obj.Field("type");
    var smshnid;
    if(type=="0") {
-      smshnid = obj.GenerateString(0,0);
+      smshnid = obj.Field("smshnid");
       }
    else {
       smshnid = -1;
       }
-   var phone   = obj.GenerateString(1,0);
-   var msgid   = obj.GenerateString(2,0);
+   var phone   = obj.Field("phone");
+   var msgid   = obj.Field("msgid");
    if(smshnid == "") {
       obj = "";
       Response.Write("Can't get smshnid");
@@ -37,11 +34,9 @@
 
    if(type=="0") {
       obj.ClearAll();
-      obj.NewQuery("SELECT HN AS ID FROM SMSHN WHERE ID="+smshnid);
-      obj.NewQuery("SELECT PASS AS ID FROM SMSHN WHERE ID="+smshnid);
-      obj.NewTemplate(SitePath + "id.wet");
-      var login = obj.GenerateString(0,0);
-      var pass = obj.GenerateString(1,0);
+      obj.Open("SELECT HN, PASS FROM SMSHN WHERE ID="+smshnid);
+      var login = obj.Field("hn");
+      var pass = obj.Field("pass");
       if(login == "" || pass == "") {
          obj = "";
          Response.Write("Can't get login or pass");
@@ -49,21 +44,21 @@
          }
       }
    else {
-      login = "84542930";
-      pass  = "2agirrdl";
+      login = "73305139";
+      pass  = "92f0d6ba";
       }
 
+   var sms = Server.CreateObject("HiAir.HinetSMS");
+   var result = sms.StartCon("api.hiair.hinet.net",8000,login,pass)
+   if(result != 0) {
+      Response.Write("<strong>Error</strong>: "+ConnectErrorToText(result));
+      Stop();
+      }
 
-   var sms = Server.CreateObject("MATechSMS.SMS");
-   sms.Login      = login;
-   sms.Password   = pass;
-   result = sms.Track(phone,msgid);
-   if(result==0) { //SUCCESS
-      obj.Execute("UPDATE SMS SET LASTTRACKDATE=getdate(), tracking="+sms.RetCode+",TRACKMSG='"+sms.RetDescription+"' WHERE ID="+k);
-      }
-   else {
-      obj.Execute("UPDATE SMS SET LASTTRACKDATE=getdate(), tracking=-1,TRACKMSG='"+sms.RetDescription+"' WHERE ID="+k);
-      }
+   msg = sms.QueryMsg(msgid);
+   obj.Execute("UPDATE SMS SET LASTTRACKDATE=getdate(), tracking="+msg+",TRACKMSG='"+TrackMessage(msg)+"' WHERE ID="+k);
+
+   sms.EndCon();
    sms = "";
    obj = "";
    Response.Redirect("../l.asp?P=sms&D#msg");
