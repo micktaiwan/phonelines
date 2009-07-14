@@ -9,11 +9,20 @@
    function SendErrorToText(error) {
       switch(error) {
          case 0: return "訊息傳送成功"
+         case 1: return "國別格式錯誤"
          case 2: return "編碼格式錯誤"
+         case 3: return "優先權格式錯誤"
+         case 4: return "Msg_content_len格式錯誤"
+         case 5: return "Msg_content_len與msg_content的長度不相符"
          case 6: return "手機號碼格式"
+         case 7: return "傳送型式的格式錯誤"
          case 8: return "重送截止時間格式錯誤"
          case 9: return "預約傳送時間格式錯誤"
+         case 10: return "目前暫不開放傳送至國外"
          case 11: return "系統暫時無法傳送訊息"
+         case 13: return "wap push的url沒有設定"
+         case 14: return "wap push的訊息內容超過88個byte"
+         case 16: return "簡訊內容包含連續9-10碼的電話號碼，不合規定"
          case -4: return "傳送/接收資料錯誤"
          default: return "Unknown error"
          }  
