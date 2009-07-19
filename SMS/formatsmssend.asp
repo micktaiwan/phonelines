@@ -1,6 +1,7 @@
 <%@ language="javascript"%>
 <!--#include file="../virtual.asp" -->
 <!--#include file="../func.asp" -->
+<!--#include file="../repairlog/smslog/functions.asp" -->
 <!doctype html public "-//w3c//dtd html 4.0 transitional//en">
 <html>
 <head>
@@ -17,8 +18,6 @@
 <%
    var mess = String(Request("MESS"));
    var smshnid = GetSession("PHONESMSHNID");
-   //Response.Write(smshnid);
-   //Response.End();
    var type = 1; // free
    var id = GetSession("PHONEID");
    if(id == "undefined") {
@@ -40,11 +39,9 @@
    var advtext = "";
 
    obj.ClearAll();
-   obj.NewQuery("SELECT HN AS ID FROM SMSHN WHERE ID="+smshnid);
-   obj.NewQuery("SELECT PASS AS ID FROM SMSHN WHERE ID="+smshnid);
-   obj.NewTemplate(SitePath + "id.wet");
-   var login = obj.GenerateString(0,0);
-   var pass = obj.GenerateString(1,0);
+   obj.Open("SELECT HN, PASS FROM SMSHN WHERE ID="+smshnid);
+   var login   = obj.Field("HN");
+   var pass    = obj.Field("PASS");
 
    if(login == "" || pass == "") {
       obj = "";
@@ -70,9 +67,13 @@
       }
 
 
-   var sms = Server.CreateObject("MATechSMS.SMS");
-   sms.Login = login;
-   sms.Password = pass;
+   var sms = Server.CreateObject("HiAir.HinetSMS");
+   var result = sms.StartCon("api.hiair.hinet.net",8000,login,pass)
+   if(result != 0) {
+      Response.Write("<strong>Error</strong>: "+ConnectErrorToText(result));
+      Stop();
+      }
+
 
    var dest = String(Request("DEST"));
    var senddate = MyNow(1);
@@ -80,15 +81,13 @@
    if(usingtiming=="undefined") usingtiming = "0";
    if(usingtiming=="1") sms.SendDate = senddate; // also set UsingTiming = true
    var len = mess.length;
-   sms.Mess = mess + " " + advtext;
-   //Response.Write(DEST+"<br>");
+   if(advtext!='') mess = mess + " " + advtext;
    var k = dest.split(", ");
    if(k=="undefined") k = "";
    var name;
    var phone;
    var error;
    var i;
-   //Response.Write(k.length+"<br>");
    var result = 0;
 
    //-----------------------
@@ -96,41 +95,33 @@
    //-----------------------
 
    var bulk = String(Request("bulk"));
-   //Response.Write("bulk == "+bulk+"<br>");
    if(bulk=="") k = "";
    else k = bulk.split("\r\n");
    name  = "";
-   //Response.Write("There are "+k.length+" phone numbers.<br>");
    Response.Write("The message is "+ToSQL(mess)+"<br>");
    for(i = 0; i < k.length; i++) {
       phone = String(k[i]);
       if(k[i]=="") continue;
       Response.Write(String(i+1)+": "+phone+"... ");
-/*
-      obj = "";
-      sms = "";
-      Response.End();
-*/
-
-      sms.Phone = phone;
       error = "";
-      result = sms.Send();
+      result = sms.SendMsg(phone,mess);
       if(result==0) { //SUCCESS
+         msg_id = sms.Get_Message();
          Response.Write("OK<br>");
          obj.Execute("UPDATE BANNERS SET NBVIEW=NBVIEW+1 WHERE ID='"+advid+"'");
          }
       else {
          Response.Write("<strong>Error</strong><br>");
-         error = ToSQL(sms.Error);
+         error = ToSQL(SendErrorToText(result));         
+         msg_id = 0;
          }
-      //Response.Write("INSERT INTO SMS (SMSHNID,SENTDATE, MESSAGE, PHONE, NAME, MEMBERID, DELETED, ERROR, TRACKING, MSGID, RESULT, LEN, USINGTIMING, SENDDATE, TYPE, ADID, ADTEXT) VALUES ("+smshnid+",'"+MyNow(1)+"','"+ToSQL(mess)+"','"+phone+"','"+name+"',"+GetSession("PHONEID")+",0,'"+error+"',-1,'"+sms.MsgID+"',"+result+","+len+","+usingtiming+",'"+senddate+"','"+type+"','"+advid+"','"+advtext+"')");
-      obj.Execute("INSERT INTO SMS (SMSHNID,SENTDATE, MESSAGE, PHONE, NAME, MEMBERID, DELETED, ERROR, TRACKING, MSGID, RESULT, LEN, USINGTIMING, SENDDATE, TYPE, ADID, ADTEXT) VALUES ("+smshnid+",'"+MyNow(1)+"','"+ToSQL(mess)+"','"+phone+"','"+name+"',"+GetSession("PHONEID")+",0,'"+error+"',-1,'"+sms.MsgID+"',"+result+","+len+","+usingtiming+",'"+senddate+"','"+type+"','"+advid+"','"+advtext+"')");
+      obj.Execute("INSERT INTO SMS (SMSHNID,SENTDATE, MESSAGE, PHONE, NAME, MEMBERID, DELETED, ERROR, TRACKING, MSGID, RESULT, LEN, USINGTIMING, SENDDATE, TYPE, ADID, ADTEXT) VALUES ("+smshnid+",'"+MyNow(1)+"','"+ToSQL(mess)+"','"+phone+"','"+name+"',"+GetSession("PHONEID")+",0,'"+error+"',-1,'"+msg_id+"',"+result+","+len+","+usingtiming+",'"+senddate+"','"+type+"','"+advid+"','"+advtext+"')");
       }
 
 
+   sms.EndCon();
    sms = "";
    obj = "";
-   //Response.Redirect("../l.asp?P=sms&S=1&D#msg");
 %>
 <br>
 <a href="../l.asp?P=formatsms">Back</a>

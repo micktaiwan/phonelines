@@ -91,8 +91,7 @@
 
    for(i = 0; i < k.length; i+=2) {
       if(type=="0" && GetSession("PHONESMSLEFT")=="0") {
-         sms = "";
-         obj = "";
+         Stop();
          Response.Redirect("../l.asp?P=sms&S=2");
          }
       if(type=="1" && smshnid!="10") {
@@ -102,19 +101,12 @@
          obj.NewTemplate(MMSitePath+"id.wet");
          last24 = obj.GenerateString(0,0)*1;
          if(last24>=5) {
-            sms = "";
-            obj = "";
+            Stop();
             Response.Redirect("../l.asp?P=sms&S=2");
             }
          }
       name  = String(k[i]).Trim();
       phone = String(k[i+1]).Trim();
-
-//    Response.Write(phone.length+"<br>");
-//    Response.Write(phone+"<br>");
-//    obj = "";
-//    sms = "";
-//    Response.End();
 
       //sms.Phone = phone;
       error = "";
@@ -133,7 +125,7 @@
          }
       else {
          error = ToSQL(SendErrorToText(result));
-         msg_id = 0
+         msg_id = 0;
          }
       //Response.Write("INSERT INTO SMS (SMSHNID,SENTDATE, MESSAGE, PHONE, NAME, MEMBERID, DELETED, ERROR, TRACKING, MSGID, RESULT, LEN, USINGTIMING, SENDDATE) VALUES ("+smshnid+",'"+MyNow(1)+"','"+mess+"','"+phone+"','"+name+"',"+GetSession("PHONEID")+",0,'"+error+"',-1,'"+sms.MsgID+"',"+result+","+len+","+usingtiming+",'"+senddate+"')");
       obj.Execute("INSERT INTO SMS (SMSHNID,SENTDATE, MESSAGE, PHONE, NAME, MEMBERID, DELETED, ERROR, TRACKING, MSGID, RESULT, LEN, USINGTIMING, SENDDATE, TYPE, ADID, ADTEXT,COMPANYID) VALUES ("+smshnid+",'"+MyNow(1)+"','"+ToSQL(mess)+"','"+phone+"','"+name+"',"+GetSession("PHONEID")+",0,'"+error+"',-1,'"+msg_id+"',"+result+","+len+","+usingtiming+",'"+senddate+"','"+type+"','"+advid+"','"+advtext+"','"+company_id+"')");
