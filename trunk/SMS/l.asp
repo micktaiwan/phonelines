@@ -20,6 +20,7 @@ else {
    //obj.NewQuery("SELECT COUNT(*) AS ID FROM SMS WHERE MEMBERID='"+id+"' AND TYPE=1 AND RESULT=0 AND TRACKING!=21 AND TRACKING!=13 AND SENTDATE>GETDATE()-1");
    //obj.NewTemplate(MMSitePath+"id.wet");
    //var last24 = obj.GenerateString(0,0)*1;
+   var last24 = 5;
 %>
 <% //Response.Write("<strong>"+last24 + "</strong> " + "個傳送的SMS (在最近的24小時內)");%><br>
 <% //if (smshnid=="10") Response.Write("無限制的")%>
