@@ -5,6 +5,7 @@ function verify() {
 	var tmp = f.Phone.value.split('/');
 	var ampm = f.daypart.value;
 	var phone = tmp[0];
+   phone = phone.replace(/(\d{4})(\d{6})/g,'$1-$2');
 	var name = tmp[1];
 	allday = "";
 	if(ampm == "¾ã¤Ñ") {
