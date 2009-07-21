@@ -5,6 +5,7 @@
 <td><&VISITID="><strong>錯誤 請跟費頌明聯絡</strong><&> <=VISDATE></td>
 <td width="130"><=CONFIRMDATE@></td>
 <td width="130"><=REPORTDATE></td>
+<td><=ORIGIN></td>
 <td><=ZONE></td>
 <td><=REPORTER></td>
 <td><=TEAM></td>

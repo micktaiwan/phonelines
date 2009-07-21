@@ -6,8 +6,6 @@
 <table bgcolor="#AABBCC" border="0" cellspacing="1" cellpadding="2">
 <tr><td><b>申 告 人:</b> </td><td><input type="text" name="COMPLAINNAME" value="<=COMPLAINNAME>" size="5">
 <select name="COMPLAINSEX"><option value="先生" <&COMPLAINSEX="先生>selected<&>>先生</option><option value="小姐" <&COMPLAINSEX="小姐>selected<&>>小姐</option></select>
-
-
 </td></tr>
 <tr><td><b>聯絡電話:</b> </td><td>
 <table border="0" cellspacing="0" cellpadding="0">
@@ -26,6 +24,14 @@
 <tr><td>障礙電話: </td><td><input type="text" name="PHONE" value="<=PHONE>"></td></tr>
 <tr><td>聯單號碼: </td><td><input type="text" name="VISITSERIAL" value="<=VISITSERIAL>"></td></tr>
 <tr><td>芯線號碼: </td><td><input type="text" name="PHONEID" value="<=PHONEID>"></td></tr>
+<tr><td>通報單位: </td><td><select name="origin">
+<option value="====">====</option>
+<option value="123" <&ORIGIN="123> selected<&>>123</option>
+<option value="128" <&ORIGIN="128> selected<&>>128</option>
+<option value="客戶" <&ORIGIN="客戶> selected<&>>客戶</option>
+<option value="服務" <&ORIGIN="服務> selected<&>>服務</option>
+<option value="其他" <&ORIGIN="其他> selected<&>>其他</option>
+</select></td></tr>
 <tr><td>聯絡電纜: </td><td><input type="text" name="BOXID" value="<=BOXID>"></td></tr>
 <tr><td>障礙原因: </td><td><input type="text" name="REASON" value="<=REASON>">
 <select onchange="editform.REASON.value=this.value">
