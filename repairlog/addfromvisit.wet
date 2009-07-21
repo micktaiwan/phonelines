@@ -1,10 +1,18 @@
 <form name="addform" action="repairlog/add.asp?K=<=ID>" method="post">
 <table border="0" cellspacing="0" cellpadding="0">
-<tr><td>通報單位: </td><td><input type="text" name="REPORTER" value="<*Reporter>"></td></tr>
+<tr><td>受理人員: </td><td><input type="text" name="REPORTER" value="<*Reporter>"></td></tr>
 <tr><td>障礙電話: </td><td><input type="text" name="PHONE" value="<=PHONE>"></td></tr>
 <tr><td>聯單號碼: </td><td><input type="text" name="VISITSERIAL" value="<=SERIAL>"></td></tr>
 <tr><td>芯線號碼: </td><td><input type="text" name="PHONEID" value="<=PHONEID>"></td></tr>
 <tr><td>聯絡電纜: </td><td><input type="text" name="BOXID" value="<=BOXID>"></td></tr>
+<tr><td>通報單位: </td><td><select name="origin">
+<option value="====">====</option>
+<option value="123">123</option>
+<option value="128">128</option>
+<option value="客戶">客戶</option>
+<option value="服務">服務</option>
+<option value="其他">其他</option>
+</select></td></tr>
 <tr><td>障礙原因: </td><td><select name="REASON"><~11></select></td></tr>
 <tr><td>客戶住址: </td><td><input type="text" name="ADDRESS" value="<=CUSTADDRESS>"></td></tr>
 <tr><td>備註: </td><td><textarea name="MEMO" cols="60" rows="5"></textarea></td></tr>
