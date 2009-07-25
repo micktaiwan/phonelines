@@ -5,6 +5,7 @@
 [ <a href="l.asp?P=repairlog">障礙首頁</a> ]
 <% if (admin!="3") { %>
 [ <a href="l.asp?P=repairlog&SP=repaircount">障礙計算</a> ]
+[ <a href="l.asp?P=repairlog&SP=reportstats">統計總表</a> ]
 <%}%>
 
 <% if (admin!="3") { %>
@@ -64,6 +65,9 @@
          break;
       case "repaircount" :
        	 %><!--#include file="repaircount/ctree.asp" --><%
+         break;
+      case "reportstats" :
+       	 %><!--#include file="creport_stats.asp" --><%
          break;
       default:
 %>
