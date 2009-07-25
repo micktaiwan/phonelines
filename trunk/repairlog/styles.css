@@ -15,3 +15,4 @@ OL { margin:0px; margin-left: 40px; }  /* Any UL */
 .PageTitle{color:#4444FF; font-weight:bold; width:100%;}
 .Collapsed {visibility:hidden;display:none;}
 .Expanded {visibility:visible;display:block;}
+.nb {color:red;font-weight:bold;}
