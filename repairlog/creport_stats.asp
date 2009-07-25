@@ -1,3 +1,7 @@
+<style>
+.nb {color:red;font-weight:bold;}
+</style>
+
 <table cellspacing="1" cellpadding="2" bgcolor="black">
 <tr bgcolor="#AABBCC" style="text-align:center;">
 <td>班別</td><td>123</td><td>128</td><td>客戶</td><td>服務中心</td><td>其它</td>

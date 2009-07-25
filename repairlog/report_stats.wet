@@ -1,9 +1,9 @@
 <tr bgcolor="EEEEEE">
 <td><=TEAM></td>
-<td><=CA></td>
-<td><=CB></td>
-<td><=CC></td>
-<td><=CD></td>
-<td><=CE></td>
+<td align="center" class="nb"><&CA!"0><=CA><&></td>
+<td align="center" class="nb"><&CB!"0><=CB><&></td>
+<td align="center" class="nb"><&CC!"0><=CC><&></td>
+<td align="center" class="nb"><&CD!"0><=CD><&></td>
+<td align="center" class="nb"><&CE!"0><=CE><&></td>
 </tr>
 
