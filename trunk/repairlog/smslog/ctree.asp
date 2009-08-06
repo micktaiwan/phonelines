@@ -1,9 +1,10 @@
+<% if(GetSession("PHONEADMIN")=="5") {  %>
 <!-- <img src="images/bul1.gif"> <a href="repairlog/smslog/trackall.asp">更新所有的狀態</a> -->
 <!--<img src="images/bul1.gif"> <a onclick="if(!confirm('Are you sure ?')) return false" href="repairlog/smslog/deletebad.asp">刪除所有有錯誤的消息</a>-->
 <img src="images/bul1.gif"> <a onclick="if(!confirm('Are you sure ?')) return false" href="repairlog/smslog/deletesucc.asp">刪除所有收到的消息</a>
 <br>
 <br>
-
+<% } %>
 <%
    var cond = "";
    var all = String(Request("ALL"));
@@ -53,8 +54,8 @@ if(count>0) {
 
 <table BGCOLOR="#000000" cellpadding="3" cellspacing="1">
 <tr style="font-weight:bold;" bgcolor="#DDAA00">
-<td></td>
 <% if (admin=="5") { %>
+<td></td>
 <td>寄件人</td>
 <% } %>
 <td>收件人</td>

@@ -1,9 +1,9 @@
 <tr bgcolor="#<&RESULT!"0>FFAAAA<&/><&TRACKING="0>99FF99<&/><&TRACKING="-1>FFC400<&/><&TRACKING="11>FFC400<&/>FFAAAA<&><&><&><&>" style="font-size:8pt;">
+<&0="5>
 <td>
 <a href="sms/delete.asp?K=<=#>" onclick="if(!confirm('Are you sure ?')) return false">
 <img src="images/trashcan.gif" border="0"></a>
 </td>
-<&0="5>
 <td>
 <b><=SENDER></b>
 </td>

@@ -1,5 +1,5 @@
 <%
-if(admin=="2" || admin=="5") {%>
+if(admin=="1" || admin=="2" || admin=="5") {%>
    <a class="linkbut" href="<%=QS%>information&SP=add"><img src="images/point_06.gif" border="0"> ¼W¥[·s»D</a><br>
    <br><%
    }%>
@@ -23,6 +23,4 @@ if(admin=="2" || admin=="5") {%>
 <BR>
 This page can not be found<BR>
 <BR>
-<%
-	}
-%>
+<%	} %>

@@ -121,9 +121,11 @@ function selectgroup(name, selectname) {
 <a name="msg"></a>
 <b>來歷:</b><br>
 <br>
+<% if(GetSession("PHONEADMIN")=="5") {  %>
 <!-- <img src="images/bul1.gif"> <a href="sms/trackall.asp">更新所有的狀態</a>-->
 <!-- <img src="images/bul1.gif"> <a onclick="if(!confirm('Are you sure ?')) return false" href="sms/deletebad.asp">刪除有問題的消息</a>-->
 <img src="images/bul1.gif"> <a onclick="if(!confirm('Are you sure ?')) return false" href="sms/deletesucc.asp">刪除已收到的消息</a><br>
+<% } %>
 <table BGCOLOR="#000000" cellpadding="3" cellspacing="1">
 <tr style="font-weight:bold;" bgcolor="#DDAA00">
 <td>電話號碼</td>
@@ -138,6 +140,7 @@ function selectgroup(name, selectname) {
       obj.NewQuery("SELECT TOP 20 * FROM sms WHERE MEMBERID='"+GetSession("PHONEID")+"' AND DELETED=0 ORDER BY ID DESC");
       obj.NewTemplate(SitePath+"sms\\tree.wet");
 
+      obj.AddVar(GetSession("PHONEADMIN"));
       obj.Generate(0,0);
 %>
 </table>
