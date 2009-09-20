@@ -49,6 +49,7 @@ if(Request.Form.Count > 0) {
       if(dateto != "")     cond.push("DATE<='"+dateto+"'");
       where += "WHERE " + cond.join(" AND ")
       }
+   where += " AND V.COMPANYID='"+company_id+"'"
    sql += "V.TEAM from repairlog L join visits V on V.ID=L.VISITID "+where+" GROUP BY V.TEAM order by V.TEAM"
    //Response.write(sql);
    obj.NewQuery(sql);

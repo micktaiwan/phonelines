@@ -68,6 +68,9 @@
       case "reportstats" :
        	 %><!--#include file="creport_stats.asp" --><%
          break;
+      case "statsdetails" :
+       	 %><!--#include file="creport_stats_details.asp" --><%
+         break;
       default:
 %>
 This page can not be found ( <B><%=sp%></B>)<br>

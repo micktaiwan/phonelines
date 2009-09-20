@@ -1,10 +1,10 @@
 <&CA!"0/CB!"0/CC!"0/CD!"0>
 <tr bgcolor="EEEEEE">
 <td><=TEAM></td>
-<td align="center" class="nb"><&CA!"0><=CA><&></td>
-<td align="center" class="nb"><&CB!"0><=CB><&></td>
-<td align="center" class="nb"><&CC!"0><=CC><&></td>
-<td align="center" class="nb"><&CD!"0><=CD><&></td>
-<td align="center" class="nb"><&CE!"0><=CE><&></td>
+<td align="center" class="nb"><&CA!"0><a href="l.asp?P=repairlog&SP=statsdetails&t=<=TEAM>&o=1"><=CA></a><&></td>
+<td align="center" class="nb"><&CB!"0><a href="l.asp?P=repairlog&SP=statsdetails&t=<=TEAM>&o=2"><=CB></a><&></td>
+<td align="center" class="nb"><&CC!"0><a href="l.asp?P=repairlog&SP=statsdetails&t=<=TEAM>&o=3"><=CC></a><&></td>
+<td align="center" class="nb"><&CD!"0><a href="l.asp?P=repairlog&SP=statsdetails&t=<=TEAM>&o=4"><=CD></a><&></td>
+<td align="center" class="nb"><&CE!"0><a href="l.asp?P=repairlog&SP=statsdetails&t=<=TEAM>&o=5"><=CE></a><&></td>
 </tr>
 <&>
