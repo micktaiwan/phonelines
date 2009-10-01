@@ -55,7 +55,7 @@
 <% for(i=6;i<=12;i++) {%>
 <tr><td><%=name%>: </td><td><select id="g<%=i%>"  name="mainid" onchange="display_mac(<%=i%>);"><%=options%></select></td>
 <td>¼Æ¶q: </td><td><input  id="nb<%=i%>" onkeyup="checknb(this);" size="3" type="text" name="nb" value="0">
-<div id="tdmac<%=i%>" style="display:none">MAC: <input type="text" id="mac<%=i%>" name="mac"></div></td></tr>
+<div id="tdmac<%=i%>" style="display:none">MAC: <input type="text" id="mac<%=i%>" name="mac" onkeyup="check_mac_len(this);"></div></td></tr>
 <% } %>
 
 </table><br/>
