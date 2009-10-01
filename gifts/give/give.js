@@ -109,6 +109,16 @@ function checknb(i) {
 	}
 
 //============================
+function check_mac_len(i) {
+	if(i.value.length > 12) {
+      alert('MAC too long');
+      i.value = i.value.substr(0,12);
+		return false;
+		}
+   return true;
+	}
+
+//============================
 function checkrecord_setresult(b) {
 	//alert(unescape(b));
 	setstatus("&nbsp;");
@@ -118,7 +128,9 @@ function checkrecord_setresult(b) {
 	else  r.innerHTML = "<strong>資料不存在</strong>";
 	Effect.Pulsate(r);
 	if (b!="" && b!="+1") return true;
-	document.getElementById("phone").focus();
+	p = document.getElementById("phone");
+   p.value = "";
+   p.focus();
 	return false;
 	}
 
