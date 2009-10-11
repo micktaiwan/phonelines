@@ -15,7 +15,7 @@
       var cond1 = "WHERE visits.TEAM='"+String(Request("t"))+"'";
       cond1 += " AND repairlog.ORIGIN='"+origin+"'";
       cond1 += " AND visits.COMPANYID='"+company_id+"'";
-      obj.NewQuery("SELECT 0 AS NEW, repairlog.*, ISNULL(repairlog.VISITID,'') AS VISITID, visits.TEAM, visits.DATE AS VISDATE, visits.ZONE FROM repairlog LEFT OUTER JOIN visits ON repairlog.VISITID=visits.ID "+cond1+" ORDER BY REPORTDATE DESC");
+      obj.NewQuery("SELECT 0 AS NEW, repairlog.*, ISNULL(repairlog.VISITID,'') AS VISITID, visits.TEAM, visits.DATE AS VISDATE, visits.ZONE FROM repairlog LEFT OUTER JOIN visits ON repairlog.VISITID=visits.ID "+cond1+" ORDER BY visits.DATE DESC");
       obj.NewTemplate(SitePath+"repairlog\\tree.wet");
 
       obj.DirectResponse = 1;
