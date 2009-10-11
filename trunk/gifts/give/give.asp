@@ -1,9 +1,11 @@
-
-
-pas utilise
+<%@ language="javascript"%>
+¿ù»~<br/>
+pas utilise<br/>
 majax.get("gifts/js/insert.asp") dans le give.js
 
-
+<%
+   Response.End();
+%>
 
 <%@ language="javascript"%>
 <!--#include file="../../virtual.asp"-->
