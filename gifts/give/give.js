@@ -111,7 +111,7 @@ function checknb(i) {
 //============================
 function check_mac_len(i) {
 	if(i.value.length > 12) {
-      alert('MAC too long');
+      alert('MAC長度不等於12');
       i.value = i.value.substr(0,12);
 		return false;
 		}
@@ -176,7 +176,15 @@ function checkrecord_submit_setresult(b) {
 		g[i-1] = document.getElementById("g"+i).value;
 		n[i-1] = document.getElementById("nb"+i).value;
 		e = document.getElementById("mac"+i)
-		if(e) m[i-1] = e.value;
+		if(e) {
+         if(e.value.length != 12) {
+            alert("MAC長度不等於12");
+            e.focus();
+            e.select();
+            return;
+            }
+         m[i-1] = e.value;
+         }
 		else  m[i-1] = "none";
 		}
 	majax.get("gifts/js/insert.asp?V="+b+"&G="+String(g)+"&N="+String(n)+"&M="+String(m),sendform_setresult);
