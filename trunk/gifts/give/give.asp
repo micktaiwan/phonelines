@@ -1,7 +1,8 @@
 <%@ language="javascript"%>
 ¿ù»~<br/>
 pas utilise<br/>
-majax.get("gifts/js/insert.asp") dans le give.js
+majax.get("gifts/js/insert.asp") dans le give.js<br/>
+Appelle avec Chrome si on fait Entre sur un champ de la form.<br/>
 
 <%
    Response.End();

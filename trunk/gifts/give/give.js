@@ -177,7 +177,7 @@ function checkrecord_submit_setresult(b) {
 		n[i-1] = document.getElementById("nb"+i).value;
 		e = document.getElementById("mac"+i)
 		if(e) {
-         if(e.value.length != 12) {
+         if(e.value.length > 0 && e.value.length != 12) {
             alert("MAC長度不等於12");
             e.focus();
             e.select();
