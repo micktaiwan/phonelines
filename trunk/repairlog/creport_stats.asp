@@ -35,22 +35,21 @@ if(Request.Form.Count > 0) {
 </tr>
 <%
    obj.ClearAll();
-   var sql = "SELECT "
-   sql += "(SELECT COUNT(*) FROM repairlog JOIN visits on visits.id=repairlog.visitid WHERE ORIGIN='123' and visits.TEAM=V.TEAM) AS CA, "
-   sql += "(SELECT COUNT(*) FROM repairlog JOIN visits on visits.id=repairlog.visitid WHERE ORIGIN='128' and visits.TEAM=V.TEAM) AS CB, "
-   sql += "(SELECT COUNT(*) FROM repairlog JOIN visits on visits.id=repairlog.visitid WHERE ORIGIN='客戶' and visits.TEAM=V.TEAM) AS CC, "
-   sql += "(SELECT COUNT(*) FROM repairlog JOIN visits on visits.id=repairlog.visitid WHERE ORIGIN='服務中心' and visits.TEAM=V.TEAM) AS CD, "
-   sql += "(SELECT COUNT(*) FROM repairlog JOIN visits on visits.id=repairlog.visitid WHERE ORIGIN='其它' and visits.TEAM=V.TEAM) AS CE, "
    where = ""
    if(zone!="" || datefrom != "" || dateto!="") {
       cond = new Array
       if(zone != "")       cond.push("ZONE='"+zone+"'");
-      if(datefrom != "")   cond.push("V.DATE>='"+datefrom+"'");
-      if(dateto != "")     cond.push("V.DATE<='"+dateto+"'");
-      where += "WHERE " + cond.join(" AND ")
+      if(datefrom != "")   cond.push("V2.DATE>='"+datefrom+"'");
+      if(dateto != "")     cond.push("V2.DATE<='"+dateto+"'");
+      where += " AND " + cond.join(" AND ")
       }
-   where += " AND V.COMPANYID='"+company_id+"'"
-   sql += "V.TEAM from repairlog L join visits V on V.ID=L.VISITID "+where+" GROUP BY V.TEAM order by V.TEAM"
+   var sql = "SELECT "
+   sql += "(SELECT COUNT(*) FROM repairlog JOIN visits V2 on V2.id=repairlog.visitid WHERE ORIGIN='123' and V2.TEAM=V.TEAM "+where+") AS CA, "
+   sql += "(SELECT COUNT(*) FROM repairlog JOIN visits V2 on V2.id=repairlog.visitid WHERE ORIGIN='128' and V2.TEAM=V.TEAM "+where+") AS CB, "
+   sql += "(SELECT COUNT(*) FROM repairlog JOIN visits V2 on V2.id=repairlog.visitid WHERE ORIGIN='客戶' and V2.TEAM=V.TEAM "+where+") AS CC, "
+   sql += "(SELECT COUNT(*) FROM repairlog JOIN visits V2 on V2.id=repairlog.visitid WHERE ORIGIN='服務中心' and V2.TEAM=V.TEAM "+where+") AS CD, "
+   sql += "(SELECT COUNT(*) FROM repairlog JOIN visits V2 on V2.id=repairlog.visitid WHERE ORIGIN='其它' and V2.TEAM=V.TEAM "+where+") AS CE, "
+   sql += "V.TEAM from repairlog L join visits V on V.ID=L.VISITID  AND V.COMPANYID='"+company_id+"' GROUP BY V.TEAM order by V.TEAM"
    //Response.write(sql);
    obj.NewQuery(sql);
    obj.NewTemplate(SitePath+"repairlog/report_stats.wet");
