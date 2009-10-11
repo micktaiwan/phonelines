@@ -43,6 +43,8 @@ if(Request.Form.Count > 0) {
       if(dateto != "")     cond.push("V2.DATE<='"+dateto+"'");
       where += " AND " + cond.join(" AND ")
       }
+   obj.AddVar("df="+datefrom);
+   obj.AddVar("dt="+dateto);
    var sql = "SELECT "
    sql += "(SELECT COUNT(*) FROM repairlog JOIN visits V2 on V2.id=repairlog.visitid WHERE ORIGIN='123' and V2.TEAM=V.TEAM "+where+") AS CA, "
    sql += "(SELECT COUNT(*) FROM repairlog JOIN visits V2 on V2.id=repairlog.visitid WHERE ORIGIN='128' and V2.TEAM=V.TEAM "+where+") AS CB, "
