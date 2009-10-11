@@ -45,8 +45,8 @@ if(Request.Form.Count > 0) {
    if(zone!="" || datefrom != "" || dateto!="") {
       cond = new Array
       if(zone != "")       cond.push("ZONE='"+zone+"'");
-      if(datefrom != "")   cond.push("CONFIRMDATE>='"+datefrom+"'");
-      if(dateto != "")     cond.push("CONFIRMDATE<='"+dateto+"'");
+      if(datefrom != "")   cond.push("V.DATE>='"+datefrom+"'");
+      if(dateto != "")     cond.push("V.DATE<='"+dateto+"'");
       where += "WHERE " + cond.join(" AND ")
       }
    where += " AND V.COMPANYID='"+company_id+"'"
