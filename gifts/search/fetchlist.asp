@@ -25,9 +25,10 @@
    var sql_zone = ''
    if(zone!='') sql_zone = " visits.zone='"+zone+"' AND ";
    obj.ClearAll();
-   var sql = "SELECT DISTINCT visits.ID, visits.team, visits.phone, visits.serial, visits.result, "+sectable+".MAC FROM "+sectable+" JOIN "+maintable+" m ON "+sectable+".MAINID=m.id LEFT JOIN visits ON visits.id="+sectable+".visitid WHERE "+sql_zone+" visits.date='"+date+"' AND m.type="+type+" ORDER BY ";
+   var sql = "SELECT DISTINCT visits.ID, visits.team, visits.phone, visits.serial, visits.result, "+sectable+".MAC FROM "+sectable+" JOIN "+maintable+" m ON "+sectable+".MAINID=m.id LEFT JOIN visits ON visits.id="+sectable+".visitid WHERE "+sql_zone+" visits.date='"+date+"'";
+   if(type!="") sql +=  " AND m.type="+type;
+   sql += " ORDER BY ";
    // (SELECT TOP 1 MAC FROM "+sectable+" WHERE visitid=visits.ID AND MAC!='') as MAC
-   
    if(sort=="1") sql += "TEAM";
    else sql += "PHONE";
    obj.NewQuery(sql);
