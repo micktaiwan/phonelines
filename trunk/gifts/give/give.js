@@ -161,11 +161,20 @@ function sendform_setresult(b) {
 	p.focus();
 	if (b=="0") {
 		p.value = "";
+      reset_all_mac();
 		return true;
 		}
 	return false;
 	}
-
+   
+//============================
+function reset_all_mac(b) {
+	for(i=1; i <= nb_total; ++i) {
+		e = document.getElementById("mac"+i);
+		if(e) e.value = "";
+      }
+   }
+   
 //============================
 function checkrecord_submit_setresult(b) {
 	var r  = document.getElementById("checkrecord_result");
