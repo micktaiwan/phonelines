@@ -9,5 +9,6 @@
 </td></tr>
 </table>
 <div id="status">&nbsp;</div>
+<br/>
 <div id="delresults"></div>
 

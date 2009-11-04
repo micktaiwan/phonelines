@@ -14,7 +14,7 @@ try {
    for(i=0; i<ids.length;++i) {
       if(ids[i]=="") continue;
       obj.ClearAll();
-		var sql = "SELECT "+maintable+".CODE, "+maintable+".NAME, SUM("+sectable+".NB) AS NB FROM "+sectable+" LEFT OUTER JOIN "+maintable+" ON "+maintable+".ID="+sectable+".MAINID LEFT OUTER JOIN VISITS ON visits.ID="+sectable+".VISITID WHERE visits.ID='"+ids[i]+"'"
+		var sql = "SELECT "+maintable+".CODE, "+maintable+".NAME, SUM("+sectable+".NB) AS NB FROM "+sectable+" LEFT OUTER JOIN "+maintable+" ON "+maintable+".ID="+sectable+".MAINID LEFT OUTER JOIN VISITS ON visits.ID="+sectable+".VISITID WHERE "+sectable+".ID='"+ids[i]+"'"
 		if(type != "") {
 			switch(type) {
 				case "0" : type_str="0,10"; break;

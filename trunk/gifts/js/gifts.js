@@ -28,6 +28,7 @@ function addGiftTitle(name) {
    }
 
 function addNb(id,y,nb) {
+   //alert(""+id+ " "+y+" "+nb);
    var r = document.getElementById(id);
    if(!r) setstatus("addNb: can not find r. ");
    else {
