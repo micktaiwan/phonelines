@@ -6,19 +6,31 @@
    var giftid  = String(Request("G"));
    var nb      = String(Request("N"));
    var mac     = String(Request("M"));
-   var obj = Server.CreateObject("MATech.Engine");
+   var admin   = GetSession("PHONEADMIN");
+   
+   var obj     = Server.CreateObject("MATech.Engine");
    obj.SetDB(DB,"sa","engine");
 
-   // Wipe all data
+   // Wipe all data only if admin
    obj.Open("SELECT TOP 1 ID FROM giftgiven WHERE visitid='"+visitid+"'");
    var gid = obj.Field("ID");
    if(gid!="") {
-      obj.Execute("DELETE FROM giftgiven WHERE visitid='"+visitid+"'");
+      if(admin=="5") obj.Execute("DELETE FROM giftgiven WHERE visitid='"+visitid+"'");
+      else {
+         Response.Write("...");
+         obj = "";
+         Response.end();
+         }
       }
    obj.Open("SELECT TOP 1 ID FROM matused WHERE visitid='"+visitid+"'");
    var gid = obj.Field("ID");
    if(gid!="") {
-      obj.Execute("DELETE FROM matused WHERE visitid='"+visitid+"'");
+      if(admin=="5") obj.Execute("DELETE FROM matused WHERE visitid='"+visitid+"'");
+      else {
+         Response.Write("...");
+         obj = "";
+         Response.end();
+         }
       }
 
    // insert

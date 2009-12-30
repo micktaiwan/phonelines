@@ -9,7 +9,7 @@
 <tr><td>班別: </td><td><input type="text" id="team" name="team" value=""></td></tr>
 <%}%>
 <tr><td>電話號碼: </td><td><input type="text" id="phone" name="phone" value="" onkeyup="ontextkup(event)">
-<input class="button" type="button" onclick="checkrecord();" value="檢查">
+<input class="button" type="button" onclick="human_check = true; checkrecord();" value="檢查">
 <span id="checkrecord_result">...</span>
 </td></tr>
 </table>
