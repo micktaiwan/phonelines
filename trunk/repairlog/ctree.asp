@@ -14,7 +14,7 @@
       else if(admin=="4") cond1 = " AND visits.TEAM='"+GetSession("PHONECODE")+"'";
       var isnew = "CASE WHEN DATEDIFF(hour,REPORTDATE,GETDATE()) < 24 THEN'1' ELSE '0' END AS NEW";
       cond1 += " AND visits.COMPANYID='"+company_id+"'"
-      var order = "ORDER BY visits.zone, repairlog.REPORTDATE DESC";
+      var order = "ORDER BY visits.zone DESC, repairlog.REPORTDATE DESC";
       obj.NewQuery("SELECT "+isnew+", repairlog.*, ISNULL(repairlog.VISITID,'') AS VISITID, visits.TEAM, visits.DATE AS VISDATE, visits.ZONE FROM repairlog LEFT OUTER JOIN visits ON repairlog.VISITID=visits.ID WHERE ISNULL(CORRECTED,0)=0 "+cond1+" "+order);
       obj.NewTemplate(SitePath+"repairlog\\tree.wet");
 

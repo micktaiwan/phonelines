@@ -17,7 +17,7 @@
 	<script src="js/majax.js"         type="text/javascript"></script>
 	<script>
       var majax = new Majax();
-      majax.setBaseUrl("http://192.168.1.11/PhoneSystem/");
+      majax.setBaseUrl("http://192.168.99.133/");
       //majax.setBaseUrl("http://phones.easyplay.com.tw/");
    </script>
 </head>
@@ -41,7 +41,7 @@
 	<script src="js/majax.js"         type="text/javascript"></script>
 	<script>
       var majax = new Majax();
-      majax.setBaseUrl("http://192.168.1.11/PhoneSystem/");
+      majax.setBaseUrl("http://192.168.99.133/");
       //majax.setBaseUrl("http://phones.easyplay.com.tw/");
    </script>
 </head>
