@@ -5,7 +5,8 @@
 
 <tr>
 <td class="a92">
-<img SRC="../images/bul1.gif" NOSAVE ><a href="l.asp?P=pageviews">PageViews</a><br>
+<img SRC="../images/bul1.gif"><a href="l.asp?P=pageviews">PageViews</a><br>
+<img SRC="../images/bul1.gif"><a href="l.asp?P=gifts">Gifts</a><br>
 <br>
 </td>
 </tr>

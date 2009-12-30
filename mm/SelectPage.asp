@@ -24,6 +24,9 @@ if(!bad) {
       case "pageviews" :
         %><!--#include file="pageviews/l.asp" --><%
       	break;
+      case "gifts" :
+        %><!--#include file="gifts/l.asp" --><%
+      	break;
       default:
 %>
 <BR>

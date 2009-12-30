@@ -119,12 +119,50 @@ function check_mac_len(i) {
 	}
 
 //============================
+// see get_all.asp for the format
+function set_values(v) {
+   // first separate gifts from mats
+   var v1    = v.split(";")
+   var gifts = v1[0].split(",");
+   var mats  = v1[1].split(",");
+   // gifts
+   var i = 0;
+	var el;
+   var len = gifts.length;
+   while(true)  {
+      if(i*2 >= len) break;
+      el = document.getElementById("g"+(i+1));
+      el.value = gifts[i*2];
+      el = document.getElementById("nb"+(i+1));
+      el.value = gifts[i*2+1];
+      i++;
+		}
+   // mats
+   i = 0
+   len = mats.length;
+   while(true)  {
+      if(i*3 >= len) break;
+      el = document.getElementById("g"+(i+6));
+      el.value = mats[i*3];
+      el = document.getElementById("nb"+(i+6));
+      el.value = mats[i*3+1];
+      el = document.getElementById("mac"+(i+6));
+      el.value = mats[i*3+2];
+      i++;
+		}
+   }
+   
+//============================
+// b: if not +1 or empty, then is the visit id
 function checkrecord_setresult(b) {
 	//alert(unescape(b));
 	setstatus("&nbsp;");
 	var r  = document.getElementById("checkrecord_result");
 	if(b=="+1") r.innerHTML = "<strong>資料存在但是結果不是『竣工』、『障礙』、『修復』</strong>";
-	else if(b!="") r.innerHTML = "<b>OK</b>";
+	else if(b!="") {
+      r.innerHTML = "<b>OK</b>";
+      majax.get("gifts/js/get_all.asp?D="+date+"&T="+team+"&P="+phone, set_values);
+      }
 	else  r.innerHTML = "<strong>資料不存在</strong>";
 	Effect.Pulsate(r);
 	if (b!="" && b!="+1") return true;
@@ -200,6 +238,7 @@ function checkrecord_submit_setresult(b) {
 	}
 
 //============================
+// verify the date, if not valid then pulsate an error message
 function vdate(date) {
 	if(!isValidDate(date)) {
 		var r = document.getElementById("checkrecord_result");
@@ -212,6 +251,7 @@ function vdate(date) {
 	}
 
 //============================
+// called when the check button is clicked
 function checkrecord() {
 	setstatus("請稍候...");
 	var date  = document.getElementById("date").value;
