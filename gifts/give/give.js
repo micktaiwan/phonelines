@@ -1,5 +1,28 @@
 var nb_total = 12;
 
+function trim(str) { return str.replace(/^\s+|\s+$/g,''); }
+
+//============================
+function resetAll() {
+   checkAll();
+   for(i=0;i<5;++i) {
+      var s = document.getElementById("g"+(i+1));
+      if(s.length < (i+1)) s.length  = 0;
+      else s.options[i].selected = true;
+      var nb = document.getElementById("nb"+(i+1));
+      nb.value = "0"
+      }
+   for(i=0;i<7;++i) {
+      var s = document.getElementById("g"+(i+6));
+      if(s.length < (i+1)) s.length  = 0;
+      else s.options[i].selected = true;
+      var nb = document.getElementById("nb"+(i+6));
+      nb.value = "0"
+      }
+   display_mac();
+   reset_all_mac();
+   }
+
 //============================
 function get_mac_opt(id) {
 	//alert("id="+id);
@@ -121,6 +144,7 @@ function check_mac_len(i) {
 //============================
 // see get_all.asp for the format
 function set_values(v) {
+   //alert(v);
    // first separate gifts from mats
    var v1    = v.split(";")
    var gifts = v1[0].split(",");
@@ -130,7 +154,7 @@ function set_values(v) {
 	var el;
    var len = gifts.length;
    while(true)  {
-      if(i*2 >= len) break;
+      if(i*2 >= len || gifts[0]=="") break;
       el = document.getElementById("g"+(i+1));
       el.value = gifts[i*2];
       el = document.getElementById("nb"+(i+1));
@@ -141,13 +165,13 @@ function set_values(v) {
    i = 0
    len = mats.length;
    while(true)  {
-      if(i*3 >= len) break;
+      if(i*3 >= len || mats[0]=="") break;
       el = document.getElementById("g"+(i+6));
       el.value = mats[i*3];
       el = document.getElementById("nb"+(i+6));
       el.value = mats[i*3+1];
       el = document.getElementById("mac"+(i+6));
-      el.value = mats[i*3+2];
+      el.value = trim(mats[i*3+2]);
       i++;
 		}
    }
@@ -161,7 +185,7 @@ function checkrecord_setresult(b) {
 	if(b=="+1") r.innerHTML = "<strong>資料存在但是結果不是『竣工』、『障礙』、『修復』</strong>";
 	else if(b!="") {
       r.innerHTML = "<b>OK</b>";
-      majax.get("gifts/js/get_all.asp?D="+date+"&T="+team+"&P="+phone, set_values);
+      majax.get("gifts/js/get_all.asp?V="+b, set_values);
       }
 	else  r.innerHTML = "<strong>資料不存在</strong>";
 	Effect.Pulsate(r);
@@ -224,13 +248,14 @@ function checkrecord_submit_setresult(b) {
 		n[i-1] = document.getElementById("nb"+i).value;
 		e = document.getElementById("mac"+i)
 		if(e) {
-         if(e.value.length > 0 && e.value.length != 12) {
+         value = trim(e.value);
+         if(value.length > 0 && value.length != 12) {
             alert("MAC長度不等於12");
             e.focus();
             e.select();
             return;
             }
-         m[i-1] = e.value;
+         m[i-1] = value;
          }
 		else  m[i-1] = "none";
 		}

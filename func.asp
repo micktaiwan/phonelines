@@ -1,7 +1,7 @@
 <%
    function isArray(a) { return a.constructor == Array; }
    function isNonEmptyArray(a) { return Boolean(isArray(a) && a.length); }
-
+   function trim(str) { return str.replace(/^\s+|\s+$/g,''); }
    function Tomorrow() {
       var now = new Date(new Date().valueOf() + 86400000);
       var y = now.getYear();
