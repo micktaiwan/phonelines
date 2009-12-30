@@ -9,9 +9,7 @@
 // ex: 1,1,2,2;1,1,MAC1,2,2,MAC2
 
 var visitid = String(Request("V"));
-
 var obj = Server.CreateObject("MATech.Engine");
-
 try {
    obj.SetDB(DB,"sa","engine");
    //obj.ClearAll();

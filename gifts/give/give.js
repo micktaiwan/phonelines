@@ -1,6 +1,8 @@
 var nb_total = 12;
+var human_check = true; // if not, does not get teh data
 
 function trim(str) { return str.replace(/^\s+|\s+$/g,''); }
+
 
 //============================
 function resetAll() {
@@ -67,6 +69,7 @@ function sendform() {
 		Effect.Pulsate(r);
 		return false;
 		}
+   human_check = false;
 	checkrecord_submit();
 	}
 
@@ -95,7 +98,6 @@ function senddelform() {
 function delconfirmed(list) {
 	if(list!="") majax.get("gifts/js/delrecords.asp?IDS="+list,delrecord_setresult2);
 	}
-
 
 //============================
 function checkAll() {
@@ -161,6 +163,10 @@ function set_values(v) {
       el.value = gifts[i*2+1];
       i++;
 		}
+   for(j=i; j <= 5; j++) {
+      el = document.getElementById("nb"+(i+1));
+      el.value = 0;
+      }
    // mats
    i = 0
    len = mats.length;
@@ -174,22 +180,41 @@ function set_values(v) {
       el.value = trim(mats[i*3+2]);
       i++;
 		}
+   for(j=i; j <= 7; j++) {
+      el = document.getElementById("nb"+(i+6));
+      el.value = 0;
+      }
+   var r  = document.getElementById("checkrecord_result");
+   if(human_check)
+      r.innerHTML = "<b>修改中</b>";
+   else   
+      r.innerHTML = "";
+   Effect.Pulsate(r);
+   checkAll();
    }
    
 //============================
-// b: if not +1 or empty, then is the visit id
+// b: if not +1 or empty, then it is the visit id
 function checkrecord_setresult(b) {
 	//alert(unescape(b));
 	setstatus("&nbsp;");
 	var r  = document.getElementById("checkrecord_result");
 	if(b=="+1") r.innerHTML = "<strong>資料存在但是結果不是『竣工』、『障礙』、『修復』</strong>";
-	else if(b!="") {
+	if(b=="+2") {
       r.innerHTML = "<b>OK</b>";
-      majax.get("gifts/js/get_all.asp?V="+b, set_values);
+      resetAll();
       }
-	else  r.innerHTML = "<strong>資料不存在</strong>";
-	Effect.Pulsate(r);
-	if (b!="" && b!="+1") return true;
+	else if(b!="") {
+      if(human_check) { // avoid to get old data display when sending the form
+         r.innerHTML = "getting data...";
+         majax.get("gifts/js/get_all.asp?V="+b, set_values);
+         }
+      }
+	else  {
+      r.innerHTML = "<strong>資料不存在</strong>";
+      Effect.Pulsate(r);
+      }
+   if(b !="+1" && b != "") return true;
 	p = document.getElementById("phone");
    p.value = "";
    p.focus();
@@ -198,13 +223,10 @@ function checkrecord_setresult(b) {
 
 //============================
 function DisplayGiftsForID_d(table) {
-
-	//alert(table);
 	var info = document.getElementById("info");
 	info.innerHTML = unescape(unescape(table));
 	Effect.Appear(info);
 	getgifts("normal");
-
 	}
 
 //============================
@@ -214,7 +236,7 @@ function sendform_setresult(b) {
 	document.getElementById("checkrecord_result").value="";
 	var r  = document.getElementById("sendform_result");
 	if(b=="0") r.innerHTML = "<b>資料已儲存</b>";
-	else  {
+	else {
 		r.innerHTML = "<strong>錯誤: 資料存在</strong> "+b;
 		//majax.get("gifts/js/display.asp?V="+b,DisplayGiftsForID_d);
 		}
