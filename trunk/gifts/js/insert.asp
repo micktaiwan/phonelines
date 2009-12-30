@@ -9,27 +9,25 @@
    var obj = Server.CreateObject("MATech.Engine");
    obj.SetDB(DB,"sa","engine");
 
-   // Verify that this visitid was not already used
-
+   // Wipe all data
    obj.Open("SELECT TOP 1 ID FROM giftgiven WHERE visitid='"+visitid+"'");
    var gid = obj.Field("ID");
    if(gid!="") {
-      Response.Write("Gifts already given for this visit. VisitID="+visitid+".");
-      obj = "";
-      Response.End();
+      obj.Execute("DELETE FROM giftgiven WHERE visitid='"+visitid+"'");
       }
    obj.Open("SELECT TOP 1 ID FROM matused WHERE visitid='"+visitid+"'");
    var gid = obj.Field("ID");
    if(gid!="") {
-      Response.Write("Gifts already given for this visit. VisitID="+visitid+".");
-      obj = "";
-      Response.End();
+      obj.Execute("DELETE FROM matused WHERE visitid='"+visitid+"'");
       }
 
    // insert
    g = String(giftid).split(",");
    n = String(nb).split(",");
    m = String(mac).split(",");
+   //Response.Write(n);
+   //obj = "";
+   //Response.end();
 
    for(i=0;i<5;++i)
       if(n[i]!="0") obj.Execute("INSERT INTO giftgiven (VISITID, MAINID, NB, MAC) VALUES ('"+visitid+"','"+g[i]+"','"+n[i]+"','"+m[i]+"')");

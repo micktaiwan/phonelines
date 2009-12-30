@@ -77,16 +77,5 @@
 <div id="info" style="display:none;" class="infobox"></div>
 
 <script>
-checkAll();
-for(i=0;i<5;++i) {
-   var s = document.getElementById("g"+(i+1));
-   if(s.length < (i+1)) s.length  = 0;
-   else s.options[i].selected = true;
-   }
-for(i=0;i<7;++i) {
-   var s = document.getElementById("g"+(i+6));
-   if(s.length < (i+1)) s.length  = 0;
-   else s.options[i].selected = true;
-   }
-display_mac();	
+resetAll();
 </script>
