@@ -20,8 +20,9 @@
          obj.Open("SELECT RESULT FROM VISITS WHERE ID='"+visitid+"'");
          var result = obj.Field("RESULT");
          if(result=="µ¤¤u" || result=="»ÙÃª" || result=="­×´_") {
-            if(admin=="5") Response.Write(visitid);
-            else Response.Write(escape("+2"));
+            //if(admin=="5")
+            Response.Write(visitid);
+            //else Response.Write(escape("+2"));
             }
          else
             Response.Write(escape("+1"));

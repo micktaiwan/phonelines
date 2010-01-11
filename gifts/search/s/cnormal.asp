@@ -21,7 +21,8 @@
 </table>
 </form>
 <div id="status">&nbsp;</div>
-<%if(admin!="4") {%>
+<% if(0) //admin!="4")
+ {%>
 <table border="0" cellspacing="1" cellpadding="2" bgcolor="black">
 <tr bgcolor="#CCDDEE"><td colspan="3">最後的<%=name%></td></tr>
 <tr bgcolor="#DDEEFF"><td>日期</td><td>班別</td><td>&nbsp;</td></tr>
