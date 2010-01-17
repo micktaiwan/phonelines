@@ -15,6 +15,7 @@
    obj.ClearAll();
    var sql = "SELECT DISTINCT visits.team FROM "+sectable+" LEFT JOIN visits ON visits.id="+sectable+".visitid WHERE visits.date='"+date+"'";
    if(zone!='') sql += " AND visits.zone='"+zone+"'";
+   sql += " ORDER BY TEAM"
    obj.NewQuery(sql);
    obj.NewTemplate(SitePath+"gifts\\search\\daily.wet");
    rv += obj.GenerateString(0,0);

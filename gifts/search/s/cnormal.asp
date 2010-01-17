@@ -8,15 +8,7 @@
 <%} else {%>
 <tr><td>班別: </td><td><input type="text" id="team" value=""></td></tr>
 <%}%>
-<%if(maintable=="mat") {%>
-<tr><td>類別: </td><td><select id="type">
-<option value="0">ADSL</option>
-<option value="1">FTTB</option>
-<option value="2">MOD</option>
-</select></td></tr>
-<%}else{%>
 <input type="hidden" id="type" value=""/>
-<%}%>
 <tr><td>&nbsp;</td><td><input class="button" type="button" value="查詢" onclick="sendform_normal(document.getElementById('date').value,document.getElementById('team').value,document.getElementById('type').value)"></td></tr>
 </table>
 </form>
