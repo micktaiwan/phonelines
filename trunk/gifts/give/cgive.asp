@@ -49,7 +49,7 @@
 <%	
    // Prepare the select's options string
    obj.ClearAll();
-   obj.NewQuery("SELECT * FROM "+maintable+" ORDER BY TYPE, CODE");
+   obj.NewQuery("SELECT * FROM "+maintable+" WHERE TYPE='2' ORDER BY CODE");
    obj.NewTemplate(SitePath+"gifts\\give\\options2.wet");
    options = obj.GenerateString(0,0);
 %>

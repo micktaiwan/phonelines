@@ -29,8 +29,11 @@
    if(type != "" && type != "undefined") sql +=  " AND m.type="+type;
    sql += " ORDER BY ";
    // (SELECT TOP 1 MAC FROM "+sectable+" WHERE visitid=visits.ID AND MAC!='') as MAC
-   if(sort=="1") sql += "TEAM";
-   else sql += "PHONE";
+   switch(parseInt(sort)) {
+      case 1: sql += "TEAM"; break;
+      case 2: sql += "PHONE";break;
+      case 3: sql += "MAC";  break;
+      }
    obj.NewQuery(sql);
    obj.NewTemplate(SitePath+"gifts\\search\\list.wet");
    rv += obj.GenerateString(0,0);
