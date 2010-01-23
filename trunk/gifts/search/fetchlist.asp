@@ -17,6 +17,7 @@
    rv += "<td>電話號碼</td>";
    rv += "<td>聯單號碼</td>";
    rv += "<td>結果</td>";
+   rv += "<td>工作別</td>";
    rv += "<td>MAC</td>";
    rv += "</tr>";
 
@@ -25,7 +26,7 @@
    var sql_zone = ''
    if(zone!='') sql_zone = " visits.zone='"+zone+"' AND ";
    obj.ClearAll();
-   var sql = "SELECT DISTINCT "+sectable+".ID, visits.team, visits.phone, visits.serial, visits.result, "+sectable+".MAC FROM "+sectable+" JOIN "+maintable+" m ON "+sectable+".MAINID=m.id LEFT JOIN visits ON visits.id="+sectable+".visitid WHERE "+sql_zone+" visits.date='"+date+"'";
+   var sql = "SELECT DISTINCT "+sectable+".ID, visits.team, visits.phone, visits.serial, visits.result, visits.jobtype,"+sectable+".MAC FROM "+sectable+" JOIN "+maintable+" m ON "+sectable+".MAINID=m.id LEFT JOIN visits ON visits.id="+sectable+".visitid WHERE "+sql_zone+" visits.date='"+date+"'";
    if(type != "" && type != "undefined") sql +=  " AND m.type="+type;
    sql += " ORDER BY ";
    // (SELECT TOP 1 MAC FROM "+sectable+" WHERE visitid=visits.ID AND MAC!='') as MAC
@@ -33,6 +34,7 @@
       case 1: sql += "TEAM"; break;
       case 2: sql += "PHONE";break;
       case 3: sql += "MAC";  break;
+      case 4: sql += "JOBTYPE";  break;
       }
    obj.NewQuery(sql);
    obj.NewTemplate(SitePath+"gifts\\search\\list.wet");
