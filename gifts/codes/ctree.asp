@@ -23,19 +23,30 @@ function deletecode(id) {
 <script language="javascript">
 function verify () {
    var form = document.addform;
+<%if(maintable!="mat") {%>
    if(!checkNull(form.CODE,"CODE")) return false;
+<%}%>
    if(!checkNull(form.NAME,"¶W¶r")) return false;
 	form.submit();
 	return true;
    }
 </script>
-<form name="addform" action="gifts/codes/add.asp?SP=<%=sp%>" method="post">
+<form name="addform" action="gifts/codes/add.asp?SP=<%=sp%>&m=<%=maintable%>" method="post">
 <table border="0" cellspacing="0" cellpadding="0">
+<%if(maintable!="mat") {%>
 <tr><td>•NΩX: </td><td><input type="text" name="CODE" value=""></td></tr>
+<%} else {%>
+<input type="hidden" name="CODE" value="">
+<%}%>
 <tr><td>¶W¶r: </td><td><input type="text" name="NAME" value=""></td></tr>
 <%if(maintable=="mat") {%>
 <tr><td>type: </td><td>
 <select name="type">
+
+<option value="100">None</option>
+<option value="2">MOD</option>
+
+<!--
 <option value="0">ADSL</option>
 <option value="1">FTTB</option>
 <option value="2">MOD</option>
@@ -46,6 +57,7 @@ function verify () {
 <option value="12">©ÓMOD</option>
 <option value="13">©ÓA</option>
 <option value="14">©ÓB</option>
+-->
 </select>
 </td></tr>
 <%}%>
@@ -63,7 +75,7 @@ function verify () {
 </tr>
 <%
       obj.ClearAll();
-      obj.NewQuery("SELECT * FROM "+maintable+" ORDER BY CODE");
+      obj.NewQuery("SELECT * FROM "+maintable+" ORDER BY NAME");
       if(maintable!="mat") obj.NewTemplate(SitePath+"gifts\\codes\\tree.wet");
       else obj.NewTemplate(SitePath+"gifts\\codes\\tree2.wet");
       obj.Generate(0,0);

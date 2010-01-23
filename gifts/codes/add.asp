@@ -11,12 +11,15 @@
    // Look if the code is already here
 
    var code = String(Request("CODE"));
-   obj.NewQuery("SELECT ID FROM "+maintable+" WHERE CODE='"+code+"'");
-   obj.NewTemplate(SitePath+"id.wet");
-   var e = "1";
-   if(String(obj.GenerateString(0,0))!="") e = "2";
-   else obj.Insert(maintable);
-
+   var maintable = String(Request("M"));
+   if(maintable != "mat") {
+      obj.NewQuery("SELECT ID FROM "+maintable+" WHERE CODE='"+code+"'");
+      obj.NewTemplate(SitePath+"id.wet");
+      var e = "1";
+      if(String(obj.GenerateString(0,0))!="") e = "2";
+      else obj.Insert(maintable);
+      }
+   obj.Insert(maintable);
    obj = "";
    var sp = Request("SP");
    Response.Redirect(Depth+"../"+QS+"gifts&SP="+sp+"&E="+e);

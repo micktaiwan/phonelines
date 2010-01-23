@@ -5,4 +5,14 @@
 <td><=PHONE></td>
 <td><=SERIAL></td>
 <td><=RESULT></td>
+<td>
+<&JOBTYPE="0>裝移機<&>
+<&JOBTYPE="1>ADSL<&>
+<&JOBTYPE="2>拆線<&>
+<&JOBTYPE="3>更模<&>
+<&JOBTYPE="4>ADSL拆<&>
+<&JOBTYPE="5>MOD<&>
+<&JOBTYPE="6>FTTB<&>
+<&JOBTYPE="7>FTTB+MOD<&>
+</td>
 </tr>

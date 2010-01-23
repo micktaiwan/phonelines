@@ -16,9 +16,10 @@
    rv += "<td>電話號碼</td>";
    rv += "<td>聯單號碼</td>";
    rv += "<td>結果</td>";
+   rv += "<td>工作別</td>";
    rv += "</tr>";
    obj.ClearAll();
-	var sql = "SELECT DISTINCT visits.ID, visits.zone, visits.date, visits.team, visits.phone, visits.serial, visits.result FROM "+sectable+" LEFT JOIN visits ON visits.id="+sectable+".visitid WHERE visits.date='"+date+"'";
+	var sql = "SELECT DISTINCT visits.ID, visits.zone, visits.date, visits.team, visits.phone, visits.serial, visits.result, visits.jobtype FROM "+sectable+" LEFT JOIN visits ON visits.id="+sectable+".visitid WHERE visits.date='"+date+"'";
 	if(team != "") sql += " AND visits.team='"+team+"'"
    sql += " ORDER BY VISITS.TEAM";
    obj.NewQuery(sql);

@@ -41,7 +41,7 @@
 	name = "³]³Æ";
    // Prepare the js array for scripting mac field
    obj.ClearAll();
-   obj.NewQuery("SELECT * FROM "+maintable+" ORDER BY TYPE, CODE");
+   obj.NewQuery("SELECT * FROM "+maintable+" ORDER BY NAME");
    obj.NewTemplate(SitePath+"gifts\\give\\type_array.wet");
    script = obj.GenerateString(0,0);
 %>
@@ -49,7 +49,7 @@
 <%	
    // Prepare the select's options string
    obj.ClearAll();
-   obj.NewQuery("SELECT * FROM "+maintable+" ORDER BY TYPE, CODE");
+   obj.NewQuery("SELECT * FROM "+maintable+" ORDER BY NAME");
    obj.NewTemplate(SitePath+"gifts\\give\\options2.wet");
    options = obj.GenerateString(0,0);
 %>
