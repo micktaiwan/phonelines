@@ -74,8 +74,8 @@ function sort_gifts(a,b){
 	i = 0;
 	a = a[1]
 	b = b[1]
-   if (a[0] == "¬£" && b[0] != "¬£") return 1; // ¬£ at the end
-   if (b[0] == "¬£" && a[0] != "¬£") return -1; // ¬£ at the end
+   if (a[0] == "©î" && b[0] != "©î") return 1; // ©î at the end
+   if (b[0] == "©î" && a[0] != "©î") return -1; // ©î at the end
 	for(z=0;z<a.length-1;++z) if(a[z]==" ") a[z] = 'z';
 	for(z=0;z<b.length-1;++z) if(b[z]==" ") b[z] = 'z';
 	while(a[i] == b[i] && i < a.length-1 && i < b.length-1) ++i;
@@ -109,7 +109,7 @@ function getgifts_result(s) {
 				gifts.push(new Array(g[j], g[j+1], g[j+2], pairs[0])); // build a object that we can sort [code,name,nb,visitid]
 	         }
 	      }
-		// sort by name (¬£ at the end) as wanted by chu	
+		// sort by name (©î at the end) as wanted by chu	
 		gifts = gifts.sort(sort_gifts)
 		// display titles and numbers
 	   for(i=0;i<gifts.length;++i) {
